@@ -132,6 +132,7 @@ function Nav() {
             className={"nav-dropdown" + (openDropdown === "cabinet" ? " open" : "")}
             onMouseEnter={() => setOpenDropdown("cabinet")}
             onMouseLeave={() => setOpenDropdown(null)}
+            onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setOpenDropdown(null); }}
           >
             <span
               className={"nav-link" + (isActive("/cabinet") ? " active" : "")}
@@ -158,6 +159,7 @@ function Nav() {
             className={"nav-dropdown" + (openDropdown === "comp" ? " open" : "")}
             onMouseEnter={() => setOpenDropdown("comp")}
             onMouseLeave={() => setOpenDropdown(null)}
+            onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setOpenDropdown(null); }}
           >
             <span
               className={"nav-link" + (isActive("/competences") ? " active" : "")}
@@ -187,11 +189,13 @@ function Nav() {
         </div>
 
         <div className="row row-md" style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <Link to="/contact" className="btn btn-primary btn-sm">Prendre rendez-vous</Link>
+          <Link to="/contact" className="btn btn-primary btn-sm nav-cta-desktop">Prendre rendez-vous</Link>
           <button
             className="nav-mobile-toggle"
             onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="nav-mobile-panel"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M4 7h16M4 12h16M4 17h16" />
@@ -200,7 +204,7 @@ function Nav() {
         </div>
       </div>
 
-      <div className={"nav-mobile-panel" + (mobileOpen ? " open" : "")}>
+      <div id="nav-mobile-panel" className={"nav-mobile-panel" + (mobileOpen ? " open" : "")} aria-hidden={!mobileOpen}>
         <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 4 }}>
           <button
             onClick={() => setMobileOpen(false)}
@@ -346,7 +350,8 @@ function Icon({ name, size = 22 }) {
   const props = {
     width: size, height: size, viewBox: "0 0 24 24",
     fill: "none", stroke: "currentColor", strokeWidth: 1.5,
-    strokeLinecap: "round", strokeLinejoin: "round"
+    strokeLinecap: "round", strokeLinejoin: "round",
+    "aria-hidden": "true", focusable: "false"
   };
   const paths = {
     clock: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,

@@ -22,7 +22,7 @@ function PageHome() {
       </Hero>
 
       {/* Authority strip */}
-      <section style={{ borderBottom: "1px solid var(--hairline)", padding: "40px 0" }}>
+      <section style={{ borderBottom: "1px solid var(--hairline)", padding: "48px 0" }}>
         <div className="container">
           <div className="grid grid-3" style={{ gap: 32 }}>
             <div className="row row-md" style={{ gap: 16, alignItems: "center" }}>

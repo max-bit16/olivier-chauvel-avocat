@@ -8,7 +8,6 @@
   --primary-deep: #132139;
   --primary-press: #0c1828;
   --primary-soft: #2A4470;
-  --primary-subdued: #8BAAC8;
   --brand-dark-900: #0F1B2E;
 
   /* Gold accent */
@@ -156,7 +155,11 @@ h1, h2 {
   letter-spacing: 0.01em;
   line-height: 1;
   border: 1px solid transparent;
-  transition: all 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              color 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   white-space: nowrap;
   cursor: pointer;
 }
@@ -213,6 +216,12 @@ h1, h2 {
   padding: 32px;
   box-shadow: var(--shadow-3);
   border: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+a.card-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 32px 80px rgba(15, 30, 50, 0.22), 0 8px 24px rgba(15, 30, 50, 0.12);
 }
 .card-flat {
   background: var(--canvas);
@@ -398,7 +407,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .field input:focus, .field select:focus, .field textarea:focus {
-  outline: none;
+  outline: 2px solid transparent; /* keeps ring visible in forced-colors mode */
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(27,45,71,0.12);
 }
@@ -486,7 +495,8 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   transform: translateX(-50%) translateY(-4px);
 }
 .nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown.open .nav-dropdown-menu {
+.nav-dropdown.open .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -833,4 +843,28 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 /* Page transitions */
 .page-enter {
   animation: fadeUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Touch device — disable hover transforms (sticky hover on iOS) */
+@media (hover: none) {
+  .card:hover, .card-flat:hover { transform: none; box-shadow: var(--shadow-1); }
+  .btn-primary:hover { transform: none; box-shadow: 0 2px 12px rgba(15,30,50,0.18); }
+  a.card-dark:hover { transform: none; box-shadow: var(--shadow-3); }
+}
+
+/* Nav CTA hidden on mobile (too small to tap, duplicated in mobile menu) */
+@media (max-width: 768px) {
+  .nav-cta-desktop { display: none; }
+}
+
+/* Reduced motion — respects vestibular / balance disorders */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .fade-up { animation: none; opacity: 1; }
+  .page-enter { animation: none; }
 }

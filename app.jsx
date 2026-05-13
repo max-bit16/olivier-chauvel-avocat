@@ -38,8 +38,30 @@ function NotFound() {
   );
 }
 
+const PAGE_TITLES = {
+  "/": "Maître Olivier Chauvel · Avocat à Rennes",
+  "/cabinet/presentation": "Présentation · Cabinet Chauvel",
+  "/cabinet/honoraires": "Honoraires · Cabinet Chauvel",
+  "/competences/droit-de-la-famille": "Droit de la famille · Cabinet Chauvel",
+  "/competences/droit-du-dommage-corporel": "Dommage corporel · Cabinet Chauvel",
+  "/competences/droit-de-la-chasse": "Droit de la chasse · Cabinet Chauvel",
+  "/competences/droit-des-etrangers": "Droit des étrangers · Cabinet Chauvel",
+  "/competences/droit-penal": "Droit pénal · Cabinet Chauvel",
+  "/publications": "Publications · Cabinet Chauvel",
+  "/contact": "Contact · Cabinet Chauvel",
+  "/mentions-legales": "Mentions légales · Cabinet Chauvel",
+  "/cgv": "CGV · Cabinet Chauvel",
+  "/rgpd": "RGPD · Cabinet Chauvel",
+};
+
 function App() {
   const path = useHashRoute();
+  const { useEffect } = React;
+
+  useEffect(() => {
+    document.title = PAGE_TITLES[path] || "Maître Olivier Chauvel · Avocat à Rennes";
+  }, [path]);
+
   const Render = ROUTES[path] || NotFound;
   return (
     <>
