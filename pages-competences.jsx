@@ -146,9 +146,9 @@ function SideComposition({ variant }) {
     return (
       <div className="card-cream" style={{ padding: 32 }}>
         <div className="stack stack-md">
-          <div className="t-micro-cap" style={{ color: "#8a5a1c" }}>Litige type</div>
-          <div className="t-heading-lg" style={{ fontWeight: 400, color: "#3a2a14" }}>Infraction au code de l'environnement</div>
-          <div className="stack stack-sm" style={{ color: "#5a4220", fontSize: 14 }}>
+          <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>Litige type</div>
+          <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Infraction au code de l'environnement</div>
+          <div className="stack stack-sm" style={{ color: "var(--cream-text-mid)", fontSize: 14 }}>
             <RowItem label="Juridiction" value="Tribunal de police" />
             <RowItem label="Quantum" value="Contravention 5e classe" />
             <RowItem label="Procédure" value="Comparution sur PV" />
@@ -229,8 +229,8 @@ function StatRow({ label, value }) {
 function RowItem({ label, value }) {
   return (
     <div className="row" style={{ justifyContent: "space-between", padding: "6px 0", borderBottom: "1px solid rgba(107,72,24,0.15)" }}>
-      <span style={{ color: "#8a5a1c", fontWeight: 400 }}>{label}</span>
-      <span style={{ color: "#3a2a14" }}>{value}</span>
+      <span style={{ color: "var(--cream-accent)", fontWeight: 400 }}>{label}</span>
+      <span style={{ color: "var(--cream-text-dark)" }}>{value}</span>
     </div>
   );
 }

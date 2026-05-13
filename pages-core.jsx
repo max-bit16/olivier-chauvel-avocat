@@ -119,11 +119,11 @@ function PageHome() {
           <div className="card-cream" style={{ padding: 48 }}>
             <div className="grid grid-2" style={{ gap: 48, alignItems: "center" }}>
               <div className="stack stack-md">
-                <div className="eyebrow" style={{ color: "#8a5a1c" }}>Aide juridictionnelle</div>
-                <div className="t-display-md" style={{ color: "#3a2a14" }}>
+                <div className="eyebrow" style={{ color: "var(--cream-accent)" }}>Aide juridictionnelle</div>
+                <div className="t-display-md" style={{ color: "var(--cream-text-dark)" }}>
                   Le cabinet accepte l'aide juridictionnelle.
                 </div>
-                <div className="t-body-md" style={{ color: "#5a4220" }}>
+                <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                   Sous conditions de ressources, l'État prend en charge tout ou partie des frais d'avocat et de procédure.
                   Nous vérifions votre éligibilité dès le premier rendez-vous.
                 </div>
@@ -203,8 +203,8 @@ function CompTeaser({ icon, iconVariant, title, bullets, to }) {
 function BareStat({ value, label, tnum }) {
   return (
     <div className="row" style={{ alignItems: "baseline", gap: 16, borderBottom: "1px solid rgba(107,72,24,0.15)", paddingBottom: 12 }}>
-      <div className={"t-display-md " + (tnum ? "tnum" : "")} style={{ color: "#3a2a14", minWidth: 140 }}>{value}</div>
-      <div className="t-body-md" style={{ color: "#5a4220" }}>{label}</div>
+      <div className={"t-display-md " + (tnum ? "tnum" : "")} style={{ color: "var(--cream-text-dark)", minWidth: 140 }}>{value}</div>
+      <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>{label}</div>
     </div>
   );
 }
@@ -283,9 +283,9 @@ function PagePresentation() {
             <div className="grid grid-3">
               <div className="card-cream">
                 <div className="stack stack-md">
-                  <div className="t-micro-cap" style={{ color: "#8a5a1c" }}>01</div>
-                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "#3a2a14" }}>Information & Conseil</div>
-                  <div className="t-body-md" style={{ color: "#5a4220" }}>
+                  <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>01</div>
+                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Information & Conseil</div>
+                  <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Analyse de votre situation, exposé du droit applicable, identification des options
                     procédurales et de leurs conséquences pratiques.
                   </div>
@@ -293,9 +293,9 @@ function PagePresentation() {
               </div>
               <div className="card-cream">
                 <div className="stack stack-md">
-                  <div className="t-micro-cap" style={{ color: "#8a5a1c" }}>02</div>
-                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "#3a2a14" }}>Rédaction & Transaction</div>
-                  <div className="t-body-md" style={{ color: "#5a4220" }}>
+                  <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>02</div>
+                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Rédaction & Transaction</div>
+                  <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Rédaction d'actes, de conventions et de contrats. Négociation et formalisation
                     de transactions amiables, en évitant lorsque possible la voie contentieuse.
                   </div>
@@ -303,9 +303,9 @@ function PagePresentation() {
               </div>
               <div className="card-cream">
                 <div className="stack stack-md">
-                  <div className="t-micro-cap" style={{ color: "#8a5a1c" }}>03</div>
-                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "#3a2a14" }}>Représentation</div>
-                  <div className="t-body-md" style={{ color: "#5a4220" }}>
+                  <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>03</div>
+                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Représentation</div>
+                  <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Représentation et plaidoirie devant l'ensemble des juridictions civiles, pénales et
                     administratives, de la première instance à la cassation.
                   </div>
@@ -498,8 +498,8 @@ function PageHonoraires() {
                   <Icon name="document" size={26} />
                 </div>
                 <div className="stack stack-sm" style={{ flex: 1, minWidth: 280 }}>
-                  <div className="t-heading-md" style={{ fontWeight: 400, color: "#3a2a14" }}>Aide juridictionnelle acceptée</div>
-                  <div className="t-body-md" style={{ color: "#5a4220" }}>
+                  <div className="t-heading-md" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Aide juridictionnelle acceptée</div>
+                  <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Sous conditions de ressources, l'État prend en charge tout ou partie des frais
                     d'avocat et de procédure.
                   </div>
@@ -555,7 +555,7 @@ function PageContact() {
       <section className="section">
         <div className="container">
           <Breadcrumb items={[{ label: "Accueil", to: "/" }, { label: "Contact" }]} />
-          <div className="grid" style={{ gridTemplateColumns: "1.4fr 1fr", gap: 48, marginTop: 32 }}>
+          <div className="contact-grid">
             {/* Form */}
             <div className="card" style={{ padding: 40 }}>
               {formState.submitted ? (
@@ -582,29 +582,29 @@ function PageContact() {
 
                   <div className="grid grid-2" style={{ gap: 16 }}>
                     <div className="field">
-                      <label>Nom *</label>
-                      <input required value={values.nom} onChange={onChange("nom")} placeholder="Dupont" />
+                      <label htmlFor="contact-nom">Nom *</label>
+                      <input id="contact-nom" required value={values.nom} onChange={onChange("nom")} placeholder="Dupont" />
                     </div>
                     <div className="field">
-                      <label>Prénom *</label>
-                      <input required value={values.prenom} onChange={onChange("prenom")} placeholder="Marie" />
+                      <label htmlFor="contact-prenom">Prénom *</label>
+                      <input id="contact-prenom" required value={values.prenom} onChange={onChange("prenom")} placeholder="Marie" />
                     </div>
                   </div>
 
                   <div className="grid grid-2" style={{ gap: 16 }}>
                     <div className="field">
-                      <label>Téléphone *</label>
-                      <input required type="tel" className="tnum" value={values.telephone} onChange={onChange("telephone")} placeholder="06 12 34 56 78" />
+                      <label htmlFor="contact-telephone">Téléphone *</label>
+                      <input id="contact-telephone" required type="tel" className="tnum" value={values.telephone} onChange={onChange("telephone")} placeholder="06 12 34 56 78" />
                     </div>
                     <div className="field">
-                      <label>E-mail *</label>
-                      <input required type="email" value={values.email} onChange={onChange("email")} placeholder="marie.dupont@email.fr" />
+                      <label htmlFor="contact-email">E-mail *</label>
+                      <input id="contact-email" required type="email" value={values.email} onChange={onChange("email")} placeholder="marie.dupont@email.fr" />
                     </div>
                   </div>
 
                   <div className="field">
-                    <label>Domaine juridique</label>
-                    <select value={values.domaine} onChange={onChange("domaine")}>
+                    <label htmlFor="contact-domaine">Domaine juridique</label>
+                    <select id="contact-domaine" value={values.domaine} onChange={onChange("domaine")}>
                       <option value="">— Sélectionner —</option>
                       <option>Droit de la famille</option>
                       <option>Dommage corporel</option>
@@ -616,8 +616,8 @@ function PageContact() {
                   </div>
 
                   <div className="field">
-                    <label>Votre message *</label>
-                    <textarea required value={values.message} onChange={onChange("message")} placeholder="Présentez brièvement votre situation. Aucun document confidentiel ne doit être envoyé via ce formulaire." />
+                    <label htmlFor="contact-message">Votre message *</label>
+                    <textarea id="contact-message" required value={values.message} onChange={onChange("message")} placeholder="Présentez brièvement votre situation. Aucun document confidentiel ne doit être envoyé via ce formulaire." />
                   </div>
 
                   <div className="row" style={{ justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
@@ -671,11 +671,11 @@ function PageContact() {
 
               <div className="card-cream">
                 <div className="stack stack-sm">
-                  <div className="t-micro-cap" style={{ color: "#8a5a1c" }}>Accès</div>
-                  <div className="t-heading-md" style={{ fontWeight: 400, color: "#3a2a14" }}>Comment venir ?</div>
-                  <div className="stack stack-sm" style={{ fontSize: 14, color: "#5a4220" }}>
-                    <div><strong style={{ fontWeight: 400, color: "#3a2a14" }}>Métro :</strong> ligne A, station République</div>
-                    <div><strong style={{ fontWeight: 400, color: "#3a2a14" }}>Parkings :</strong> Kleber, Hoche, Vilaine</div>
+                  <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>Accès</div>
+                  <div className="t-heading-md" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Comment venir ?</div>
+                  <div className="stack stack-sm" style={{ fontSize: 14, color: "var(--cream-text-mid)" }}>
+                    <div><strong style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Métro :</strong> ligne A, station République</div>
+                    <div><strong style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Parkings :</strong> Kleber, Hoche, Vilaine</div>
                   </div>
                 </div>
               </div>

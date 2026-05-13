@@ -5,6 +5,10 @@
 :root {
   /* Brand */
   --primary: #533afd;
+  /* Cream palette tokens */
+  --cream-text-dark: #3a2a14;
+  --cream-text-mid: #5a4220;
+  --cream-accent: #8a5a1c;
   --primary-deep: #4434d4;
   --primary-press: #2e2b8c;
   --primary-soft: #665efd;
@@ -49,6 +53,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  overflow-x: clip;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
   font-weight: 300;
   font-feature-settings: "ss01", "cv11";
@@ -62,6 +67,29 @@ html, body {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 img { display: block; max-width: 100%; height: auto; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 10px 18px;
+  background: var(--primary);
+  color: white;
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  font-size: 14px;
+  font-weight: 400;
+  transition: top 0.15s;
+}
+.skip-link:focus { top: 0; }
+
+/* Focus visible — global */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--r-xs);
+}
 
 /* Typography roles */
 .t-display-xxl {
@@ -220,6 +248,7 @@ img { display: block; max-width: 100%; height: auto; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
+.contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; margin-top: 32px; }
 
 .split {
   display: grid;
@@ -446,7 +475,9 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   display: none;
   background: none;
   border: none;
-  padding: 8px;
+  padding: 11px;
+  min-width: 44px;
+  min-height: 44px;
 }
 .nav-mobile-panel {
   display: none;
@@ -470,7 +501,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   gap: 48px;
   margin-bottom: 48px;
 }
-.footer-col h4 {
+.footer-col h3 {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -689,7 +720,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.fade-up { animation: fadeUp 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+.fade-up { animation: fadeUp 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; will-change: opacity, transform; }
 .fade-up-1 { animation-delay: 0.05s; }
 .fade-up-2 { animation-delay: 0.12s; }
 .fade-up-3 { animation-delay: 0.2s; }
@@ -710,6 +741,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   .t-display-xl { font-size: 32px; letter-spacing: -0.7px; }
   .t-display-lg { font-size: 26px; letter-spacing: -0.5px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 24px; }
   .split { grid-template-columns: 1fr; gap: 32px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .nav-links { display: none; }

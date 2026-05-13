@@ -136,7 +136,7 @@ function Nav() {
   const isActive = (prefix) => path === prefix || path.startsWith(prefix + "/");
 
   return (
-    <nav className="nav">
+    <nav className="nav" aria-label="Navigation principale">
       <div className="nav-inner">
         <Link to="/" className="brand">
           <span className="brand-mark">OC</span>
@@ -232,7 +232,7 @@ function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Cabinet</h4>
+            <h3>Cabinet</h3>
             <ul>
               <li><Link to="/cabinet/presentation">Présentation</Link></li>
               <li><Link to="/cabinet/honoraires">Honoraires</Link></li>
@@ -241,7 +241,7 @@ function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Compétences</h4>
+            <h3>Compétences</h3>
             <ul>
               {COMPETENCES.map((c) => (
                 <li key={c.to}><Link to={c.to}>{c.label}</Link></li>
@@ -250,7 +250,7 @@ function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Publications</h4>
+            <h3>Publications</h3>
             <ul>
               {PUBLICATIONS.slice(0, 6).map((p) => (
                 <li key={p.to}><Link to={p.to}>{p.label}</Link></li>
@@ -259,7 +259,7 @@ function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <ul style={{ color: "var(--ink-mute)", fontSize: 14 }}>
               <li>6 rue Edith Cavell<br />35000 Rennes</li>
               <li><a href="tel:0299660819" className="tnum">02.99.66.08.19</a></li>
@@ -386,7 +386,7 @@ function SectionTitle({ eyebrow, title, subtitle, align = "left", dark = false }
   return (
     <div className="stack stack-md" style={{ textAlign: align, maxWidth: align === "center" ? 760 : 720, margin: align === "center" ? "0 auto" : undefined }}>
       {eyebrow && <div className={"eyebrow" + (dark ? " eyebrow-dark" : "")}>{eyebrow}</div>}
-      <div className="t-display-lg">{title}</div>
+      <h2 className="t-display-lg" style={{ margin: 0 }}>{title}</h2>
       {subtitle && <div className="t-body-lg" style={{ color: dark ? "rgba(255,255,255,0.7)" : "var(--ink-secondary)", maxWidth: 620, margin: align === "center" ? "0 auto" : undefined }}>{subtitle}</div>}
     </div>
   );
@@ -395,7 +395,7 @@ function SectionTitle({ eyebrow, title, subtitle, align = "left", dark = false }
 // ----- Breadcrumb -----
 function Breadcrumb({ items }) {
   return (
-    <nav className="row row-sm" style={{ fontSize: 13, color: "var(--ink-mute)", flexWrap: "wrap" }}>
+    <nav aria-label="Fil d'Ariane" className="row row-sm" style={{ fontSize: 13, color: "var(--ink-mute)", flexWrap: "wrap" }}>
       {items.map((it, i) => (
         <React.Fragment key={i}>
           {i > 0 && <span style={{ margin: "0 8px" }}>/</span>}
