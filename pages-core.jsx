@@ -16,10 +16,47 @@ function PageHome() {
       >
         <div className="row row-md" style={{ gap: 32, marginTop: 24, flexWrap: "wrap", fontSize: 13, color: "var(--ink-mute)" }}>
           <span className="row row-sm" style={{ gap: 8 }}><Icon name="pin" size={16} /> 6 rue Edith Cavell, Rennes</span>
-          <span className="row row-sm" style={{ gap: 8 }}><Icon name="phone" size={16} /> <span className="tnum">02.99.66.08.19</span></span>
+          <span className="row row-sm" style={{ gap: 8 }}><Icon name="phone" size={16} /> <a href="tel:0299660819" className="tnum" style={{ color: "inherit", textDecoration: "none" }}>02.99.66.08.19</a></span>
           <span className="row row-sm" style={{ gap: 8 }}><Icon name="clock" size={16} /> Lun–Ven, sur rendez-vous</span>
         </div>
       </Hero>
+
+      {/* Authority strip */}
+      <section style={{ borderBottom: "1px solid var(--hairline)", padding: "40px 0" }}>
+        <div className="container">
+          <div className="grid grid-3" style={{ gap: 32 }}>
+            <div className="row row-md" style={{ gap: 16, alignItems: "center" }}>
+              <div className="icon-tile" style={{ flexShrink: 0 }}>
+                <Icon name="scale" />
+              </div>
+              <div className="stack stack-sm">
+                <div className="t-display-md tnum" style={{ lineHeight: 1, fontFamily: "'Cormorant Garamond', serif" }}>
+                  {new Date().getFullYear() - 2004}
+                </div>
+                <div className="t-caption">ans de pratique au Barreau de Rennes</div>
+              </div>
+            </div>
+            <div className="row row-md" style={{ gap: 16, alignItems: "center" }}>
+              <div className="icon-tile icon-tile-cream" style={{ flexShrink: 0 }}>
+                <Icon name="check" />
+              </div>
+              <div className="stack stack-sm">
+                <div className="t-heading-md" style={{ fontWeight: 400 }}>Barreau de Rennes</div>
+                <div className="t-caption">Serment prêté en 2004</div>
+              </div>
+            </div>
+            <div className="row row-md" style={{ gap: 16, alignItems: "center" }}>
+              <div className="icon-tile icon-tile-cream" style={{ flexShrink: 0 }}>
+                <Icon name="book" />
+              </div>
+              <div className="stack stack-sm">
+                <div className="t-heading-md" style={{ fontWeight: 400 }}>5 domaines du droit</div>
+                <div className="t-caption">Famille, corporel, pénal, étrangers, chasse</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Compétences preview */}
       <section className="section section-soft" style={{ position: "relative", overflow: "hidden" }}>
@@ -45,7 +82,7 @@ function PageHome() {
               />
               <CompTeaser
                 icon="medical"
-                iconVariant="ruby"
+                iconVariant=""
                 title="Dommage corporel"
                 bullets={["Indemnisation du préjudice corporel", "Assistance expertise médicale", "Saisine CIVI et SARVI"]}
                 to="/competences/droit-du-dommage-corporel"
@@ -59,7 +96,7 @@ function PageHome() {
               />
               <CompTeaser
                 icon="passport"
-                iconVariant="mint"
+                iconVariant="stone"
                 title="Droit des étrangers"
                 bullets={["OQTF, IRTF, recours", "Rétention administrative", "Garde à vue, interpellation"]}
                 to="/competences/droit-des-etrangers"
@@ -72,27 +109,32 @@ function PageHome() {
                 to="/competences/droit-de-la-chasse"
               />
 
-              {/* Featured card — dark navy */}
-              <Link to="/contact" className="card-dark" style={{ textDecoration: "none", display: "block" }}>
-                <div className="stack stack-md" style={{ height: "100%" }}>
-                  <div className="pill pill-dark">Premier rendez-vous</div>
-                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "white" }}>
-                    Une question juridique ? Le premier échange permet de cadrer votre dossier.
-                  </div>
-                  <div className="t-body-md" style={{ color: "rgba(255,255,255,0.72)" }}>
-                    Présentation des faits, documents nécessaires, fixation des honoraires, vérification de la protection juridique ou de l'aide juridictionnelle.
-                  </div>
-                  <div style={{ marginTop: "auto", paddingTop: 16 }}>
-                    <span className="row row-sm" style={{ color: "var(--primary-soft)", fontSize: 14, gap: 8 }}>
-                      Prendre rendez-vous <Icon name="arrow" size={16} />
-                    </span>
-                  </div>
-                </div>
-              </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* CTA strip — premier rendez-vous */}
+      <div style={{ padding: "0 0 32px" }}>
+        <div className="container">
+          <Link to="/contact" className="card-dark" style={{ textDecoration: "none", display: "block" }}>
+            <div className="row" style={{ justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
+              <div className="stack stack-md" style={{ flex: 1, minWidth: 240 }}>
+                <div className="pill pill-dark">Premier rendez-vous</div>
+                <div className="t-heading-lg" style={{ fontWeight: 400, color: "white" }}>
+                  Une question juridique ? Le premier échange permet de cadrer votre dossier.
+                </div>
+                <div className="t-body-md" style={{ color: "rgba(255,255,255,0.72)", maxWidth: 560 }}>
+                  Présentation des faits, documents nécessaires, fixation des honoraires, vérification de la protection juridique ou de l'aide juridictionnelle.
+                </div>
+              </div>
+              <div className="row row-sm" style={{ color: "var(--primary-soft)", fontSize: 14, gap: 8, flexShrink: 0 }}>
+                Prendre rendez-vous <Icon name="arrow" size={16} />
+              </div>
+            </div>
+          </Link>
+        </div>
+      </div>
 
       {/* Quote / cream band */}
       <section className="section-sm">
@@ -113,6 +155,9 @@ function PageHome() {
                 <BareStat value="≤ 1 007 €" label="Ressources mensuelles pour aide totale" tnum />
                 <BareStat value="55 %" label="Prise en charge entre 1 008 € et 1 190 €" tnum />
                 <BareStat value="25 %" label="Prise en charge entre 1 191 € et 1 510 €" tnum />
+                <p style={{ margin: 0, fontSize: 12, color: "var(--cream-text-mid)", lineHeight: 1.5 }}>
+                  Seuils en vigueur au 1er janvier {new Date().getFullYear()}. Ces plafonds sont révisés annuellement par décret.
+                </p>
               </div>
             </div>
           </div>
@@ -300,7 +345,7 @@ function PagePresentation() {
       <section className="section-sm" style={{ paddingBottom: 96 }}>
         <div className="container-narrow">
           <div className="card" style={{ padding: 40, display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }}>
-            <div className="icon-tile icon-tile-mint" style={{ width: 56, height: 56 }}>
+            <div className="icon-tile icon-tile-stone" style={{ width: 56, height: 56 }}>
               <Icon name="check" size={26} />
             </div>
             <div className="stack stack-sm" style={{ flex: 1, minWidth: 240 }}>
@@ -541,7 +586,7 @@ function PageContact() {
             <div className="card" style={{ padding: 40 }}>
               {formState.submitted ? (
                 <div className="stack stack-md" style={{ padding: 32, textAlign: "center" }}>
-                  <div className="icon-tile icon-tile-mint" style={{ width: 56, height: 56, margin: "0 auto" }}>
+                  <div className="icon-tile icon-tile-stone" style={{ width: 56, height: 56, margin: "0 auto" }}>
                     <Icon name="check" size={26} />
                   </div>
                   <div className="t-display-md">Demande envoyée</div>
@@ -713,9 +758,9 @@ function MapPlaceholder() {
         <text x="640" y="40" fontSize="11" fill="#7a8a9c" fontWeight="400">Rue Édith Cavell</text>
         <text x="60" y="360" fontSize="11" fill="#5a7d9c" fontWeight="500">La Vilaine</text>
         <g transform="translate(620, 200)">
-          <circle r="32" fill="rgba(83,58,253,0.15)" />
-          <circle r="20" fill="rgba(83,58,253,0.3)" />
-          <path d="M0 -14 C -8 -14, -12 -8, -12 -2 C -12 8, 0 16, 0 16 C 0 16, 12 8, 12 -2 C 12 -8, 8 -14, 0 -14 Z" fill="#533afd" />
+          <circle r="32" fill="rgba(27,45,71,0.15)" />
+          <circle r="20" fill="rgba(27,45,71,0.3)" />
+          <path d="M0 -14 C -8 -14, -12 -8, -12 -2 C -12 8, 0 16, 0 16 C 0 16, 12 8, 12 -2 C 12 -8, 8 -14, 0 -14 Z" fill="var(--primary)" />
           <circle cy="-2" r="3.5" fill="white" />
         </g>
         <g transform="translate(620, 232)">

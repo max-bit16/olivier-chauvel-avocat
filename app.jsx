@@ -19,6 +19,9 @@ const ROUTES = {
   "/publications/le-role-de-lavocat": () => <ArticleRoleAvocat />,
   "/publications/les-obligations-de-lavocat": () => <ArticleObligations />,
   "/contact": () => <PageContact />,
+  "/mentions-legales": () => <PageMentionsLegales />,
+  "/cgv": () => <PageCGV />,
+  "/rgpd": () => <PageRGPD />,
 };
 
 function NotFound() {

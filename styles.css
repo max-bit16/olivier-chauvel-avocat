@@ -31,7 +31,7 @@
   /* Text */
   --ink: #0F1E32;
   --ink-secondary: #2A3D58;
-  --ink-mute: #647288;
+  --ink-mute: #5a6577;
   --ink-mute-2: #607080;
   --on-primary: #ffffff;
 
@@ -575,6 +575,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 .icon-tile-cream { background: linear-gradient(135deg, #f5e9d4 0%, #f5d6a8 100%); color: #6b4818; }
 .icon-tile-ruby { background: linear-gradient(135deg, #ffd1de 0%, #ffb1c5 100%); color: #a01544; }
 .icon-tile-mint { background: linear-gradient(135deg, #d5f1e3 0%, #b8e3cd 100%); color: #16633e; }
+.icon-tile-stone { background: rgba(100,90,80,0.08); color: var(--ink-secondary); border: 1px solid rgba(100,90,80,0.12); }
 
 /* Inline link */
 .link {

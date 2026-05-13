@@ -2,7 +2,7 @@
 // Pages: 5 compétences
 // ============================================================
 
-function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, sections, related, icon, iconVariant, sideImage }) {
+function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, sections, related, icon, iconVariant, sideImage, heroVariant = "default" }) {
   return (
     <PageShell>
       <Hero
@@ -10,7 +10,7 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
         title={title}
         subtitle={subtitle}
         primaryCta={{ to: "/contact", label: "Discuter de votre dossier" }}
-        variant={iconVariant === "ruby" ? "warm" : iconVariant === "mint" ? "cool" : "default"}
+        variant={heroVariant}
       />
 
       <section className="section">
@@ -40,8 +40,7 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
               <div key={i} className="card" style={{ padding: 40 }}>
                 <div className="grid" style={{ gridTemplateColumns: "0.6fr 1.4fr", gap: 48, alignItems: "flex-start" }}>
                   <div className="stack stack-sm">
-                    <div className="t-micro-cap eyebrow-mute">{String(i + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")}</div>
-                    <div className="t-heading-lg" style={{ fontWeight: 400 }}>{sec.title}</div>
+                      <div className="t-heading-lg" style={{ fontWeight: 400 }}>{sec.title}</div>
                   </div>
                   <div className="stack stack-md">
                     {sec.body && <div className="t-body-md" style={{ color: "var(--ink-secondary)" }}>{sec.body}</div>}
@@ -247,9 +246,9 @@ function JurRow({ label, right }) {
 function relatedFor(currentTo) {
   const map = {
     "/competences/droit-de-la-famille": { icon: "family", variant: "", desc: "Divorce, garde, filiation" },
-    "/competences/droit-du-dommage-corporel": { icon: "medical", variant: "ruby", desc: "Indemnisation, expertise médicale" },
+    "/competences/droit-du-dommage-corporel": { icon: "medical", variant: "", desc: "Indemnisation, expertise médicale" },
     "/competences/droit-de-la-chasse": { icon: "tree", variant: "cream", desc: "Litiges, juridictions répressives" },
-    "/competences/droit-des-etrangers": { icon: "passport", variant: "mint", desc: "OQTF, IRTF, rétention" },
+    "/competences/droit-des-etrangers": { icon: "passport", variant: "stone", desc: "OQTF, IRTF, rétention" },
     "/competences/droit-penal": { icon: "gavel", variant: "", desc: "Délits, crimes, garde à vue" },
   };
   return COMPETENCES.filter((c) => c.to !== currentTo).map((c) => ({
@@ -338,7 +337,8 @@ function PageDommageCorporel() {
       subtitle="Conseil, accompagnement à l'expertise médicale et procédure d'indemnisation devant les juridictions et organismes compétents (CIVI, SARVI)."
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Dommage corporel" }]}
       icon="medical"
-      iconVariant="ruby"
+      iconVariant=""
+      heroVariant="warm"
       intro={{
         title: "Faire reconnaître et évaluer chaque préjudice.",
         body: "L'indemnisation d'un dommage corporel exige une analyse détaillée — nature et durée de l'incapacité, retentissement professionnel, douleurs endurées, préjudice esthétique et d'agrément. Le cabinet vous accompagne à chaque étape, en particulier lors de l'expertise médicale qui détermine l'essentiel de l'indemnisation."
@@ -428,7 +428,8 @@ function PageDroitEtrangers() {
       subtitle="Recours contre les mesures d'éloignement, contestation des décisions administratives, défense en rétention et en garde à vue."
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit des étrangers" }]}
       icon="passport"
-      iconVariant="mint"
+      iconVariant="stone"
+      heroVariant="cool"
       intro={{
         title: "Des délais courts, une réactivité immédiate.",
         body: "Les procédures d'éloignement et de rétention sont soumises à des délais de recours très courts (parfois 48 heures). Le cabinet intervient en urgence pour préserver vos droits et engager les recours nécessaires devant le juge administratif et le juge des libertés et de la détention."

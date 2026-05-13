@@ -180,6 +180,23 @@ function Nav() {
       </div>
 
       <div className={"nav-mobile-panel" + (mobileOpen ? " open" : "")}>
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 4 }}>
+          <button
+            onClick={() => setMobileOpen(false)}
+            aria-label="Fermer le menu"
+            style={{
+              background: "none", border: "none", cursor: "pointer",
+              color: "var(--ink-secondary)", padding: "8px",
+              minWidth: 44, minHeight: 44,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              borderRadius: "var(--r-md)"
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
         <Link to="/cabinet/presentation">Présentation</Link>
         <Link to="/cabinet/honoraires">Honoraires</Link>
         {COMPETENCES.map((c) => (
@@ -250,9 +267,9 @@ function Footer() {
         <div className="footer-bottom">
           <div>© {new Date().getFullYear()} Cabinet Olivier Chauvel — Avocat au Barreau de Rennes</div>
           <div className="row row-md" style={{ gap: 24 }}>
-            <a href="#/">Mentions légales</a>
-            <a href="#/">CGV</a>
-            <a href="#/">RGPD</a>
+            <Link to="/mentions-legales">Mentions légales</Link>
+            <Link to="/cgv">CGV</Link>
+            <Link to="/rgpd">RGPD</Link>
           </div>
         </div>
       </div>
