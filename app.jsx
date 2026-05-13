@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <Nav />
-      <main key={path}>
+      <main id="main-content" key={path}>
         <Render />
       </main>
       <Footer />

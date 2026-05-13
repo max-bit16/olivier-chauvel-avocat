@@ -110,6 +110,11 @@ function Nav() {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => setMobileOpen(false), [path]);
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && (setMobileOpen(false), setOpenDropdown(null));
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
 
   const isActive = (prefix) => path === prefix || path.startsWith(prefix + "/");
 
@@ -128,7 +133,15 @@ function Nav() {
             onMouseEnter={() => setOpenDropdown("cabinet")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <span className={"nav-link" + (isActive("/cabinet") ? " active" : "")}>Cabinet ▾</span>
+            <span
+              className={"nav-link" + (isActive("/cabinet") ? " active" : "")}
+              role="button"
+              tabIndex={0}
+              aria-expanded={openDropdown === "cabinet"}
+              aria-haspopup="true"
+              onClick={() => setOpenDropdown(openDropdown === "cabinet" ? null : "cabinet")}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenDropdown(openDropdown === "cabinet" ? null : "cabinet"); } }}
+            >Cabinet ▾</span>
             <div className="nav-dropdown-menu">
               <Link to="/cabinet/presentation" className="nav-dropdown-item">
                 Présentation
@@ -146,7 +159,15 @@ function Nav() {
             onMouseEnter={() => setOpenDropdown("comp")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <span className={"nav-link" + (isActive("/competences") ? " active" : "")}>Compétences ▾</span>
+            <span
+              className={"nav-link" + (isActive("/competences") ? " active" : "")}
+              role="button"
+              tabIndex={0}
+              aria-expanded={openDropdown === "comp"}
+              aria-haspopup="true"
+              onClick={() => setOpenDropdown(openDropdown === "comp" ? null : "comp")}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenDropdown(openDropdown === "comp" ? null : "comp"); } }}
+            >Compétences ▾</span>
             <div className="nav-dropdown-menu">
               {COMPETENCES.map((c) => (
                 <Link key={c.to} to={c.to} className="nav-dropdown-item">

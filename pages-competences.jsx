@@ -38,7 +38,7 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
           <div className="stack stack-xl" style={{ paddingTop: 64 }}>
             {sections.map((sec, i) => (
               <div key={i} className="card" style={{ padding: 40 }}>
-                <div className="grid" style={{ gridTemplateColumns: "0.6fr 1.4fr", gap: 48, alignItems: "flex-start" }}>
+                <div className="competence-section-grid">
                   <div className="stack stack-sm">
                       <div className="t-heading-lg" style={{ fontWeight: 400 }}>{sec.title}</div>
                   </div>

@@ -128,7 +128,7 @@ function PageHome() {
                   Présentation des faits, documents nécessaires, fixation des honoraires, vérification de la protection juridique ou de l'aide juridictionnelle.
                 </div>
               </div>
-              <div className="row row-sm" style={{ color: "var(--primary-soft)", fontSize: 14, gap: 8, flexShrink: 0 }}>
+              <div className="row row-sm" style={{ color: "var(--primary-soft)", fontSize: 14, gap: 8 }}>
                 Prendre rendez-vous <Icon name="arrow" size={16} />
               </div>
             </div>
@@ -586,7 +586,7 @@ function PageContact() {
             <div className="card" style={{ padding: 40 }}>
               {formState.submitted ? (
                 <div className="stack stack-md" style={{ padding: 32, textAlign: "center" }}>
-                  <div className="icon-tile icon-tile-stone" style={{ width: 56, height: 56, margin: "0 auto" }}>
+                  <div className="icon-tile icon-tile-success" style={{ width: 56, height: 56, margin: "0 auto" }}>
                     <Icon name="check" size={26} />
                   </div>
                   <div className="t-display-md">Demande envoyée</div>
