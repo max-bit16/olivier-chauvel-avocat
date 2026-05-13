@@ -7,8 +7,8 @@ function PageHome() {
     <PageShell>
       <Hero
         eyebrow="Cabinet d'avocat · Rennes"
-        title="Disponibilité, rigueur et clarté au service de vos droits."
-        subtitle="Cabinet situé à proximité immédiate du Parlement de Bretagne, de la Cour d'appel de Rennes, du Tribunal administratif et de la Cité judiciaire."
+        title="Un avocat rennais à vos côtés, depuis 2004."
+        subtitle="Cabinet situé à deux pas du Parlement de Bretagne, de la Cour d'appel et de la Cité judiciaire. Disponible, rigoureux, transparent sur les honoraires."
         primaryCta={{ to: "/contact", label: "Prendre rendez-vous" }}
         secondaryCta={{ to: "/cabinet/presentation", label: "Découvrir le cabinet" }}
         photo="rennes-palais.jpg"
@@ -20,25 +20,6 @@ function PageHome() {
           <span className="row row-sm" style={{ gap: 8 }}><Icon name="clock" size={16} /> Lun–Ven, sur rendez-vous</span>
         </div>
       </Hero>
-
-      {/* Engagements */}
-      <section className="section section-textured">
-        <div className="container">
-          <div className="stack stack-xl">
-            <SectionTitle
-              eyebrow="Nos engagements"
-              title="Quatre principes qui guident chaque dossier."
-              subtitle="Une relation de confiance se construit sur des règles claires, énoncées dès le premier rendez-vous et tenues jusqu'à la décision finale."
-            />
-            <div className="grid grid-4">
-              <FeatureCard icon="bolt" title="Disponibilité & Réactivité" description="Une réponse rapide à vos demandes, en conseil comme en procédure judiciaire." />
-              <FeatureCard icon="euro" iconVariant="cream" title="Clarté des honoraires" description="Convention écrite préalable, mode de calcul transparent, aucun frais caché." />
-              <FeatureCard icon="scale" iconVariant="ruby" title="Rigueur & Pragmatisme" description="Une analyse juridique exigeante, traduite en stratégie concrète pour votre dossier." />
-              <FeatureCard icon="lock" iconVariant="mint" title="Confidentialité" description="Secret professionnel absolu et illimité dans le temps, garanti par la loi." />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Compétences preview */}
       <section className="section section-soft" style={{ position: "relative", overflow: "hidden" }}>
@@ -116,7 +97,7 @@ function PageHome() {
       {/* Quote / cream band */}
       <section className="section-sm">
         <div className="container">
-          <div className="card-cream" style={{ padding: 48 }}>
+          <div className="card-cream reveal" style={{ padding: 48 }}>
             <div className="grid grid-2" style={{ gap: 48, alignItems: "center" }}>
               <div className="stack stack-md">
                 <div className="eyebrow" style={{ color: "var(--cream-accent)" }}>Aide juridictionnelle</div>

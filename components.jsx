@@ -31,7 +31,7 @@ function Link({ to, className, children, ...rest }) {
   );
 }
 
-// ----- Gradient Mesh -----
+// ----- Gradient Mesh — refined editorial palette -----
 function GradientMesh({ variant = "default", height = "100%" }) {
   return (
     <svg
@@ -42,65 +42,43 @@ function GradientMesh({ variant = "default", height = "100%" }) {
       aria-hidden="true"
     >
       <defs>
-        <filter id="meshBlur" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="80" />
+        <filter id="meshBlur" x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur stdDeviation="130" />
         </filter>
-        <radialGradient id="g-cream" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#fce8c5" stopOpacity="1" />
-          <stop offset="100%" stopColor="#fce8c5" stopOpacity="0" />
+        <radialGradient id="g-warm" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#E8DCC4" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#E8DCC4" stopOpacity="0" />
         </radialGradient>
-        <radialGradient id="g-sherbet" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ff9b6a" stopOpacity="0.85" />
-          <stop offset="100%" stopColor="#ff9b6a" stopOpacity="0" />
+        <radialGradient id="g-navy" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#1B2D47" stopOpacity="0.16" />
+          <stop offset="100%" stopColor="#1B2D47" stopOpacity="0" />
         </radialGradient>
-        <radialGradient id="g-lavender" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#c7b9ff" stopOpacity="0.95" />
-          <stop offset="100%" stopColor="#c7b9ff" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id="g-indigo" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#665efd" stopOpacity="0.95" />
-          <stop offset="100%" stopColor="#665efd" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id="g-ruby" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ea2261" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="#ea2261" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id="g-magenta" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#f96bee" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="#f96bee" stopOpacity="0" />
+        <radialGradient id="g-gold" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#9A7332" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#9A7332" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <rect width="1600" height="800" fill="#ffffff" />
+      <rect width="1600" height="800" fill="#F9F7F2" />
       <g filter="url(#meshBlur)">
         {variant === "default" && (
           <>
-            <ellipse cx="100" cy="280" rx="380" ry="320" fill="url(#g-cream)" />
-            <ellipse cx="380" cy="220" rx="360" ry="300" fill="url(#g-sherbet)" />
-            <ellipse cx="720" cy="180" rx="380" ry="320" fill="url(#g-lavender)" />
-            <ellipse cx="980" cy="280" rx="380" ry="300" fill="url(#g-indigo)" />
-            <ellipse cx="1280" cy="240" rx="360" ry="320" fill="url(#g-magenta)" />
-            <ellipse cx="1520" cy="200" rx="360" ry="300" fill="url(#g-ruby)" />
-            <ellipse cx="1180" cy="500" rx="340" ry="220" fill="url(#g-indigo)" />
-            <ellipse cx="400" cy="520" rx="320" ry="200" fill="url(#g-sherbet)" />
+            <ellipse cx="250" cy="320" rx="680" ry="480" fill="url(#g-warm)" />
+            <ellipse cx="1320" cy="220" rx="580" ry="440" fill="url(#g-navy)" />
+            <ellipse cx="820" cy="580" rx="480" ry="320" fill="url(#g-gold)" />
           </>
         )}
         {variant === "warm" && (
           <>
-            <ellipse cx="120" cy="240" rx="400" ry="320" fill="url(#g-cream)" />
-            <ellipse cx="500" cy="180" rx="380" ry="300" fill="url(#g-sherbet)" />
-            <ellipse cx="900" cy="240" rx="380" ry="320" fill="url(#g-ruby)" />
-            <ellipse cx="1300" cy="180" rx="380" ry="320" fill="url(#g-magenta)" />
-            <ellipse cx="1550" cy="280" rx="320" ry="240" fill="url(#g-lavender)" />
+            <ellipse cx="280" cy="260" rx="640" ry="460" fill="url(#g-gold)" />
+            <ellipse cx="1200" cy="310" rx="560" ry="420" fill="url(#g-warm)" />
+            <ellipse cx="720" cy="580" rx="420" ry="280" fill="url(#g-navy)" />
           </>
         )}
         {variant === "cool" && (
           <>
-            <ellipse cx="120" cy="240" rx="400" ry="320" fill="url(#g-lavender)" />
-            <ellipse cx="500" cy="200" rx="380" ry="320" fill="url(#g-indigo)" />
-            <ellipse cx="900" cy="240" rx="380" ry="320" fill="url(#g-magenta)" />
-            <ellipse cx="1300" cy="200" rx="380" ry="320" fill="url(#g-ruby)" />
-            <ellipse cx="1550" cy="300" rx="320" ry="240" fill="url(#g-sherbet)" />
-            <ellipse cx="200" cy="540" rx="300" ry="220" fill="url(#g-cream)" />
+            <ellipse cx="220" cy="300" rx="740" ry="520" fill="url(#g-navy)" />
+            <ellipse cx="1340" cy="400" rx="540" ry="380" fill="url(#g-warm)" />
+            <ellipse cx="860" cy="180" rx="400" ry="320" fill="url(#g-gold)" />
           </>
         )}
       </g>
@@ -376,15 +354,32 @@ function FeatureCard({ icon, iconVariant, title, description, children }) {
   );
 }
 
-// ----- Page shell -----
+// ----- Page shell with scroll reveal -----
 function PageShell({ children }) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -48px 0px" }
+    );
+    const timer = setTimeout(() => {
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    }, 60);
+    return () => { clearTimeout(timer); observer.disconnect(); };
+  }, []);
   return <div className="page-enter">{children}</div>;
 }
 
 // ----- Section title -----
 function SectionTitle({ eyebrow, title, subtitle, align = "left", dark = false }) {
   return (
-    <div className="stack stack-md" style={{ textAlign: align, maxWidth: align === "center" ? 760 : 720, margin: align === "center" ? "0 auto" : undefined }}>
+    <div className="stack stack-md reveal" style={{ textAlign: align, maxWidth: align === "center" ? 760 : 720, margin: align === "center" ? "0 auto" : undefined }}>
       {eyebrow && <div className={"eyebrow" + (dark ? " eyebrow-dark" : "")}>{eyebrow}</div>}
       <h2 className="t-display-lg" style={{ margin: 0 }}>{title}</h2>
       {subtitle && <div className="t-body-lg" style={{ color: dark ? "rgba(255,255,255,0.7)" : "var(--ink-secondary)", maxWidth: 620, margin: align === "center" ? "0 auto" : undefined }}>{subtitle}</div>}
