@@ -25,7 +25,7 @@ function PageHome() {
       <section style={{ borderBottom: "1px solid var(--hairline)", padding: "48px 0" }}>
         <div className="container">
           <div className="grid grid-3" style={{ gap: 32 }}>
-            <div className="row row-md" style={{ gap: 16, alignItems: "center" }}>
+            <div className="row row-md reveal" style={{ gap: 16, alignItems: "center" }}>
               <div className="icon-tile" style={{ flexShrink: 0 }}>
                 <Icon name="scale" />
               </div>
@@ -36,7 +36,7 @@ function PageHome() {
                 <div className="t-caption">ans de pratique au Barreau de Rennes</div>
               </div>
             </div>
-            <div className="row row-md" style={{ gap: 16, alignItems: "center" }}>
+            <div className="row row-md reveal reveal-d1" style={{ gap: 16, alignItems: "center" }}>
               <div className="icon-tile icon-tile-cream" style={{ flexShrink: 0 }}>
                 <Icon name="check" />
               </div>
@@ -45,7 +45,7 @@ function PageHome() {
                 <div className="t-caption">Serment prêté en 2004</div>
               </div>
             </div>
-            <div className="row row-md" style={{ gap: 16, alignItems: "center" }}>
+            <div className="row row-md reveal reveal-d2" style={{ gap: 16, alignItems: "center" }}>
               <div className="icon-tile icon-tile-cream" style={{ flexShrink: 0 }}>
                 <Icon name="book" />
               </div>
@@ -73,49 +73,58 @@ function PageHome() {
             </div>
 
             <div className="grid grid-3">
-              <CompTeaser
-                icon="family"
-                iconVariant=""
-                title="Droit de la famille"
-                bullets={["Divorce (consentement mutuel, faute)", "Pension, prestation compensatoire", "Autorité parentale, garde"]}
-                to="/competences/droit-de-la-famille"
-              />
-              <CompTeaser
-                icon="medical"
-                iconVariant=""
-                title="Dommage corporel"
-                bullets={["Indemnisation du préjudice corporel", "Assistance expertise médicale", "Saisine CIVI et SARVI"]}
-                to="/competences/droit-du-dommage-corporel"
-              />
-              <CompTeaser
-                icon="gavel"
-                iconVariant="cream"
-                title="Droit pénal"
-                bullets={["Garde à vue, instruction", "Tribunal correctionnel, assises", "Défense des victimes"]}
-                to="/competences/droit-penal"
-              />
-              <CompTeaser
-                icon="passport"
-                iconVariant="stone"
-                title="Droit des étrangers"
-                bullets={["OQTF, IRTF, recours", "Rétention administrative", "Garde à vue, interpellation"]}
-                to="/competences/droit-des-etrangers"
-              />
-              <CompTeaser
-                icon="tree"
-                iconVariant=""
-                title="Droit de la chasse"
-                bullets={["Litiges relatifs à la chasse", "Tribunal de police", "Tribunal correctionnel"]}
-                to="/competences/droit-de-la-chasse"
-              />
-
+              <div className="reveal" style={{ display: "flex" }}>
+                <CompTeaser
+                  icon="family"
+                  iconVariant=""
+                  title="Droit de la famille"
+                  bullets={["Divorce (consentement mutuel, faute)", "Pension, prestation compensatoire", "Autorité parentale, garde"]}
+                  to="/competences/droit-de-la-famille"
+                />
+              </div>
+              <div className="reveal reveal-d1" style={{ display: "flex" }}>
+                <CompTeaser
+                  icon="medical"
+                  iconVariant=""
+                  title="Dommage corporel"
+                  bullets={["Indemnisation du préjudice corporel", "Assistance expertise médicale", "Saisine CIVI et SARVI"]}
+                  to="/competences/droit-du-dommage-corporel"
+                />
+              </div>
+              <div className="reveal reveal-d2" style={{ display: "flex" }}>
+                <CompTeaser
+                  icon="gavel"
+                  iconVariant="cream"
+                  title="Droit pénal"
+                  bullets={["Garde à vue, instruction", "Tribunal correctionnel, assises", "Défense des victimes"]}
+                  to="/competences/droit-penal"
+                />
+              </div>
+              <div className="reveal reveal-d3" style={{ display: "flex" }}>
+                <CompTeaser
+                  icon="passport"
+                  iconVariant="stone"
+                  title="Droit des étrangers"
+                  bullets={["OQTF, IRTF, recours", "Rétention administrative", "Garde à vue, interpellation"]}
+                  to="/competences/droit-des-etrangers"
+                />
+              </div>
+              <div className="reveal reveal-d4" style={{ display: "flex" }}>
+                <CompTeaser
+                  icon="tree"
+                  iconVariant=""
+                  title="Droit de la chasse"
+                  bullets={["Litiges relatifs à la chasse", "Tribunal de police", "Tribunal correctionnel"]}
+                  to="/competences/droit-de-la-chasse"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA strip — premier rendez-vous */}
-      <div style={{ padding: "0 0 32px" }}>
+      <div className="reveal" style={{ padding: "0 0 32px" }}>
         <div className="container">
           <Link to="/contact" className="card-dark" style={{ textDecoration: "none", display: "block" }}>
             <div className="row" style={{ justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
@@ -128,7 +137,7 @@ function PageHome() {
                   Présentation des faits, documents nécessaires, fixation des honoraires, vérification de la protection juridique ou de l'aide juridictionnelle.
                 </div>
               </div>
-              <div className="row row-sm" style={{ color: "var(--primary-soft)", fontSize: 14, gap: 8 }}>
+              <div className="row row-sm" style={{ color: "rgba(255,255,255,0.82)", fontSize: 14, gap: 8 }}>
                 Prendre rendez-vous <Icon name="arrow" size={16} />
               </div>
             </div>
@@ -200,7 +209,7 @@ function PageHome() {
 
 function CompTeaser({ icon, iconVariant, title, bullets, to }) {
   return (
-    <Link to={to} className="card" style={{ textDecoration: "none", display: "block", transition: "transform 0.2s, box-shadow 0.2s" }}>
+    <Link to={to} className="card" style={{ textDecoration: "none", display: "flex", flexDirection: "column", flex: 1 }}>
       <div className="stack stack-md" style={{ height: "100%" }}>
         <div className={"icon-tile " + (iconVariant ? "icon-tile-" + iconVariant : "")}>
           <Icon name={icon} />
@@ -217,7 +226,7 @@ function CompTeaser({ icon, iconVariant, title, bullets, to }) {
           ))}
         </ul>
         <div style={{ marginTop: "auto", paddingTop: 16 }}>
-          <span className="row row-sm" style={{ color: "var(--primary)", fontSize: 14, gap: 8, fontWeight: 400 }}>
+          <span className="comp-teaser-arrow row row-sm" style={{ color: "var(--primary)", fontSize: 14, gap: 8, fontWeight: 400 }}>
             En savoir plus <Icon name="arrow" size={14} />
           </span>
         </div>

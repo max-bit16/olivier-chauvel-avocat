@@ -42,7 +42,7 @@ function PagePublications() {
           <div className="grid grid-3">
             {ARTICLE_ORDER.map((slug, i) => {
               const meta = ARTICLE_META[slug];
-              const variants = ["", "cream", "ruby", "mint", "", "cream"];
+              const variants = ["", "cream", "", "stone", "", "cream"];
               return (
                 <Link key={slug} to={"/publications/" + slug} className="card" style={{ textDecoration: "none", display: "block", padding: 32 }}>
                   <div className="stack stack-md" style={{ height: "100%" }}>
@@ -438,9 +438,9 @@ function ArticleRoleAvocat() {
       </section>
       <section className="grid grid-2">
         <RoleCard num="01" icon="book" title="Information & Conseil" body="Analyse de la situation, exposé du droit applicable, identification des options procédurales et de leurs conséquences pratiques." />
-        <RoleCard num="02" icon="users" variant="ruby" title="Agent mandaté" body="L'avocat agit au nom et pour le compte de son client dans des opérations de recouvrement, de gestion ou de surendettement." />
+        <RoleCard num="02" icon="users" variant="" title="Agent mandaté" body="L'avocat agit au nom et pour le compte de son client dans des opérations de recouvrement, de gestion ou de surendettement." />
         <RoleCard num="03" icon="document" variant="cream" title="Rédacteur & Transacteur" body="Rédaction d'actes — contrats, statuts, pactes d'associés, transactions. La rédaction privilégie la sécurité juridique." />
-        <RoleCard num="04" icon="gavel" variant="mint" title="Défenseur" body="Représentation et plaidoirie devant l'ensemble des juridictions civiles, pénales et administratives." />
+        <RoleCard num="04" icon="gavel" variant="stone" title="Défenseur" body="Représentation et plaidoirie devant l'ensemble des juridictions civiles, pénales et administratives." />
       </section>
       <section className="stack stack-md">
         <h2>Une combinaison adaptée à chaque dossier</h2>

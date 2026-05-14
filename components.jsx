@@ -308,7 +308,7 @@ function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "d
     <section className={"hero-mesh" + (photo ? " has-photo" : "")}>
       {photo && (
         <div className="photo-hero">
-          <img src={photo} alt={photoAlt || ""} loading="eager" />
+          <img src={photo} alt={photoAlt || ""} loading="eager" fetchPriority="high" decoding="async" />
         </div>
       )}
       <GradientMesh variant={variant} />
