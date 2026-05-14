@@ -142,7 +142,7 @@ function Nav() {
               aria-haspopup="true"
               onClick={() => setOpenDropdown(openDropdown === "cabinet" ? null : "cabinet")}
               onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenDropdown(openDropdown === "cabinet" ? null : "cabinet"); } }}
-            >Cabinet ▾</span>
+            >Cabinet <svg className={"nav-chevron" + (openDropdown === "cabinet" ? " open" : "")} width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M2 3.5l3.5 4 3.5-4"/></svg></span>
             <div className="nav-dropdown-menu">
               <Link to="/cabinet/presentation" className="nav-dropdown-item">
                 Présentation
@@ -169,7 +169,7 @@ function Nav() {
               aria-haspopup="true"
               onClick={() => setOpenDropdown(openDropdown === "comp" ? null : "comp")}
               onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenDropdown(openDropdown === "comp" ? null : "comp"); } }}
-            >Compétences ▾</span>
+            >Compétences <svg className={"nav-chevron" + (openDropdown === "comp" ? " open" : "")} width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M2 3.5l3.5 4 3.5-4"/></svg></span>
             <div className="nav-dropdown-menu">
               {COMPETENCES.map((c) => (
                 <Link key={c.to} to={c.to} className="nav-dropdown-item">

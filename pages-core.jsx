@@ -14,10 +14,12 @@ function PageHome() {
         photo="rennes-palais.jpg"
         photoAlt="Palais de Rennes, siège des institutions judiciaires bretonnes"
       >
-        <div className="row row-md" style={{ gap: 32, marginTop: 24, flexWrap: "wrap", fontSize: 13, color: "var(--ink-mute)" }}>
-          <span className="row row-sm" style={{ gap: 8 }}><Icon name="pin" size={16} /> 6 rue Edith Cavell, Rennes</span>
-          <span className="row row-sm" style={{ gap: 8 }}><Icon name="phone" size={16} /> <a href="tel:0299660819" className="tnum" style={{ color: "inherit", textDecoration: "none" }}>02.99.66.08.19</a></span>
-          <span className="row row-sm" style={{ gap: 8 }}><Icon name="clock" size={16} /> Lun–Ven, sur rendez-vous</span>
+        <div className="row row-md" style={{ gap: 0, marginTop: 20, flexWrap: "wrap", fontSize: 14, color: "var(--ink-mute)", letterSpacing: "0.01em" }}>
+          <span>6 rue Edith Cavell, Rennes</span>
+          <span style={{ margin: "0 14px", opacity: 0.35 }}>·</span>
+          <a href="tel:0299660819" className="tnum" style={{ color: "inherit", textDecoration: "none" }}>02.99.66.08.19</a>
+          <span style={{ margin: "0 14px", opacity: 0.35 }}>·</span>
+          <span>Lun–Ven, sur rendez-vous</span>
         </div>
       </Hero>
 
@@ -217,10 +219,8 @@ function CompTeaser({ icon, iconVariant, title, bullets, to }) {
         <div className="t-heading-md" style={{ fontWeight: 400 }}>{title}</div>
         <ul className="stack stack-sm muted" style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 14 }}>
           {bullets.map((b, i) => (
-            <li key={i} className="row row-sm" style={{ alignItems: "flex-start", gap: 8 }}>
-              <span style={{ color: "var(--primary)", marginTop: 6 }}>
-                <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="2.5" fill="currentColor"/></svg>
-              </span>
+            <li key={i} className="row row-sm" style={{ alignItems: "baseline", gap: 8 }}>
+              <span style={{ color: "var(--ink-mute)", fontFamily: "'DM Sans', sans-serif", fontSize: 13, flexShrink: 0, userSelect: "none" }}>–</span>
               <span>{b}</span>
             </li>
           ))}

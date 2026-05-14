@@ -485,6 +485,8 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 }
 .nav-link:hover { color: var(--primary); background: rgba(27,45,71,0.05); }
 .nav-link.active { color: var(--primary); }
+.nav-chevron { display: inline-block; vertical-align: middle; margin-left: 3px; margin-bottom: 1px; transition: transform 0.22s var(--ease); }
+.nav-chevron.open { transform: rotate(180deg); }
 
 .nav-dropdown {
   position: relative;

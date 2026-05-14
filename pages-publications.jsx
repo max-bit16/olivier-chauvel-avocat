@@ -22,7 +22,7 @@ function PagePublications() {
       <Hero
         eyebrow="Publications"
         title="Comprendre le droit, sans jargon."
-        subtitle="Six articles pour éclairer le fonctionnement de la justice et la relation avec votre avocat. Mise à jour le 18 mars 2022."
+        subtitle="Six articles pour éclairer le fonctionnement de la justice et la relation avec votre avocat."
         variant="default"
         sidePhoto="petal-elegance.png"
       />
