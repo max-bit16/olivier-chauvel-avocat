@@ -77,6 +77,25 @@ function ArticleShell({ slug, eyebrow, children }) {
   const prev = idx > 0 ? ARTICLE_ORDER[idx - 1] : null;
   const next = idx < ARTICLE_ORDER.length - 1 ? ARTICLE_ORDER[idx + 1] : null;
 
+  useEffect(() => {
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": meta.title,
+      "author": { "@type": "Person", "name": "Maître Olivier Chauvel" },
+      "publisher": { "@type": "LegalService", "name": "Cabinet Maître Olivier Chauvel" },
+      "datePublished": "2018-09-04",
+      "dateModified": "2022-03-18",
+      "url": "https://olivierchauvel-avocat.fr/publications/" + slug
+    };
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "article-json-ld";
+    el.text = JSON.stringify(data);
+    document.head.appendChild(el);
+    return () => { const s = document.getElementById("article-json-ld"); if (s) s.remove(); };
+  }, [slug]);
+
   return (
     <PageShell>
       <Hero

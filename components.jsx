@@ -134,16 +134,17 @@ function Nav() {
             onMouseLeave={() => setOpenDropdown(null)}
             onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setOpenDropdown(null); }}
           >
-            <span
+            <button
+              type="button"
+              id="nav-trigger-cabinet"
               className={"nav-link" + (isActive("/cabinet") ? " active" : "")}
-              role="button"
-              tabIndex={0}
               aria-expanded={openDropdown === "cabinet"}
               aria-haspopup="true"
+              aria-controls="nav-menu-cabinet"
               onClick={() => setOpenDropdown(openDropdown === "cabinet" ? null : "cabinet")}
               onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenDropdown(openDropdown === "cabinet" ? null : "cabinet"); } }}
-            >Cabinet <svg className={"nav-chevron" + (openDropdown === "cabinet" ? " open" : "")} width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M2 3.5l3.5 4 3.5-4"/></svg></span>
-            <div className="nav-dropdown-menu">
+            >Cabinet <svg className={"nav-chevron" + (openDropdown === "cabinet" ? " open" : "")} width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M2 3.5l3.5 4 3.5-4"/></svg></button>
+            <div id="nav-menu-cabinet" className="nav-dropdown-menu">
               <Link to="/cabinet/presentation" className="nav-dropdown-item">
                 Présentation
                 <div className="desc">Maître Chauvel, son parcours et ses fonctions</div>
@@ -161,16 +162,17 @@ function Nav() {
             onMouseLeave={() => setOpenDropdown(null)}
             onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setOpenDropdown(null); }}
           >
-            <span
+            <button
+              type="button"
+              id="nav-trigger-comp"
               className={"nav-link" + (isActive("/competences") ? " active" : "")}
-              role="button"
-              tabIndex={0}
               aria-expanded={openDropdown === "comp"}
               aria-haspopup="true"
+              aria-controls="nav-menu-comp"
               onClick={() => setOpenDropdown(openDropdown === "comp" ? null : "comp")}
               onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenDropdown(openDropdown === "comp" ? null : "comp"); } }}
-            >Compétences <svg className={"nav-chevron" + (openDropdown === "comp" ? " open" : "")} width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M2 3.5l3.5 4 3.5-4"/></svg></span>
-            <div className="nav-dropdown-menu">
+            >Compétences <svg className={"nav-chevron" + (openDropdown === "comp" ? " open" : "")} width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M2 3.5l3.5 4 3.5-4"/></svg></button>
+            <div id="nav-menu-comp" className="nav-dropdown-menu">
               {COMPETENCES.map((c) => (
                 <Link key={c.to} to={c.to} className="nav-dropdown-item">
                   {c.label}
@@ -204,7 +206,7 @@ function Nav() {
         </div>
       </div>
 
-      <div id="nav-mobile-panel" className={"nav-mobile-panel" + (mobileOpen ? " open" : "")} aria-hidden={!mobileOpen}>
+      <div id="nav-mobile-panel" className={"nav-mobile-panel" + (mobileOpen ? " open" : "")} aria-hidden={mobileOpen ? undefined : "true"}>
         <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 4 }}>
           <button
             onClick={() => setMobileOpen(false)}
@@ -314,7 +316,7 @@ function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "d
       <GradientMesh variant={variant} />
       {sidePhoto && (
         <div className="hero-photo-side">
-          <img src={sidePhoto} alt={sidePhotoAlt || ""} aria-hidden="true" loading="lazy" />
+          <img src={sidePhoto} alt={sidePhotoAlt || ""} aria-hidden="true" loading="lazy" decoding="async" />
         </div>
       )}
       <div className="hero-mesh-inner">

@@ -95,11 +95,11 @@ function PageHome() {
               </div>
               <div className="reveal reveal-d2" style={{ display: "flex" }}>
                 <CompTeaser
-                  icon="gavel"
-                  iconVariant="cream"
-                  title="Droit pénal"
-                  bullets={["Garde à vue, instruction", "Tribunal correctionnel, assises", "Défense des victimes"]}
-                  to="/competences/droit-penal"
+                  icon="tree"
+                  iconVariant=""
+                  title="Droit de la chasse"
+                  bullets={["Litiges relatifs à la chasse", "Tribunal de police", "Tribunal correctionnel"]}
+                  to="/competences/droit-de-la-chasse"
                 />
               </div>
               <div className="reveal reveal-d3" style={{ display: "flex" }}>
@@ -113,11 +113,11 @@ function PageHome() {
               </div>
               <div className="reveal reveal-d4" style={{ display: "flex" }}>
                 <CompTeaser
-                  icon="tree"
-                  iconVariant=""
-                  title="Droit de la chasse"
-                  bullets={["Litiges relatifs à la chasse", "Tribunal de police", "Tribunal correctionnel"]}
-                  to="/competences/droit-de-la-chasse"
+                  icon="gavel"
+                  iconVariant="cream"
+                  title="Droit pénal"
+                  bullets={["Garde à vue, instruction", "Tribunal correctionnel, assises", "Défense des victimes"]}
+                  to="/competences/droit-penal"
                 />
               </div>
             </div>
