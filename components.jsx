@@ -108,6 +108,9 @@ function Nav() {
   const path = useHashRoute();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const panelRef = useRef(null);
+  const openerRef = useRef(null);
+  const wasOpenRef = useRef(false);
 
   useEffect(() => setMobileOpen(false), [path]);
   useEffect(() => {
@@ -115,6 +118,32 @@ function Nav() {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
+
+  // Focus trap: trap Tab inside panel when open, return focus on close
+  useEffect(() => {
+    if (mobileOpen) {
+      wasOpenRef.current = true;
+      const panel = panelRef.current;
+      if (!panel) return;
+      const getFocusable = () =>
+        Array.from(panel.querySelectorAll("a[href], button:not([disabled])"));
+      requestAnimationFrame(() => { const els = getFocusable(); if (els.length) els[0].focus(); });
+      const onTab = (e) => {
+        if (e.key !== "Tab") return;
+        const els = getFocusable();
+        if (!els.length) return;
+        const first = els[0];
+        const last = els[els.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      };
+      document.addEventListener("keydown", onTab);
+      return () => document.removeEventListener("keydown", onTab);
+    } else if (wasOpenRef.current) {
+      wasOpenRef.current = false;
+      openerRef.current && openerRef.current.focus();
+    }
+  }, [mobileOpen]);
 
   const isActive = (prefix) => path === prefix || path.startsWith(prefix + "/");
 
@@ -193,6 +222,7 @@ function Nav() {
         <div className="row row-md" style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <Link to="/contact" className="btn btn-primary btn-sm nav-cta-desktop">Prendre rendez-vous</Link>
           <button
+            ref={openerRef}
             className="nav-mobile-toggle"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
@@ -206,7 +236,7 @@ function Nav() {
         </div>
       </div>
 
-      <div id="nav-mobile-panel" className={"nav-mobile-panel" + (mobileOpen ? " open" : "")} aria-hidden={mobileOpen ? undefined : "true"}>
+      <div ref={panelRef} id="nav-mobile-panel" className={"nav-mobile-panel" + (mobileOpen ? " open" : "")} aria-hidden={mobileOpen ? undefined : "true"}>
         <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 4 }}>
           <button
             onClick={() => setMobileOpen(false)}
