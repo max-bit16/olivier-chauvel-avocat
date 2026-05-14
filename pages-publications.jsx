@@ -31,12 +31,11 @@ function PagePublications() {
         <div className="container">
           <Breadcrumb items={[{ label: "Accueil", to: "/" }, { label: "Publications" }]} />
 
-          <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 24, marginTop: 32, marginBottom: 32 }}>
+          <div style={{ marginTop: 32, marginBottom: 32 }}>
             <div className="stack stack-md">
               <div className="eyebrow">6 articles</div>
               <div className="t-display-lg">Les essentiels.</div>
             </div>
-            <div className="t-caption">Publiés le 04/09/2018 · Mis à jour le 18/03/2022</div>
           </div>
 
           <div className="grid grid-3">

@@ -92,153 +92,79 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
   );
 }
 
-// Decorative side composition for competence pages
+// Decorative side composition — process timelines for competence pages
 function SideComposition({ variant }) {
-  if (variant === "famille") {
-    return (
-      <div className="mockup-dark" style={{ padding: 32 }}>
-        <div className="stack stack-md">
-          <div className="row" style={{ justifyContent: "space-between", alignItems: "center" }}>
-            <div className="pill pill-dark">Procédure de divorce</div>
-            <div className="t-caption" style={{ color: "rgba(255,255,255,0.5)" }}>Suivi en temps réel</div>
-          </div>
-          <div className="stack stack-sm">
-            <Phase label="Premier rendez-vous" status="done" />
-            <Phase label="Convention rédigée" status="done" />
-            <Phase label="Dépôt au notaire" status="current" />
-            <Phase label="Homologation" status="pending" />
-          </div>
-          <hr style={{ border: 0, height: 1, background: "rgba(255,255,255,0.08)" }} />
-          <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
-            <div className="t-caption" style={{ color: "rgba(255,255,255,0.5)" }}>Prestation compensatoire</div>
-            <div className="tnum" style={{ fontSize: 20, fontWeight: 300, color: "white", letterSpacing: "-0.4px" }}>32 400,00 €</div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (variant === "corporel") {
-    return (
-      <div className="mockup-dark" style={{ padding: 32 }}>
-        <div className="stack stack-md">
-          <div className="row" style={{ justifyContent: "space-between" }}>
-            <div className="pill pill-dark">Préjudice corporel</div>
-            <div className="t-caption" style={{ color: "rgba(255,255,255,0.5)" }}>Dossier #2024-1287</div>
-          </div>
-          <div className="stack stack-sm tnum" style={{ fontSize: 14 }}>
-            <StatRow label="ITT" value="42 jours" />
-            <StatRow label="DFTP (25%)" value="120 jours" />
-            <StatRow label="DFTP (10%)" value="180 jours" />
-            <StatRow label="AIPP" value="8 %" />
-            <StatRow label="Souffrances endurées" value="4/7" />
-          </div>
-          <hr style={{ border: 0, height: 1, background: "rgba(255,255,255,0.08)" }} />
-          <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
-            <div className="t-caption" style={{ color: "rgba(255,255,255,0.5)" }}>Indemnisation totale</div>
-            <div className="tnum" style={{ fontSize: 22, fontWeight: 300, color: "white", letterSpacing: "-0.4px" }}>78 230,00 €</div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (variant === "chasse") {
-    return (
-      <div className="card-cream" style={{ padding: 32 }}>
-        <div className="stack stack-md">
-          <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>Litige type</div>
-          <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Infraction au code de l'environnement</div>
-          <div className="stack stack-sm" style={{ color: "var(--cream-text-mid)", fontSize: 14 }}>
-            <RowItem label="Juridiction" value="Tribunal de police" />
-            <RowItem label="Quantum" value="Contravention 5e classe" />
-            <RowItem label="Procédure" value="Comparution sur PV" />
-            <RowItem label="Risque" value="Suspension du permis de chasser" />
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (variant === "etrangers") {
-    return (
-      <div className="mockup-dark" style={{ padding: 32 }}>
-        <div className="stack stack-md">
-          <div className="pill pill-dark">Recours OQTF</div>
-          <div className="stack stack-sm">
-            <Phase label="Notification de l'OQTF" status="done" />
-            <Phase label="Saisine du Tribunal administratif" status="current" />
-            <Phase label="Audience (délai 48h–6 sem.)" status="pending" />
-            <Phase label="Décision du juge" status="pending" />
-          </div>
-          <hr style={{ border: 0, height: 1, background: "rgba(255,255,255,0.08)" }} />
-          <div className="t-caption" style={{ color: "rgba(255,255,255,0.6)" }}>
-            Le délai de recours dépend du type de mesure (48h en rétention, 15 jours, 30 jours…).
-            Une réactivité immédiate est essentielle.
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (variant === "penal") {
-    return (
-      <div className="mockup-dark" style={{ padding: 32 }}>
-        <div className="stack stack-md">
-          <div className="row" style={{ justifyContent: "space-between" }}>
-            <div className="pill pill-dark">Juridictions répressives</div>
-            <div className="t-caption" style={{ color: "rgba(255,255,255,0.5)" }}>Compétences</div>
-          </div>
-          <div className="stack stack-sm" style={{ fontSize: 14, color: "rgba(255,255,255,0.85)" }}>
-            <JurRow label="Tribunal de police" right="Contraventions" />
-            <JurRow label="Tribunal correctionnel" right="Délits — jusqu'à 10 ans" />
-            <JurRow label="Cour d'assises" right="Crimes — min. 10 ans" />
-            <JurRow label="Juge d'instruction" right="Mise en examen" />
-            <JurRow label="JLD" right="Détention provisoire" />
-          </div>
-        </div>
-      </div>
-    );
-  }
-  return null;
-}
+  const timelines = {
+    famille: {
+      label: "La procédure en 4 étapes",
+      steps: [
+        { n: "01", title: "Premier rendez-vous", desc: "Analyse de la situation matrimoniale et évaluation des droits de chaque époux." },
+        { n: "02", title: "Rédaction de la convention", desc: "Accord sur les conditions du divorce ; acte notarié si un bien immobilier est concerné." },
+        { n: "03", title: "Dépôt au notaire", desc: "Enregistrement de la convention par acte authentique." },
+        { n: "04", title: "Homologation", desc: "Contrôle par le juge aux affaires familiales et prononcé du divorce." },
+      ]
+    },
+    corporel: {
+      label: "La procédure en 4 étapes",
+      steps: [
+        { n: "01", title: "Analyse du dossier", desc: "Examen des pièces médicales et identification des postes de préjudice indemnisables." },
+        { n: "02", title: "Expertise médicale", desc: "Assistance lors de l'expertise amiable ou judiciaire face au médecin conseil adverse." },
+        { n: "03", title: "Évaluation du préjudice", desc: "Chiffrage complet : ITT, AIPP, souffrances endurées, préjudice esthétique et d'agrément." },
+        { n: "04", title: "Négociation ou procédure", desc: "Accord amiable avec l'assureur ou saisine de la juridiction compétente (CIVI, SARVI)." },
+      ]
+    },
+    chasse: {
+      label: "La procédure en 3 étapes",
+      steps: [
+        { n: "01", title: "Analyse de la situation", desc: "Nature de l'infraction, modalités procédurales, risques pour le permis de chasser." },
+        { n: "02", title: "Préparation de la défense", desc: "Rassemblement des éléments probants, étude des textes du code de l'environnement." },
+        { n: "03", title: "Audience", desc: "Représentation devant le tribunal de police ou correctionnel selon la qualification retenue." },
+      ]
+    },
+    etrangers: {
+      label: "Le recours OQTF en 4 étapes",
+      steps: [
+        { n: "01", title: "Notification de l'OQTF", desc: "Délai de recours : 48h en rétention, 15 ou 30 jours selon la nature de la mesure." },
+        { n: "02", title: "Saisine du tribunal administratif", desc: "Dépôt de la requête en référé liberté ou au fond selon les délais applicables." },
+        { n: "03", title: "Audience", desc: "Délai légal de jugement de 48h à 6 semaines. Une réactivité immédiate est essentielle." },
+        { n: "04", title: "Décision du juge", desc: "Annulation ou confirmation de la mesure. Possibilité d'appel devant la Cour administrative." },
+      ]
+    },
+    penal: {
+      label: "La procédure en 4 étapes",
+      steps: [
+        { n: "01", title: "Garde à vue", desc: "Assistance immédiate, entretien confidentiel de 30 minutes, présence aux auditions." },
+        { n: "02", title: "Instruction ou convocation", desc: "Accès au dossier, assistance lors de la mise en examen, discussion du contrôle judiciaire." },
+        { n: "03", title: "Audience de jugement", desc: "Plaidoirie devant le tribunal correctionnel ou la cour d'assises selon la qualification." },
+        { n: "04", title: "Voies de recours", desc: "Appel, pourvoi en cassation, aménagement de peine selon la décision rendue." },
+      ]
+    }
+  };
 
-function Phase({ label, status }) {
-  const dot = {
-    done: { bg: "var(--primary-soft)", inner: "white" },
-    current: { bg: "white", inner: "var(--primary)" },
-    pending: { bg: "rgba(255,255,255,0.15)", inner: "transparent" },
-  }[status];
+  const data = timelines[variant];
+  if (!data) return null;
+
   return (
-    <div className="row row-sm" style={{ gap: 12 }}>
-      <div style={{ width: 16, height: 16, borderRadius: "50%", background: dot.bg, display: "grid", placeItems: "center" }}>
-        {status === "current" && <div style={{ width: 6, height: 6, borderRadius: "50%", background: dot.inner }} />}
-        {status === "done" && <Icon name="check" size={10} />}
+    <div className="mockup" style={{ padding: 32 }}>
+      <div className="stack stack-md">
+        <div className="eyebrow">{data.label}</div>
+        <div style={{ paddingTop: 8 }}>
+          {data.steps.map((step, i) => (
+            <div key={i} style={{ display: "grid", gridTemplateColumns: "32px 1fr", gap: "0 16px", position: "relative" }}>
+              {i < data.steps.length - 1 && (
+                <div style={{ position: "absolute", left: 15, top: 32, bottom: 0, width: 1, background: "var(--hairline)" }} />
+              )}
+              <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--primary)", color: "white", display: "grid", placeItems: "center", fontSize: 11, fontWeight: 500, letterSpacing: "0.02em", flexShrink: 0, position: "relative", zIndex: 1 }}>
+                {step.n}
+              </div>
+              <div className="stack" style={{ paddingBottom: i < data.steps.length - 1 ? 24 : 0 }}>
+                <div className="t-body-md" style={{ fontWeight: 400, color: "var(--ink)", lineHeight: 1.4 }}>{step.title}</div>
+                <div className="t-caption" style={{ color: "var(--ink-mute)", lineHeight: 1.5, marginTop: 4 }}>{step.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-      <div style={{ fontSize: 14, color: status === "pending" ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.92)" }}>{label}</div>
-    </div>
-  );
-}
-
-function StatRow({ label, value }) {
-  return (
-    <div className="row" style={{ justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-      <span style={{ color: "rgba(255,255,255,0.7)" }}>{label}</span>
-      <span style={{ color: "white", fontWeight: 400 }}>{value}</span>
-    </div>
-  );
-}
-
-function RowItem({ label, value }) {
-  return (
-    <div className="row" style={{ justifyContent: "space-between", padding: "6px 0", borderBottom: "1px solid rgba(107,72,24,0.15)" }}>
-      <span style={{ color: "var(--cream-accent)", fontWeight: 400 }}>{label}</span>
-      <span style={{ color: "var(--cream-text-dark)" }}>{value}</span>
-    </div>
-  );
-}
-
-function JurRow({ label, right }) {
-  return (
-    <div className="row" style={{ justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-      <span style={{ color: "white", fontWeight: 400 }}>{label}</span>
-      <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 13 }}>{right}</span>
     </div>
   );
 }

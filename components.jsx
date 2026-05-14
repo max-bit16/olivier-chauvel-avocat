@@ -249,7 +249,7 @@ function Footer() {
             </div>
             <div className="t-body-md muted" style={{ maxWidth: 280 }}>
               Cabinet d'avocat indépendant à Rennes. Conseil, rédaction et représentation
-              en droit de la famille, dommage corporel et droit pénal.
+              en droit de la famille, dommage corporel, droit pénal, droit des étrangers et droit de la chasse.
             </div>
           </div>
 
@@ -258,7 +258,7 @@ function Footer() {
             <ul>
               <li><Link to="/cabinet/presentation">Présentation</Link></li>
               <li><Link to="/cabinet/honoraires">Honoraires</Link></li>
-              <li><Link to="/contact">Prendre rendez-vous</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
 
@@ -305,7 +305,7 @@ function Footer() {
 }
 
 // ----- Hero -----
-function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "default", photo, photoAlt, sidePhoto, sidePhotoAlt, children }) {
+function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "default", photo, photoAlt, sidePhoto, sidePhotoAlt, compact = false, children }) {
   return (
     <section className={"hero-mesh" + (photo ? " has-photo" : "")}>
       {photo && (
@@ -319,7 +319,7 @@ function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "d
           <img src={sidePhoto} alt={sidePhotoAlt || ""} aria-hidden="true" loading="lazy" decoding="async" />
         </div>
       )}
-      <div className="hero-mesh-inner">
+      <div className={"hero-mesh-inner" + (compact ? " hero-mesh-inner-compact" : "")}>
         <div className="container">
           <div style={{ maxWidth: 800, position: "relative", zIndex: 3 }} className="stack stack-lg">
             {eyebrow && <div className="eyebrow fade-up">{eyebrow}</div>}

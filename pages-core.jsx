@@ -60,7 +60,37 @@ function PageHome() {
         </div>
       </section>
 
-      {/* Compétences preview */}
+      {/* Philosophy section */}
+      <section className="section-sm" style={{ borderBottom: "1px solid var(--hairline)" }}>
+        <div className="container">
+          <div className="grid grid-2 reveal" style={{ gap: 64, alignItems: "center" }}>
+            <blockquote style={{ margin: 0, padding: "0 0 0 28px", borderLeft: "2px solid var(--gold)" }}>
+              <p className="t-display-lg" style={{ margin: 0, fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 300, lineHeight: 1.3, color: "var(--ink)" }}>
+                "Disponible, rigoureux, transparent sur les honoraires."
+              </p>
+              <footer style={{ marginTop: 16, fontSize: 13, color: "var(--ink-mute)", fontStyle: "normal" }}>
+                — Maître Olivier Chauvel
+              </footer>
+            </blockquote>
+            <div className="stack stack-md">
+              <div className="t-body-lg" style={{ color: "var(--ink-secondary)" }}>
+                Le cabinet accompagne chaque client avec une attention constante à la clarté des échanges
+                et à la maîtrise des coûts. Chaque dossier bénéficie d'une analyse complète dès le premier rendez-vous.
+              </div>
+              <div className="t-body-md" style={{ color: "var(--ink-secondary)" }}>
+                Les solutions amiables sont privilégiées chaque fois que les intérêts du client le permettent.
+                Lorsqu'une procédure judiciaire est nécessaire, le cabinet assure une représentation rigoureuse
+                devant l'ensemble des juridictions civiles, pénales et administratives de Rennes.
+              </div>
+              <div>
+                <Link to="/contact" className="btn btn-primary">Prendre rendez-vous</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Compétences preview — 3 domaines principaux */}
       <section className="section section-soft" style={{ position: "relative", overflow: "hidden" }}>
         <div className="deco-side-photo" style={{ backgroundImage: "url('ethereal-forms.png')" }} aria-hidden="true"></div>
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
@@ -68,10 +98,10 @@ function PageHome() {
             <div className="row" style={{ justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24 }}>
               <SectionTitle
                 eyebrow="Domaines d'intervention"
-                title="Cinq compétences principales."
+                title="Trois compétences principales."
                 subtitle="Le cabinet intervient en conseil, rédaction et représentation devant l'ensemble des juridictions civiles, pénales et administratives."
               />
-              <Link to="/contact" className="btn btn-secondary">Discuter de votre dossier</Link>
+              <Link to="/competences/droit-de-la-famille" className="btn btn-secondary">Voir toutes les compétences</Link>
             </div>
 
             <div className="grid grid-3">
@@ -95,24 +125,6 @@ function PageHome() {
               </div>
               <div className="reveal reveal-d2" style={{ display: "flex" }}>
                 <CompTeaser
-                  icon="tree"
-                  iconVariant=""
-                  title="Droit de la chasse"
-                  bullets={["Litiges relatifs à la chasse", "Tribunal de police", "Tribunal correctionnel"]}
-                  to="/competences/droit-de-la-chasse"
-                />
-              </div>
-              <div className="reveal reveal-d3" style={{ display: "flex" }}>
-                <CompTeaser
-                  icon="passport"
-                  iconVariant="stone"
-                  title="Droit des étrangers"
-                  bullets={["OQTF, IRTF, recours", "Rétention administrative", "Garde à vue, interpellation"]}
-                  to="/competences/droit-des-etrangers"
-                />
-              </div>
-              <div className="reveal reveal-d4" style={{ display: "flex" }}>
-                <CompTeaser
                   icon="gavel"
                   iconVariant="cream"
                   title="Droit pénal"
@@ -126,7 +138,7 @@ function PageHome() {
       </section>
 
       {/* CTA strip — premier rendez-vous */}
-      <div className="reveal" style={{ padding: "0 0 32px" }}>
+      <div className="reveal" style={{ padding: "32px 0" }}>
         <div className="container">
           <Link to="/contact" className="card-dark" style={{ textDecoration: "none", display: "block" }}>
             <div className="row" style={{ justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
@@ -140,15 +152,15 @@ function PageHome() {
                 </div>
               </div>
               <div className="row row-sm" style={{ color: "rgba(255,255,255,0.82)", fontSize: 14, gap: 8 }}>
-                Prendre rendez-vous <Icon name="arrow" size={16} />
+                Contacter le cabinet <Icon name="arrow" size={16} />
               </div>
             </div>
           </Link>
         </div>
       </div>
 
-      {/* Quote / cream band */}
-      <section className="section-sm">
+      {/* Legal aid band */}
+      <section className="section-sm" style={{ paddingBottom: 96 }}>
         <div className="container">
           <div className="card-cream reveal" style={{ padding: 48 }}>
             <div className="grid grid-2" style={{ gap: 48, alignItems: "center" }}>
@@ -169,37 +181,6 @@ function PageHome() {
                 <p style={{ margin: 0, fontSize: 12, color: "var(--cream-text-mid)", lineHeight: 1.5 }}>
                   Seuils en vigueur au 1er janvier {new Date().getFullYear()}. Ces plafonds sont révisés annuellement par décret.
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA band */}
-      <section className="section-sm" style={{ paddingBottom: 96 }}>
-        <div className="container">
-          <div className="card-dark" style={{ padding: 48, position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.6 }}>
-              <GradientMesh variant="cool" />
-            </div>
-            <div style={{ position: "relative", zIndex: 2 }} className="grid grid-2">
-              <div className="stack stack-md">
-                <div className="eyebrow eyebrow-dark">Premier rendez-vous</div>
-                <div className="t-display-lg" style={{ color: "white" }}>Présentez-nous votre dossier.</div>
-                <div className="t-body-md" style={{ color: "rgba(255,255,255,0.72)", maxWidth: 460 }}>
-                  Sur rendez-vous, du lundi au vendredi. Métro République. Parkings Kleber, Hoche, Vilaine à proximité.
-                </div>
-              </div>
-              <div className="stack stack-md" style={{ justifyContent: "center" }}>
-                <div className="row row-md" style={{ gap: 12, flexWrap: "wrap" }}>
-                  <Link to="/contact" className="btn btn-primary btn-lg">Prendre rendez-vous</Link>
-                  <a href="tel:0299660819" className="btn btn-secondary btn-lg" style={{ background: "transparent", color: "white", borderColor: "rgba(255,255,255,0.3)" }}>
-                    <Icon name="phone" size={16} /> <span className="tnum">02.99.66.08.19</span>
-                  </a>
-                </div>
-                <div className="t-caption" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  Lun–Ven · 9h–12h / 13h45–19h · Sur RDV uniquement
-                </div>
               </div>
             </div>
           </div>
@@ -564,14 +545,47 @@ function CheckLine({ children, dark }) {
 // CONTACT
 // ============================================================
 function PageContact() {
-  const [formState, setFormState] = useState({ submitted: false });
+  const [formState, setFormState] = useState({ submitted: false, loading: false });
   const [values, setValues] = useState({
     nom: "", prenom: "", telephone: "", email: "", domaine: "", message: ""
   });
-  const onChange = (k) => (e) => setValues((v) => ({ ...v, [k]: e.target.value }));
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
+  const validate = (name, value) => {
+    const required = ["nom", "prenom", "telephone", "email", "message"];
+    if (required.includes(name) && !value.trim()) return "Ce champ est requis.";
+    if (name === "telephone" && value.trim() && !/^[\d\s.+\-() ]{9,}$/.test(value.trim())) {
+      return "Format invalide (ex : 06 12 34 56 78).";
+    }
+    if (name === "email" && value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      return "Adresse e-mail invalide.";
+    }
+    return null;
+  };
+
+  const onChange = (k) => (e) => {
+    const val = e.target.value;
+    setValues((v) => ({ ...v, [k]: val }));
+    if (touched[k]) setErrors((err) => ({ ...err, [k]: validate(k, val) }));
+  };
+
+  const onBlur = (k) => () => {
+    setTouched((t) => ({ ...t, [k]: true }));
+    setErrors((err) => ({ ...err, [k]: validate(k, values[k]) }));
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    setFormState({ submitted: true });
+    const required = ["nom", "prenom", "telephone", "email", "message"];
+    const newErrors = {};
+    const newTouched = {};
+    required.forEach((k) => { newTouched[k] = true; newErrors[k] = validate(k, values[k]); });
+    setTouched(newTouched);
+    setErrors(newErrors);
+    if (Object.values(newErrors).some(Boolean)) return;
+    setFormState({ loading: true });
+    setTimeout(() => setFormState({ submitted: true }), 1400);
   };
 
   return (
@@ -581,6 +595,7 @@ function PageContact() {
         title="Prenez rendez-vous avec le cabinet."
         subtitle="Sur rendez-vous, du lundi au vendredi. Le cabinet est accessible en métro (station République) et par les parkings Kleber, Hoche et Vilaine."
         variant="cool"
+        compact
       />
 
       <div className="banner-photo">
@@ -602,44 +617,51 @@ function PageContact() {
                   <div className="t-body-md muted">
                     Le cabinet vous recontactera dans les meilleurs délais à l'adresse <strong style={{ color: "var(--ink)" }}>{values.email}</strong>.
                   </div>
+                  <div className="t-body-md" style={{ color: "var(--ink-secondary)", fontSize: 14 }}>
+                    Nous vous répondons sous 24h ouvrées.
+                  </div>
                   <div>
-                    <button className="btn btn-secondary" onClick={() => { setFormState({}); setValues({ nom: "", prenom: "", telephone: "", email: "", domaine: "", message: "" }); }}>
+                    <button className="btn btn-secondary" onClick={() => { setFormState({}); setErrors({}); setTouched({}); setValues({ nom: "", prenom: "", telephone: "", email: "", domaine: "", message: "" }); }}>
                       Envoyer une autre demande
                     </button>
                   </div>
                 </div>
               ) : (
-                <form className="stack stack-lg" onSubmit={onSubmit}>
+                <form className="stack stack-lg" onSubmit={onSubmit} noValidate>
                   <div className="stack stack-sm">
                     <div className="eyebrow">Formulaire</div>
                     <div className="t-display-md">Décrivez-nous votre demande.</div>
                   </div>
 
                   <div className="grid grid-2" style={{ gap: 16 }}>
-                    <div className="field">
+                    <div className={"field" + (errors.nom && touched.nom ? " has-error" : "")}>
                       <label htmlFor="contact-nom">Nom *</label>
-                      <input id="contact-nom" required value={values.nom} onChange={onChange("nom")} placeholder="Dupont" />
+                      <input id="contact-nom" autoComplete="family-name" value={values.nom} onChange={onChange("nom")} onBlur={onBlur("nom")} placeholder="Dupont" />
+                      {errors.nom && touched.nom && <span className="field-error" role="alert">{errors.nom}</span>}
                     </div>
-                    <div className="field">
+                    <div className={"field" + (errors.prenom && touched.prenom ? " has-error" : "")}>
                       <label htmlFor="contact-prenom">Prénom *</label>
-                      <input id="contact-prenom" required value={values.prenom} onChange={onChange("prenom")} placeholder="Marie" />
+                      <input id="contact-prenom" autoComplete="given-name" value={values.prenom} onChange={onChange("prenom")} onBlur={onBlur("prenom")} placeholder="Marie" />
+                      {errors.prenom && touched.prenom && <span className="field-error" role="alert">{errors.prenom}</span>}
                     </div>
                   </div>
 
                   <div className="grid grid-2" style={{ gap: 16 }}>
-                    <div className="field">
+                    <div className={"field" + (errors.telephone && touched.telephone ? " has-error" : "")}>
                       <label htmlFor="contact-telephone">Téléphone *</label>
-                      <input id="contact-telephone" required type="tel" className="tnum" value={values.telephone} onChange={onChange("telephone")} placeholder="06 12 34 56 78" />
+                      <input id="contact-telephone" type="tel" autoComplete="tel" className="tnum" value={values.telephone} onChange={onChange("telephone")} onBlur={onBlur("telephone")} placeholder="06 12 34 56 78" />
+                      {errors.telephone && touched.telephone && <span className="field-error" role="alert">{errors.telephone}</span>}
                     </div>
-                    <div className="field">
+                    <div className={"field" + (errors.email && touched.email ? " has-error" : "")}>
                       <label htmlFor="contact-email">E-mail *</label>
-                      <input id="contact-email" required type="email" value={values.email} onChange={onChange("email")} placeholder="marie.dupont@email.fr" />
+                      <input id="contact-email" type="email" autoComplete="email" value={values.email} onChange={onChange("email")} onBlur={onBlur("email")} placeholder="marie.dupont@email.fr" />
+                      {errors.email && touched.email && <span className="field-error" role="alert">{errors.email}</span>}
                     </div>
                   </div>
 
                   <div className="field">
                     <label htmlFor="contact-domaine">Domaine juridique</label>
-                    <select id="contact-domaine" value={values.domaine} onChange={onChange("domaine")}>
+                    <select id="contact-domaine" autoComplete="off" value={values.domaine} onChange={onChange("domaine")}>
                       <option value="">— Sélectionner —</option>
                       <option>Droit de la famille</option>
                       <option>Dommage corporel</option>
@@ -650,9 +672,10 @@ function PageContact() {
                     </select>
                   </div>
 
-                  <div className="field">
+                  <div className={"field" + (errors.message && touched.message ? " has-error" : "")}>
                     <label htmlFor="contact-message">Votre message *</label>
-                    <textarea id="contact-message" required value={values.message} onChange={onChange("message")} placeholder="Présentez brièvement votre situation. Aucun document confidentiel ne doit être envoyé via ce formulaire." />
+                    <textarea id="contact-message" autoComplete="off" value={values.message} onChange={onChange("message")} onBlur={onBlur("message")} placeholder="Présentez brièvement votre situation. Aucun document confidentiel ne doit être envoyé via ce formulaire." />
+                    {errors.message && touched.message && <span className="field-error" role="alert">{errors.message}</span>}
                   </div>
 
                   <div className="row" style={{ justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
@@ -660,7 +683,17 @@ function PageContact() {
                       Les informations envoyées via ce formulaire sont strictement confidentielles.
                       Aucun document sensible ne doit y figurer.
                     </div>
-                    <button type="submit" className="btn btn-primary btn-lg">Envoyer ma demande</button>
+                    <button type="submit" className="btn btn-primary btn-lg" disabled={formState.loading} style={{ minWidth: 200, justifyContent: "center" }}>
+                      {formState.loading ? (
+                        <span className="row row-sm" style={{ gap: 8 }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" style={{ animation: "spin 0.8s linear infinite" }}>
+                            <circle cx="12" cy="12" r="10" strokeOpacity="0.25" />
+                            <path d="M12 2a10 10 0 0110 10" />
+                          </svg>
+                          Envoi en cours…
+                        </span>
+                      ) : "Envoyer ma demande"}
+                    </button>
                   </div>
                 </form>
               )}
