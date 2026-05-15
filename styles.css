@@ -340,7 +340,12 @@ a.card-dark:hover {
 }
 .hero-mesh-inner-compact { padding: 48px 0 40px; }
 
-/* Competence page — subtle photo texture overlay */
+/* Competence page — background photo + dark scrim */
+/* z-index stack inside .hero-mesh (isolation: isolate):
+   0 = ::before (photo)
+   1 = .mesh-bg (gradient blobs)
+   2 = ::after (scrim)
+   3 = .hero-mesh-inner (text content) */
 .comp-hero-bg::before {
   content: '';
   position: absolute;
@@ -349,10 +354,28 @@ a.card-dark:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.18;
+  opacity: 0.35;
   z-index: 0;
   pointer-events: none;
 }
+.comp-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 30, 50, 0.45) 0%,
+    rgba(15, 30, 50, 0.25) 50%,
+    rgba(15, 30, 50, 0.55) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+.comp-hero-bg .hero-mesh-inner { z-index: 3; }
+/* White text against dark scrim */
+.comp-hero-bg .eyebrow { color: rgba(255,255,255,0.55); }
+.comp-hero-bg .t-display-xxl { color: white; }
+.comp-hero-bg .t-body-lg { color: rgba(255,255,255,0.78); }
 /* Let the texture show through the gradient mesh */
 .comp-hero-bg .mesh-bg rect {
   fill: transparent;
