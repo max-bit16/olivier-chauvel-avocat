@@ -408,7 +408,7 @@ function PageHonoraires() {
                 </div>
               </div>
               {/* Au forfait — featured */}
-              <div className="reveal formula-row" style={{ background: "var(--primary)", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+              <div className="reveal formula-row formula-row--dark" style={{ background: "var(--primary)", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
                 <div style={{ padding: "40px 40px", borderRight: "1px solid rgba(255,255,255,0.1)", display: "flex", flexDirection: "column", gap: 12 }}>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "rgba(255,255,255,0.15)", lineHeight: 1, letterSpacing: "-2px" }}>02</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "white" }}>Au forfait</div>
