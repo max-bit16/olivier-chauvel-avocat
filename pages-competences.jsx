@@ -2,7 +2,7 @@
 // Pages: 5 compétences
 // ============================================================
 
-function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, sections, related, icon, iconVariant, sideImage, heroVariant = "default", heroPhoto, heroPhotoAlt }) {
+function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, sections, related, icon, iconVariant, sideImage, heroVariant = "default", heroBgImage }) {
   return (
     <PageShell>
       <Hero
@@ -11,8 +11,7 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
         subtitle={subtitle}
         primaryCta={{ to: "/contact", label: "Discuter de votre dossier" }}
         variant={heroVariant}
-        photo={heroPhoto}
-        photoAlt={heroPhotoAlt}
+        heroBgImage={heroBgImage}
       />
 
       <section className="section">
@@ -199,8 +198,7 @@ function PageDroitFamille() {
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit de la famille" }]}
       icon="family"
       iconVariant=""
-      heroPhoto="rennes-palais.jpg"
-      heroPhotoAlt="Palais de Justice de Rennes"
+      heroBgImage="images/competences/bg-famille.webp"
       intro={{
         title: "Préserver vos liens et vos droits.",
         body: "Le droit de la famille est un domaine où la dimension juridique et la dimension humaine se rejoignent. Le cabinet privilégie autant que possible les solutions amiables (consentement mutuel, médiation) tout en assurant une défense rigoureuse lorsque la voie contentieuse s'impose."
@@ -275,8 +273,7 @@ function PageDommageCorporel() {
       icon="medical"
       iconVariant=""
       heroVariant="warm"
-      heroPhoto="rennes-cite-judiciaire.jpg"
-      heroPhotoAlt="Cité judiciaire de Rennes"
+      heroBgImage="images/competences/bg-corporel.webp"
       intro={{
         title: "Faire reconnaître et évaluer chaque préjudice.",
         body: "L'indemnisation d'un dommage corporel exige une analyse détaillée — nature et durée de l'incapacité, retentissement professionnel, douleurs endurées, préjudice esthétique et d'agrément. Le cabinet vous accompagne à chaque étape, en particulier lors de l'expertise médicale qui détermine l'essentiel de l'indemnisation."
@@ -324,8 +321,7 @@ function PageChasse() {
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit de la chasse" }]}
       icon="tree"
       iconVariant="cream"
-      heroPhoto="rennes-vieux.jpg"
-      heroPhotoAlt="Vieux Rennes"
+      heroBgImage="images/competences/bg-chasse.webp"
       intro={{
         title: "Une matière technique au croisement de plusieurs codes.",
         body: "Le droit de la chasse mêle code de l'environnement, code pénal et règlements préfectoraux. Les contentieux portent aussi bien sur les autorisations administratives que sur les infractions de chasse et la responsabilité civile des chasseurs."
@@ -370,8 +366,7 @@ function PageDroitEtrangers() {
       icon="passport"
       iconVariant="stone"
       heroVariant="cool"
-      heroPhoto="rennes-cite-judiciaire.jpg"
-      heroPhotoAlt="Cité judiciaire de Rennes"
+      heroBgImage="images/competences/bg-etrangers.webp"
       intro={{
         title: "Des délais courts, une réactivité immédiate.",
         body: "Les procédures d'éloignement et de rétention sont soumises à des délais de recours très courts (parfois 48 heures). Le cabinet intervient en urgence pour préserver vos droits et engager les recours nécessaires devant le juge administratif et le juge des libertés et de la détention."
@@ -415,8 +410,7 @@ function PageDroitPenal() {
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit pénal" }]}
       icon="gavel"
       iconVariant=""
-      heroPhoto="rennes-palais.jpg"
-      heroPhotoAlt="Palais de Justice de Rennes"
+      heroBgImage="images/competences/bg-penal.webp"
       intro={{
         title: "Une défense présente à chaque étape de la procédure.",
         body: "De la garde à vue au prononcé de la peine, en passant par l'instruction et l'audience, le cabinet assure une défense exigeante des personnes mises en cause comme des parties civiles. La maîtrise du temps procédural et la connaissance des juridictions de Rennes sont essentielles à la qualité de la défense."

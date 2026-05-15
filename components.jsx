@@ -335,9 +335,12 @@ function Footer() {
 }
 
 // ----- Hero -----
-function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "default", photo, photoAlt, sidePhoto, sidePhotoAlt, compact = false, children }) {
+function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "default", photo, photoAlt, sidePhoto, sidePhotoAlt, compact = false, heroBgImage, children }) {
   return (
-    <section className={"hero-mesh" + (photo ? " has-photo" : "")}>
+    <section
+      className={"hero-mesh" + (photo ? " has-photo" : "") + (heroBgImage ? " comp-hero-bg" : "")}
+      style={heroBgImage ? { '--hero-bg-image': 'url(' + heroBgImage + ')' } : undefined}
+    >
       {photo && (
         <div className="photo-hero">
           <img src={photo} alt={photoAlt || ""} loading="eager" fetchPriority="high" decoding="async" />

@@ -340,6 +340,24 @@ a.card-dark:hover {
 }
 .hero-mesh-inner-compact { padding: 48px 0 40px; }
 
+/* Competence page — subtle photo texture overlay */
+.comp-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Let the texture show through the gradient mesh */
+.comp-hero-bg .mesh-bg rect {
+  fill: transparent;
+}
+
 .mesh-bg {
   position: absolute;
   inset: 0 0 auto 0;
