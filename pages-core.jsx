@@ -138,16 +138,16 @@ function PageHome() {
       </section>
 
       {/* CTA strip — premier rendez-vous */}
-      <div className="reveal" style={{ padding: "32px 0" }}>
+      <div className="reveal section-xs">
         <div className="container">
           <Link to="/contact" className="card-dark" style={{ textDecoration: "none", display: "block", padding: "48px 56px" }}>
             <div className="grid grid-2" style={{ gap: 64, alignItems: "center" }}>
               <div className="stack stack-md">
-                <div className="t-micro-cap" style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.18em" }}>Premier rendez-vous</div>
+                <div className="t-micro-cap" style={{ color: "rgba(255,255,255,0.45)", letterSpacing: "0.18em" }}>Premier rendez-vous</div>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 300, fontSize: "clamp(28px, 3.5vw, 44px)", lineHeight: 1.2, color: "white" }}>
                   Une question juridique ?<br />Le premier échange permet<br />de cadrer votre dossier.
                 </div>
-                <div className="t-body-md" style={{ color: "rgba(255,255,255,0.6)", maxWidth: 440, lineHeight: 1.7 }}>
+                <div className="t-body-md" style={{ color: "rgba(255,255,255,0.72)", maxWidth: 440, lineHeight: 1.7 }}>
                   Présentation des faits, documents nécessaires, fixation des honoraires, vérification de la protection juridique ou de l'aide juridictionnelle.
                 </div>
               </div>
@@ -252,7 +252,7 @@ function PagePresentation() {
         <div className="container">
           <Breadcrumb items={[{ label: "Accueil", to: "/" }, { label: "Cabinet", to: "/cabinet/presentation" }, { label: "Présentation" }]} />
 
-          <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start", marginTop: 48 }}>
+          <div className="reveal presentation-grid" style={{ marginTop: 48 }}>
             <div className="stack stack-lg">
               <div className="stack stack-md">
                 <div className="eyebrow">Parcours</div>
@@ -279,7 +279,7 @@ function PagePresentation() {
             </div>
           </div>
 
-          <div className="reveal reveal-d1" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", marginTop: 64, borderTop: "1px solid var(--hairline)" }}>
+          <div className="reveal reveal-d1 presentation-stats" style={{ marginTop: 64, borderTop: "1px solid var(--hairline)" }}>
             <div style={{ padding: "40px 40px 40px 0", borderRight: "1px solid var(--hairline)" }}>
               <div className="tnum" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", letterSpacing: "-2px", lineHeight: 1 }}>2004</div>
               <div className="t-caption" style={{ marginTop: 10 }}>Année de prestation de serment</div>
@@ -390,7 +390,7 @@ function PageHonoraires() {
             {/* Trois formules — layout horizontal */}
             <div className="stack" style={{ gap: 0, border: "1px solid var(--hairline)", borderRadius: "var(--r-lg)", overflow: "hidden" }}>
               {/* Au temps passé */}
-              <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", background: "white" }}>
+              <div className="reveal formula-row" style={{ background: "white" }}>
                 <div style={{ padding: "40px 40px", borderRight: "1px solid var(--hairline)", display: "flex", flexDirection: "column", gap: 12 }}>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>01</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--ink)" }}>Au temps<br />passé</div>
@@ -408,7 +408,7 @@ function PageHonoraires() {
                 </div>
               </div>
               {/* Au forfait — featured */}
-              <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", background: "var(--primary)", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+              <div className="reveal formula-row" style={{ background: "var(--primary)", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
                 <div style={{ padding: "40px 40px", borderRight: "1px solid rgba(255,255,255,0.1)", display: "flex", flexDirection: "column", gap: 12 }}>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "rgba(255,255,255,0.15)", lineHeight: 1, letterSpacing: "-2px" }}>02</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "white" }}>Au forfait</div>
@@ -426,7 +426,7 @@ function PageHonoraires() {
                 </div>
               </div>
               {/* Au résultat */}
-              <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", background: "white" }}>
+              <div className="reveal formula-row" style={{ background: "white" }}>
                 <div style={{ padding: "40px 40px", borderRight: "1px solid var(--hairline)", display: "flex", flexDirection: "column", gap: 12 }}>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>03</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--ink)" }}>Au résultat</div>

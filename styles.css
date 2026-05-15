@@ -580,12 +580,12 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 .nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item {
   animation: fadeUp 0.22s var(--ease) backwards;
 }
-.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(1) { animation-delay: 0.05s; }
-.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(2) { animation-delay: 0.11s; }
-.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(3) { animation-delay: 0.17s; }
-.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(4) { animation-delay: 0.23s; }
-.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(5) { animation-delay: 0.29s; }
-.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(6) { animation-delay: 0.35s; }
+.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(1) { animation-delay: 0.03s; }
+.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(2) { animation-delay: 0.06s; }
+.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(3) { animation-delay: 0.09s; }
+.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(4) { animation-delay: 0.12s; }
+.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(5) { animation-delay: 0.15s; }
+.nav-dropdown:is(:hover, .open, :focus-within) .nav-dropdown-item:nth-child(6) { animation-delay: 0.18s; }
 
 .nav-mobile-toggle {
   display: none;
@@ -654,7 +654,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   color: var(--primary);
   border: 1px solid rgba(27, 45, 71, 0.10);
 }
-.icon-tile-cream { background: linear-gradient(135deg, #f5e9d4 0%, #f5d6a8 100%); color: #6b4818; }
+.icon-tile-cream { background: linear-gradient(135deg, #f5e9d4 0%, #f5d6a8 100%); color: var(--cream-accent); }
 .icon-tile-stone { background: rgba(100,90,80,0.08); color: var(--ink-secondary); border: 1px solid rgba(100,90,80,0.12); }
 .icon-tile-success { background: rgba(30,90,60,0.09); color: #1a5c3a; border: 1px solid rgba(30,90,60,0.12); }
 
@@ -937,7 +937,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   .card, .card-cream, .card-dark { padding: 24px; }
 }
 
-/* Competence section two-col grid */
+/* Competence section two-col grid (legacy — kept for reference) */
 .competence-section-grid {
   display: grid;
   grid-template-columns: 0.6fr 1.4fr;
@@ -946,6 +946,77 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 }
 @media (max-width: 768px) {
   .competence-section-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ============================================================
+   Responsive inline-grid patterns (Phase 2 — mobile fixes)
+   ============================================================ */
+
+/* Présentation — editorial split */
+.presentation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Présentation — stats strip */
+.presentation-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Honoraires — formula rows */
+.formula-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+/* Competences — numbered section rows */
+.comp-section-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+}
+
+/* Section micro — CTA strip, tighter than section-sm */
+.section-xs { padding: 32px 0; }
+
+@media (max-width: 768px) {
+  .presentation-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .presentation-stats {
+    grid-template-columns: 1fr;
+  }
+  .presentation-stats > div {
+    border-right: none !important;
+    border-bottom: 1px solid var(--hairline);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .presentation-stats > div:last-child {
+    border-bottom: none;
+  }
+  .formula-row {
+    grid-template-columns: 1fr;
+  }
+  .formula-row > div:first-child {
+    border-right: none !important;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 24px;
+  }
+  .comp-section-row {
+    grid-template-columns: 1fr;
+  }
+  .comp-section-row > div:first-child {
+    border-right: none !important;
+    border-bottom: 1px solid var(--hairline);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 }
 
 /* Page transitions */

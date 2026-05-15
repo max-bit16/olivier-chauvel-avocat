@@ -39,8 +39,8 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
           <div style={{ paddingTop: 64 }}>
             <div style={{ border: "1px solid var(--hairline)", borderRadius: "var(--r-lg)", overflow: "hidden" }}>
               {sections.map((sec, i) => (
-                <div key={i} className={"reveal" + (i > 0 ? " reveal-d" + Math.min(i, 3) : "")}
-                     style={{ display: "grid", gridTemplateColumns: "96px 1fr", borderBottom: i < sections.length - 1 ? "1px solid var(--hairline)" : "none", background: "white" }}>
+                <div key={i} className={"reveal comp-section-row" + (i > 0 ? " reveal-d" + Math.min(i, 3) : "")}
+                     style={{ borderBottom: i < sections.length - 1 ? "1px solid var(--hairline)" : "none", background: "white" }}>
                   <div style={{ padding: "40px 24px 40px 40px", borderRight: "1px solid var(--hairline)", display: "flex", alignItems: "flex-start" }}>
                     <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>
                       {String(i + 1).padStart(2, "0")}
