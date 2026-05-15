@@ -227,7 +227,7 @@ function CompTeaser({ icon, iconVariant, title, bullets, to }) {
 
 function BareStat({ value, label, tnum }) {
   return (
-    <div className="row" style={{ alignItems: "baseline", gap: 16, borderBottom: "1px solid rgba(107,72,24,0.15)", paddingBottom: 12 }}>
+    <div className="row" style={{ alignItems: "baseline", gap: 16, borderBottom: "1px solid rgba(154, 115, 50, 0.18)", paddingBottom: 12 }}>
       <div className={"t-display-md " + (tnum ? "tnum" : "")} style={{ color: "var(--cream-text-dark)", minWidth: 140 }}>{value}</div>
       <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>{label}</div>
     </div>
@@ -306,7 +306,7 @@ function PagePresentation() {
               subtitle="Chaque mission combine conseil et action — du premier avis juridique à la décision rendue."
             />
             <div className="grid grid-3">
-              <div className="card-cream reveal" style={{ borderTop: "3px solid var(--canvas-cream)", transition: "transform 0.3s var(--ease), box-shadow 0.3s var(--ease)" }}>
+              <div className="card-cream reveal">
                 <div className="stack stack-md">
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>01</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Information & Conseil</div>
@@ -316,7 +316,7 @@ function PagePresentation() {
                   </div>
                 </div>
               </div>
-              <div className="card-cream reveal reveal-d1" style={{ borderTop: "3px solid var(--canvas-cream)" }}>
+              <div className="card-cream reveal reveal-d1">
                 <div className="stack stack-md">
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>02</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Rédaction & Transaction</div>
@@ -326,7 +326,7 @@ function PagePresentation() {
                   </div>
                 </div>
               </div>
-              <div className="card-cream reveal reveal-d2" style={{ borderTop: "3px solid var(--canvas-cream)" }}>
+              <div className="card-cream reveal reveal-d2">
                 <div className="stack stack-md">
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>03</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Représentation</div>
@@ -497,7 +497,7 @@ function PageHonoraires() {
 function CheckLine({ children, dark }) {
   return (
     <li className="row row-sm" style={{ alignItems: "flex-start", gap: 10 }}>
-      <span style={{ color: dark ? "var(--primary-soft)" : "var(--primary)", marginTop: 3 }}>
+      <span style={{ color: dark ? "var(--gold-light)" : "var(--primary)", marginTop: 3 }}>
         <Icon name="check" size={14} />
       </span>
       <span>{children}</span>
@@ -727,7 +727,7 @@ function PageContact() {
 function ContactRow({ icon, label, children }) {
   return (
     <div className="row" style={{ alignItems: "flex-start", gap: 14 }}>
-      <div style={{ width: 36, height: 36, borderRadius: 8, background: "rgba(255,255,255,0.08)", display: "grid", placeItems: "center", flexShrink: 0 }}>
+      <div style={{ width: 36, height: 36, borderRadius: "var(--r-md)", background: "rgba(255,255,255,0.08)", display: "grid", placeItems: "center", flexShrink: 0 }}>
         <Icon name={icon} size={16} />
       </div>
       <div className="stack stack-sm">
@@ -740,7 +740,7 @@ function ContactRow({ icon, label, children }) {
 
 function MapPlaceholder() {
   return (
-    <div style={{ position: "relative", height: 400, background: "#e9eef4" }}>
+    <div style={{ position: "relative", height: 400, background: "#e9eef4" }} role="img" aria-label="Plan d'accès — Cabinet Olivier Chauvel, 6 rue Édith Cavell, Rennes">
       <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" style={{ width: "100%", height: "100%", display: "block" }}>
         <defs>
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">

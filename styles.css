@@ -212,6 +212,11 @@ h1, h2 {
   border-radius: var(--r-xl);
   padding: 32px;
   border: 1px solid rgba(154, 115, 50, 0.15);
+  transition: box-shadow 0.28s var(--ease), transform 0.28s var(--ease);
+}
+.card-cream:hover {
+  box-shadow: 0 8px 32px rgba(154, 115, 50, 0.12), 0 2px 8px rgba(154, 115, 50, 0.07);
+  transform: translateY(-2px);
 }
 .card-dark {
   background: var(--brand-dark-900);
@@ -937,17 +942,6 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   .card, .card-cream, .card-dark { padding: 24px; }
 }
 
-/* Competence section two-col grid (legacy — kept for reference) */
-.competence-section-grid {
-  display: grid;
-  grid-template-columns: 0.6fr 1.4fr;
-  gap: 48px;
-  align-items: flex-start;
-}
-@media (max-width: 768px) {
-  .competence-section-grid { grid-template-columns: 1fr; gap: 24px; }
-}
-
 /* ============================================================
    Responsive inline-grid patterns (Phase 2 — mobile fixes)
    ============================================================ */
@@ -1012,7 +1006,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   .comp-section-row > div:first-child {
     border-right: none !important;
     border-bottom: 1px solid var(--hairline);
-    padding: 24px 40px;
+    padding: 24px 40px !important;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1027,6 +1021,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 /* Touch device — disable hover transforms (sticky hover on iOS) */
 @media (hover: none) {
   .card:hover, .card-flat:hover { transform: none; box-shadow: var(--shadow-1); }
+  .card-cream:hover { transform: none; box-shadow: none; }
   .btn-primary:hover { transform: none; box-shadow: 0 2px 12px rgba(15,30,50,0.18); }
   a.card-dark:hover { transform: none; box-shadow: var(--shadow-3); }
 }
@@ -1053,7 +1048,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   .fade-up { animation: none; opacity: 1; }
   .page-enter { animation: none; }
   /* Preserve affordance lifts on cards — no duration, no transition */
-  .card:hover, .card-flat:hover, a.card-dark:hover {
+  .card:hover, .card-flat:hover, .card-cream:hover, a.card-dark:hover {
     transform: translateY(-2px);
     transition: none;
   }
