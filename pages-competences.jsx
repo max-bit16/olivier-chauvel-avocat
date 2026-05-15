@@ -2,7 +2,7 @@
 // Pages: 5 compétences
 // ============================================================
 
-function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, sections, related, icon, iconVariant, sideImage, heroVariant = "default" }) {
+function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, sections, related, icon, iconVariant, sideImage, heroVariant = "default", heroPhoto, heroPhotoAlt }) {
   return (
     <PageShell>
       <Hero
@@ -11,6 +11,8 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
         subtitle={subtitle}
         primaryCta={{ to: "/contact", label: "Discuter de votre dossier" }}
         variant={heroVariant}
+        photo={heroPhoto}
+        photoAlt={heroPhotoAlt}
       />
 
       <section className="section">
@@ -35,31 +37,37 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
 
       <section className="section section-soft" style={{ paddingTop: 0, paddingBottom: 96 }}>
         <div className="container">
-          <div className="stack stack-xl" style={{ paddingTop: 64 }}>
-            {sections.map((sec, i) => (
-              <div key={i} className="card" style={{ padding: 40 }}>
-                <div className="competence-section-grid">
-                  <div className="stack stack-sm">
-                      <div className="t-heading-lg" style={{ fontWeight: 400 }}>{sec.title}</div>
+          <div style={{ paddingTop: 64 }}>
+            <div style={{ border: "1px solid var(--hairline)", borderRadius: "var(--r-lg)", overflow: "hidden" }}>
+              {sections.map((sec, i) => (
+                <div key={i} className={"reveal" + (i > 0 ? " reveal-d" + Math.min(i, 3) : "")}
+                     style={{ display: "grid", gridTemplateColumns: "96px 1fr", borderBottom: i < sections.length - 1 ? "1px solid var(--hairline)" : "none", background: "white" }}>
+                  <div style={{ padding: "40px 24px 40px 40px", borderRight: "1px solid var(--hairline)", display: "flex", alignItems: "flex-start" }}>
+                    <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
                   </div>
-                  <div className="stack stack-md">
-                    {sec.body && <div className="t-body-md" style={{ color: "var(--ink-secondary)" }}>{sec.body}</div>}
-                    {sec.bullets && (
-                      <ul className="stack stack-sm" style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                        {sec.bullets.map((b, j) => (
-                          <li key={j} className="row row-sm" style={{ alignItems: "flex-start", gap: 12, fontSize: 15, color: "var(--ink-secondary)" }}>
-                            <span style={{ color: "var(--primary)", marginTop: 5 }}>
-                              <svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg>
-                            </span>
-                            <span>{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                  <div style={{ padding: "40px 48px" }}>
+                    <div className="stack stack-md">
+                      <div className="t-heading-lg" style={{ fontWeight: 400 }}>{sec.title}</div>
+                      {sec.body && <div className="t-body-md" style={{ color: "var(--ink-secondary)" }}>{sec.body}</div>}
+                      {sec.bullets && (
+                        <ul className="stack stack-sm" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                          {sec.bullets.map((b, j) => (
+                            <li key={j} className="row row-sm" style={{ alignItems: "flex-start", gap: 12, fontSize: 15, color: "var(--ink-secondary)" }}>
+                              <span style={{ color: "var(--primary)", marginTop: 5 }}>
+                                <svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg>
+                              </span>
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -191,6 +199,8 @@ function PageDroitFamille() {
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit de la famille" }]}
       icon="family"
       iconVariant=""
+      heroPhoto="rennes-palais.jpg"
+      heroPhotoAlt="Palais de Justice de Rennes"
       intro={{
         title: "Préserver vos liens et vos droits.",
         body: "Le droit de la famille est un domaine où la dimension juridique et la dimension humaine se rejoignent. Le cabinet privilégie autant que possible les solutions amiables (consentement mutuel, médiation) tout en assurant une défense rigoureuse lorsque la voie contentieuse s'impose."
@@ -265,6 +275,8 @@ function PageDommageCorporel() {
       icon="medical"
       iconVariant=""
       heroVariant="warm"
+      heroPhoto="rennes-cite-judiciaire.jpg"
+      heroPhotoAlt="Cité judiciaire de Rennes"
       intro={{
         title: "Faire reconnaître et évaluer chaque préjudice.",
         body: "L'indemnisation d'un dommage corporel exige une analyse détaillée — nature et durée de l'incapacité, retentissement professionnel, douleurs endurées, préjudice esthétique et d'agrément. Le cabinet vous accompagne à chaque étape, en particulier lors de l'expertise médicale qui détermine l'essentiel de l'indemnisation."
@@ -312,6 +324,8 @@ function PageChasse() {
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit de la chasse" }]}
       icon="tree"
       iconVariant="cream"
+      heroPhoto="rennes-vieux.jpg"
+      heroPhotoAlt="Vieux Rennes"
       intro={{
         title: "Une matière technique au croisement de plusieurs codes.",
         body: "Le droit de la chasse mêle code de l'environnement, code pénal et règlements préfectoraux. Les contentieux portent aussi bien sur les autorisations administratives que sur les infractions de chasse et la responsabilité civile des chasseurs."
@@ -356,6 +370,8 @@ function PageDroitEtrangers() {
       icon="passport"
       iconVariant="stone"
       heroVariant="cool"
+      heroPhoto="rennes-cite-judiciaire.jpg"
+      heroPhotoAlt="Cité judiciaire de Rennes"
       intro={{
         title: "Des délais courts, une réactivité immédiate.",
         body: "Les procédures d'éloignement et de rétention sont soumises à des délais de recours très courts (parfois 48 heures). Le cabinet intervient en urgence pour préserver vos droits et engager les recours nécessaires devant le juge administratif et le juge des libertés et de la détention."
@@ -399,6 +415,8 @@ function PageDroitPenal() {
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit pénal" }]}
       icon="gavel"
       iconVariant=""
+      heroPhoto="rennes-palais.jpg"
+      heroPhotoAlt="Palais de Justice de Rennes"
       intro={{
         title: "Une défense présente à chaque étape de la procédure.",
         body: "De la garde à vue au prononcé de la peine, en passant par l'instruction et l'audience, le cabinet assure une défense exigeante des personnes mises en cause comme des parties civiles. La maîtrise du temps procédural et la connaissance des juridictions de Rennes sont essentielles à la qualité de la défense."

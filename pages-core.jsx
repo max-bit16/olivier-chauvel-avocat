@@ -140,19 +140,28 @@ function PageHome() {
       {/* CTA strip — premier rendez-vous */}
       <div className="reveal" style={{ padding: "32px 0" }}>
         <div className="container">
-          <Link to="/contact" className="card-dark" style={{ textDecoration: "none", display: "block" }}>
-            <div className="row" style={{ justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
-              <div className="stack stack-md" style={{ flex: 1, minWidth: 240 }}>
-                <div className="pill pill-dark">Premier rendez-vous</div>
-                <div className="t-heading-lg" style={{ fontWeight: 400, color: "white" }}>
-                  Une question juridique ? Le premier échange permet de cadrer votre dossier.
+          <Link to="/contact" className="card-dark" style={{ textDecoration: "none", display: "block", padding: "48px 56px" }}>
+            <div className="grid grid-2" style={{ gap: 64, alignItems: "center" }}>
+              <div className="stack stack-md">
+                <div className="t-micro-cap" style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.18em" }}>Premier rendez-vous</div>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 300, fontSize: "clamp(28px, 3.5vw, 44px)", lineHeight: 1.2, color: "white" }}>
+                  Une question juridique ?<br />Le premier échange permet<br />de cadrer votre dossier.
                 </div>
-                <div className="t-body-md" style={{ color: "rgba(255,255,255,0.72)", maxWidth: 560 }}>
+                <div className="t-body-md" style={{ color: "rgba(255,255,255,0.6)", maxWidth: 440, lineHeight: 1.7 }}>
                   Présentation des faits, documents nécessaires, fixation des honoraires, vérification de la protection juridique ou de l'aide juridictionnelle.
                 </div>
               </div>
-              <div className="row row-sm" style={{ color: "rgba(255,255,255,0.82)", fontSize: 14, gap: 8 }}>
-                Contacter le cabinet <Icon name="arrow" size={16} />
+              <div className="stack stack-lg" style={{ alignItems: "flex-start" }}>
+                <div className="stack stack-sm" style={{ color: "rgba(255,255,255,0.45)", fontSize: 13, lineHeight: 1.8 }}>
+                  <div>Cabinet Olivier Chauvel</div>
+                  <div>6 rue Édith Cavell · 35000 Rennes</div>
+                  <div>Lun–Ven · 9h–12h / 13h45–19h</div>
+                </div>
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.15)", paddingTop: 20, width: "100%" }}>
+                  <span className="row row-sm" style={{ color: "rgba(255,255,255,0.9)", fontSize: 14, gap: 10, fontWeight: 400, letterSpacing: "0.02em" }}>
+                    Contacter le cabinet <Icon name="arrow" size={16} />
+                  </span>
+                </div>
               </div>
             </div>
           </Link>
@@ -241,9 +250,10 @@ function PagePresentation() {
 
       <section className="section">
         <div className="container">
-          <div className="split">
+          <Breadcrumb items={[{ label: "Accueil", to: "/" }, { label: "Cabinet", to: "/cabinet/presentation" }, { label: "Présentation" }]} />
+
+          <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start", marginTop: 48 }}>
             <div className="stack stack-lg">
-              <Breadcrumb items={[{ label: "Accueil", to: "/" }, { label: "Cabinet", to: "/cabinet/presentation" }, { label: "Présentation" }]} />
               <div className="stack stack-md">
                 <div className="eyebrow">Parcours</div>
                 <div className="t-display-lg">Une formation et une pratique au service du contentieux.</div>
@@ -263,25 +273,24 @@ function PagePresentation() {
                   sur la <strong style={{ fontWeight: 400, color: "var(--ink)" }}>confidentialité absolue</strong> qui régit la relation client–avocat.
                 </p>
               </div>
-
-              <div className="row" style={{ gap: 32, marginTop: 8 }}>
-                <div className="stack stack-sm">
-                  <div className="t-display-md tnum" style={{ color: "var(--ink)" }}>2004</div>
-                  <div className="t-caption">Année de prestation de serment</div>
-                </div>
-                <div className="stack stack-sm">
-                  <div className="t-display-md tnum" style={{ color: "var(--ink)" }}>3</div>
-                  <div className="t-caption">Diplômes en droit privé et contentieux</div>
-                </div>
-                <div className="stack stack-sm">
-                  <div className="t-display-md tnum" style={{ color: "var(--ink)" }}>5</div>
-                  <div className="t-caption">Domaines d'intervention principaux</div>
-                </div>
-              </div>
             </div>
-
             <div className="editorial-photo">
               <img src="rennes-cite-judiciaire.jpg" alt="Cité judiciaire de Rennes, à proximité du cabinet" loading="lazy" />
+            </div>
+          </div>
+
+          <div className="reveal reveal-d1" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", marginTop: 64, borderTop: "1px solid var(--hairline)" }}>
+            <div style={{ padding: "40px 40px 40px 0", borderRight: "1px solid var(--hairline)" }}>
+              <div className="tnum" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", letterSpacing: "-2px", lineHeight: 1 }}>2004</div>
+              <div className="t-caption" style={{ marginTop: 10 }}>Année de prestation de serment</div>
+            </div>
+            <div style={{ padding: "40px 40px", borderRight: "1px solid var(--hairline)" }}>
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", lineHeight: 1 }}>3</div>
+              <div className="t-caption" style={{ marginTop: 10 }}>Diplômes en droit privé et contentieux</div>
+            </div>
+            <div style={{ padding: "40px 40px" }}>
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", lineHeight: 1 }}>5</div>
+              <div className="t-caption" style={{ marginTop: 10 }}>Domaines d'intervention principaux</div>
             </div>
           </div>
         </div>
@@ -297,9 +306,9 @@ function PagePresentation() {
               subtitle="Chaque mission combine conseil et action — du premier avis juridique à la décision rendue."
             />
             <div className="grid grid-3">
-              <div className="card-cream">
+              <div className="card-cream reveal" style={{ borderTop: "3px solid var(--canvas-cream)", transition: "transform 0.3s var(--ease), box-shadow 0.3s var(--ease)" }}>
                 <div className="stack stack-md">
-                  <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>01</div>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>01</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Information & Conseil</div>
                   <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Analyse de votre situation, exposé du droit applicable, identification des options
@@ -307,9 +316,9 @@ function PagePresentation() {
                   </div>
                 </div>
               </div>
-              <div className="card-cream">
+              <div className="card-cream reveal reveal-d1" style={{ borderTop: "3px solid var(--canvas-cream)" }}>
                 <div className="stack stack-md">
-                  <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>02</div>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>02</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Rédaction & Transaction</div>
                   <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Rédaction d'actes, de conventions et de contrats. Négociation et formalisation
@@ -317,9 +326,9 @@ function PagePresentation() {
                   </div>
                 </div>
               </div>
-              <div className="card-cream">
+              <div className="card-cream reveal reveal-d2" style={{ borderTop: "3px solid var(--canvas-cream)" }}>
                 <div className="stack stack-md">
-                  <div className="t-micro-cap" style={{ color: "var(--cream-accent)" }}>03</div>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>03</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Représentation</div>
                   <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Représentation et plaidoirie devant l'ensemble des juridictions civiles, pénales et
@@ -378,20 +387,19 @@ function PageHonoraires() {
               subtitle="Une convention d'honoraires écrite, signée avant toute intervention, précise le mode retenu, le montant et les éventuels frais à prévoir."
             />
 
-            <div className="grid grid-3">
+            {/* Trois formules — layout horizontal */}
+            <div className="stack" style={{ gap: 0, border: "1px solid var(--hairline)", borderRadius: "var(--r-lg)", overflow: "hidden" }}>
               {/* Au temps passé */}
-              <div className="card" style={{ padding: 32 }}>
-                <div className="stack stack-md" style={{ height: "100%" }}>
-                  <div className="pill">Formule 1</div>
-                  <div className="t-heading-lg" style={{ fontWeight: 400 }}>Au temps passé</div>
-                  <div className="row" style={{ alignItems: "baseline", gap: 4 }}>
-                    <span className="t-display-md tnum">Tarif horaire</span>
+              <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", background: "white" }}>
+                <div style={{ padding: "40px 40px", borderRight: "1px solid var(--hairline)", display: "flex", flexDirection: "column", gap: 12 }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>01</div>
+                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--ink)" }}>Au temps<br />passé</div>
+                  <div className="t-caption tnum" style={{ color: "var(--ink-mute)", marginTop: "auto" }}>Tarif horaire</div>
+                </div>
+                <div style={{ padding: "40px 48px", display: "flex", flexDirection: "column", gap: 16 }}>
+                  <div className="t-body-md" style={{ color: "var(--ink-secondary)" }}>
+                    Décompte du temps mis à votre disposition. Chaque étape — rendez-vous, étude, rédaction, audience — est consignée et facturée au temps réellement consacré.
                   </div>
-                  <div className="t-body-md muted">
-                    Décompte du temps mis à votre disposition. Chaque étape (rendez-vous, étude, rédaction, audience)
-                    est consignée et facturée au temps réellement consacré.
-                  </div>
-                  <hr className="hr" style={{ margin: "8px 0" }} />
                   <ul className="stack stack-sm" style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 14, color: "var(--ink-secondary)" }}>
                     <CheckLine>Note d'honoraires détaillée à chaque étape</CheckLine>
                     <CheckLine>Estimation prévisionnelle communiquée</CheckLine>
@@ -399,20 +407,17 @@ function PageHonoraires() {
                   </ul>
                 </div>
               </div>
-
-              {/* Au forfait — featured (dark) */}
-              <div className="card-dark" style={{ padding: 32, transform: "translateY(-12px)" }}>
-                <div className="stack stack-md" style={{ height: "100%" }}>
-                  <div className="pill pill-dark">Le plus demandé</div>
+              {/* Au forfait — featured */}
+              <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", background: "var(--primary)", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                <div style={{ padding: "40px 40px", borderRight: "1px solid rgba(255,255,255,0.1)", display: "flex", flexDirection: "column", gap: 12 }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "rgba(255,255,255,0.15)", lineHeight: 1, letterSpacing: "-2px" }}>02</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "white" }}>Au forfait</div>
-                  <div className="row" style={{ alignItems: "baseline", gap: 4 }}>
-                    <span className="t-display-md tnum" style={{ color: "white" }}>Montant fixe</span>
+                  <div className="pill pill-dark" style={{ alignSelf: "flex-start", marginTop: "auto" }}>Le plus demandé</div>
+                </div>
+                <div style={{ padding: "40px 48px", display: "flex", flexDirection: "column", gap: 16 }}>
+                  <div className="t-body-md" style={{ color: "rgba(255,255,255,0.72)" }}>
+                    Un montant convenu pour l'ensemble du dossier, lorsque l'aléa procédural est faible et que les étapes peuvent être anticipées. Coût total connu dès la signature de la convention.
                   </div>
-                  <div className="t-body-md" style={{ color: "rgba(255,255,255,0.7)" }}>
-                    Un montant convenu pour l'ensemble du dossier, lorsque l'aléa procédural est faible
-                    et que les étapes peuvent être anticipées.
-                  </div>
-                  <hr className="hr" style={{ margin: "8px 0", background: "rgba(255,255,255,0.12)" }} />
                   <ul className="stack stack-sm" style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>
                     <CheckLine dark>Coût total connu d'avance</CheckLine>
                     <CheckLine dark>Adapté aux divorces par consentement mutuel</CheckLine>
@@ -420,20 +425,17 @@ function PageHonoraires() {
                   </ul>
                 </div>
               </div>
-
               {/* Au résultat */}
-              <div className="card" style={{ padding: 32 }}>
-                <div className="stack stack-md" style={{ height: "100%" }}>
-                  <div className="pill">Formule 3</div>
-                  <div className="t-heading-lg" style={{ fontWeight: 400 }}>Au résultat</div>
-                  <div className="row" style={{ alignItems: "baseline", gap: 4 }}>
-                    <span className="t-display-md tnum">Complément</span>
+              <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", background: "white" }}>
+                <div style={{ padding: "40px 40px", borderRight: "1px solid var(--hairline)", display: "flex", flexDirection: "column", gap: 12 }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>03</div>
+                  <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--ink)" }}>Au résultat</div>
+                  <div className="t-caption tnum" style={{ color: "var(--ink-mute)", marginTop: "auto" }}>Complément</div>
+                </div>
+                <div style={{ padding: "40px 48px", display: "flex", flexDirection: "column", gap: 16 }}>
+                  <div className="t-body-md" style={{ color: "var(--ink-secondary)" }}>
+                    Un complément calculé sur le gain ou l'économie procurés par la procédure. Ne peut être <strong style={{ fontWeight: 400, color: "var(--ink)" }}>le seul mode de rémunération</strong> — s'ajoute nécessairement à un honoraire fixe ou horaire.
                   </div>
-                  <div className="t-body-md muted">
-                    Un complément calculé sur le gain ou l'économie procurés par la procédure.
-                    Ne peut être <strong style={{ fontWeight: 400, color: "var(--ink)" }}>le seul mode de rémunération</strong>.
-                  </div>
-                  <hr className="hr" style={{ margin: "8px 0" }} />
                   <ul className="stack stack-sm" style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 14, color: "var(--ink-secondary)" }}>
                     <CheckLine>Convention écrite préalable obligatoire</CheckLine>
                     <CheckLine>S'ajoute à un honoraire fixe ou horaire</CheckLine>
@@ -441,44 +443,6 @@ function PageHonoraires() {
                   </ul>
                 </div>
               </div>
-            </div>
-
-            {/* Récap table */}
-            <div className="mockup" style={{ marginTop: 24 }}>
-              <div className="row" style={{ justifyContent: "space-between", marginBottom: 16, alignItems: "center" }}>
-                <div className="t-heading-md" style={{ fontWeight: 400 }}>Récapitulatif</div>
-                <div className="pill">Convention d'honoraires</div>
-              </div>
-              <table className="data">
-                <thead>
-                  <tr>
-                    <th>Formule</th>
-                    <th>Mode de calcul</th>
-                    <th>Visibilité du coût</th>
-                    <th>Cas d'usage typique</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style={{ fontWeight: 400, color: "var(--ink)" }}>Au temps passé</td>
-                    <td className="tnum">Tarif horaire × heures</td>
-                    <td>Décompte à chaque étape</td>
-                    <td>Dossiers à durée incertaine</td>
-                  </tr>
-                  <tr>
-                    <td style={{ fontWeight: 400, color: "var(--ink)" }}>Au forfait</td>
-                    <td className="tnum">Montant fixe</td>
-                    <td>Coût total connu d'avance</td>
-                    <td>Faible aléa procédural</td>
-                  </tr>
-                  <tr>
-                    <td style={{ fontWeight: 400, color: "var(--ink)" }}>Au résultat</td>
-                    <td className="tnum">% du gain / économie</td>
-                    <td>Calculé en fin de procédure</td>
-                    <td>Indemnisations, recouvrements</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
         </div>
