@@ -26,35 +26,24 @@ function PageHome() {
       {/* Authority strip */}
       <section style={{ borderBottom: "1px solid var(--hairline)", padding: "48px 0" }}>
         <div className="container">
-          <div className="grid grid-3" style={{ gap: 32 }}>
-            <div className="row row-md reveal" style={{ gap: 16, alignItems: "center" }}>
-              <div className="icon-tile" style={{ flexShrink: 0 }}>
-                <Icon name="scale" />
+          <div className="grid grid-3" style={{ gap: 40 }}>
+            <div className="reveal stack stack-sm">
+              <div className="tnum" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
+                {new Date().getFullYear() - 2004}
               </div>
-              <div className="stack stack-sm">
-                <div className="t-display-md tnum" style={{ lineHeight: 1, fontFamily: "'Cormorant Garamond', serif" }}>
-                  {new Date().getFullYear() - 2004}
-                </div>
-                <div className="t-caption">ans de pratique au Barreau de Rennes</div>
-              </div>
+              <div className="t-caption">ans de pratique au Barreau de Rennes</div>
             </div>
-            <div className="row row-md reveal reveal-d1" style={{ gap: 16, alignItems: "center" }}>
-              <div className="icon-tile icon-tile-cream" style={{ flexShrink: 0 }}>
-                <Icon name="check" />
+            <div className="reveal reveal-d1 stack stack-sm">
+              <div className="tnum" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
+                2004
               </div>
-              <div className="stack stack-sm">
-                <div className="t-heading-md" style={{ fontWeight: 400 }}>Barreau de Rennes</div>
-                <div className="t-caption">Serment prêté en 2004</div>
-              </div>
+              <div className="t-caption">Serment au Barreau de Rennes</div>
             </div>
-            <div className="row row-md reveal reveal-d2" style={{ gap: 16, alignItems: "center" }}>
-              <div className="icon-tile icon-tile-cream" style={{ flexShrink: 0 }}>
-                <Icon name="book" />
+            <div className="reveal reveal-d2 stack stack-sm">
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
+                5
               </div>
-              <div className="stack stack-sm">
-                <div className="t-heading-md" style={{ fontWeight: 400 }}>5 domaines du droit</div>
-                <div className="t-caption">Famille, corporel, pénal, étrangers, chasse</div>
-              </div>
+              <div className="t-caption">Domaines d'intervention — famille, corporel, pénal, étrangers, chasse</div>
             </div>
           </div>
         </div>
@@ -64,11 +53,12 @@ function PageHome() {
       <section className="section-sm" style={{ borderBottom: "1px solid var(--hairline)" }}>
         <div className="container">
           <div className="grid grid-2 reveal" style={{ gap: 64, alignItems: "center" }}>
-            <blockquote style={{ margin: 0, padding: "0 0 0 28px", borderLeft: "2px solid var(--gold)" }}>
+            <blockquote style={{ margin: 0, padding: 0 }}>
+              <div aria-hidden="true" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(72px, 9vw, 108px)", lineHeight: 0.6, color: "var(--gold)", fontWeight: 300, marginBottom: 4, userSelect: "none" }}>«</div>
               <p className="t-display-lg" style={{ margin: 0, fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 300, lineHeight: 1.3, color: "var(--ink)" }}>
-                "Disponible, rigoureux, transparent sur les honoraires."
+                Disponible, rigoureux, transparent sur les honoraires.
               </p>
-              <footer style={{ marginTop: 16, fontSize: 13, color: "var(--ink-mute)", fontStyle: "normal" }}>
+              <footer style={{ marginTop: 20, fontSize: 13, color: "var(--ink-mute)", fontStyle: "normal", letterSpacing: "0.02em" }}>
                 — Maître Olivier Chauvel
               </footer>
             </blockquote>
@@ -107,8 +97,6 @@ function PageHome() {
             <div className="grid grid-3">
               <div className="reveal" style={{ display: "flex" }}>
                 <CompTeaser
-                  icon="family"
-                  iconVariant=""
                   title="Droit de la famille"
                   bullets={["Divorce (consentement mutuel, faute)", "Pension, prestation compensatoire", "Autorité parentale, garde"]}
                   to="/competences/droit-de-la-famille"
@@ -116,8 +104,6 @@ function PageHome() {
               </div>
               <div className="reveal reveal-d1" style={{ display: "flex" }}>
                 <CompTeaser
-                  icon="medical"
-                  iconVariant=""
                   title="Dommage corporel"
                   bullets={["Indemnisation du préjudice corporel", "Assistance expertise médicale", "Saisine CIVI et SARVI"]}
                   to="/competences/droit-du-dommage-corporel"
@@ -125,8 +111,6 @@ function PageHome() {
               </div>
               <div className="reveal reveal-d2" style={{ display: "flex" }}>
                 <CompTeaser
-                  icon="gavel"
-                  iconVariant="cream"
                   title="Droit pénal"
                   bullets={["Garde à vue, instruction", "Tribunal correctionnel, assises", "Défense des victimes"]}
                   to="/competences/droit-penal"
@@ -199,19 +183,17 @@ function PageHome() {
   );
 }
 
-function CompTeaser({ icon, iconVariant, title, bullets, to }) {
+function CompTeaser({ title, bullets, to }) {
   return (
     <Link to={to} className="card" style={{ textDecoration: "none", display: "flex", flexDirection: "column", flex: 1 }}>
       <div className="stack stack-md" style={{ height: "100%" }}>
-        <div className={"icon-tile " + (iconVariant ? "icon-tile-" + iconVariant : "")}>
-          <Icon name={icon} />
-        </div>
+        <div style={{ width: 28, height: 1, background: "var(--gold)" }} />
         <div className="t-heading-md" style={{ fontWeight: 400 }}>{title}</div>
         <ul className="stack stack-sm muted" style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 14 }}>
           {bullets.map((b, i) => (
-            <li key={i} className="row row-sm" style={{ alignItems: "baseline", gap: 8 }}>
-              <span style={{ color: "var(--ink-mute)", fontFamily: "'DM Sans', sans-serif", fontSize: 13, flexShrink: 0, userSelect: "none" }}>–</span>
-              <span>{b}</span>
+            <li key={i} style={{ paddingLeft: 14, position: "relative", lineHeight: 1.5 }}>
+              <span style={{ position: "absolute", left: 0, top: 0, color: "var(--hairline-input)", userSelect: "none" }}>·</span>
+              {b}
             </li>
           ))}
         </ul>
