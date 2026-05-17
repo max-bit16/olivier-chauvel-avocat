@@ -129,7 +129,7 @@ h1, h2 {
 .t-body-md { font-size: 15px; font-weight: 400; line-height: 1.65; }
 .t-body-tabular {
   font-size: 14px; font-weight: 400; line-height: 1.4;
-  letter-spacing: -0.42px; font-feature-settings: "ss01", "tnum";
+  letter-spacing: -0.42px; font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
 }
 .t-caption { font-size: 13px; font-weight: 400; line-height: 1.4; letter-spacing: -0.39px; color: var(--ink-mute); }
@@ -139,7 +139,7 @@ h1, h2 {
   letter-spacing: 0.1em; text-transform: uppercase;
 }
 
-.tnum { font-feature-settings: "ss01", "tnum"; font-variant-numeric: tabular-nums; letter-spacing: -0.42px; }
+.tnum { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; letter-spacing: -0.42px; }
 
 /* ============================================================
    Buttons (pill — the brand signature)
@@ -203,7 +203,7 @@ h1, h2 {
               transform 0.28s var(--ease);
 }
 .card:hover {
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-2), 0 0 0 1px rgba(154,115,50,0.10);
   transform: translateY(-2px);
 }
 .card-cream {
@@ -240,7 +240,7 @@ a.card-dark:hover {
   transition: border-color 0.22s var(--ease), box-shadow 0.22s var(--ease), transform 0.22s var(--ease);
 }
 .card-flat:hover {
-  border-color: rgba(27,45,71,0.20);
+  border-color: rgba(154,115,50,0.28);
   box-shadow: var(--shadow-1);
   transform: translateY(-1px);
 }
@@ -458,9 +458,9 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .field input:focus, .field select:focus, .field textarea:focus {
-  outline: 2px solid transparent; /* keeps ring visible in forced-colors mode */
+  outline: 2px solid transparent;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(27,45,71,0.12);
+  box-shadow: 0 0 0 3px rgba(27,45,71,0.09), 0 0 0 1px rgba(154,115,50,0.18);
 }
 .field textarea { resize: vertical; min-height: 120px; font-family: inherit; }
 .field.has-error input, .field.has-error select, .field.has-error textarea {
@@ -879,10 +879,11 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 .reveal {
   opacity: 0;
   transform: translateY(18px);
+  will-change: opacity, transform;
   transition: opacity 0.55s var(--ease),
               transform 0.55s var(--ease);
 }
-.reveal.revealed { opacity: 1; transform: translateY(0); }
+.reveal.revealed { opacity: 1; transform: translateY(0); will-change: auto; }
 .reveal-d1 { transition-delay: 0.08s; }
 .reveal-d2 { transition-delay: 0.18s; }
 .reveal-d3 { transition-delay: 0.28s; }

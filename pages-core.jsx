@@ -28,19 +28,19 @@ function PageHome() {
         <div className="container">
           <div className="grid grid-3" style={{ gap: 40 }}>
             <div className="reveal stack stack-sm">
-              <div className="tnum" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
+              <div className="tnum" style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
                 {new Date().getFullYear() - 2004}
               </div>
               <div className="t-caption">ans de pratique au Barreau de Rennes</div>
             </div>
             <div className="reveal reveal-d1 stack stack-sm">
-              <div className="tnum" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
+              <div className="tnum" style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
                 2004
               </div>
               <div className="t-caption">Serment au Barreau de Rennes</div>
             </div>
             <div className="reveal reveal-d2 stack stack-sm">
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
+              <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 300, lineHeight: 1, letterSpacing: "-1px", color: "var(--ink)" }}>
                 5
               </div>
               <div className="t-caption">Domaines d'intervention — famille, corporel, pénal, étrangers, chasse</div>
@@ -54,8 +54,8 @@ function PageHome() {
         <div className="container">
           <div className="grid grid-2 reveal" style={{ gap: 64, alignItems: "center" }}>
             <blockquote style={{ margin: 0, padding: 0 }}>
-              <div aria-hidden="true" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(72px, 9vw, 108px)", lineHeight: 0.6, color: "var(--gold)", fontWeight: 300, marginBottom: 4, userSelect: "none" }}>«</div>
-              <p className="t-display-lg" style={{ margin: 0, fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 300, lineHeight: 1.3, color: "var(--ink)" }}>
+              <div aria-hidden="true" style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: "clamp(72px, 9vw, 108px)", lineHeight: 0.6, color: "var(--gold)", fontWeight: 300, marginBottom: 4, userSelect: "none" }}>«</div>
+              <p className="t-display-lg" style={{ margin: 0, fontFamily: "'Spectral', Georgia, serif", fontStyle: "italic", fontWeight: 300, lineHeight: 1.3, color: "var(--ink)" }}>
                 Disponible, rigoureux, transparent sur les honoraires.
               </p>
               <footer style={{ marginTop: 20, fontSize: 13, color: "var(--ink-mute)", fontStyle: "normal", letterSpacing: "0.02em" }}>
@@ -128,7 +128,7 @@ function PageHome() {
             <div className="grid grid-2" style={{ gap: 64, alignItems: "center" }}>
               <div className="stack stack-md">
                 <div className="t-micro-cap" style={{ color: "rgba(255,255,255,0.45)", letterSpacing: "0.18em" }}>Premier rendez-vous</div>
-                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 300, fontSize: "clamp(28px, 3.5vw, 44px)", lineHeight: 1.2, color: "white" }}>
+                <div style={{ fontFamily: "'Spectral', Georgia, serif", fontStyle: "italic", fontWeight: 300, fontSize: "clamp(28px, 3.5vw, 44px)", lineHeight: 1.2, color: "white" }}>
                   Une question juridique ?<br />Le premier échange permet<br />de cadrer votre dossier.
                 </div>
                 <div className="t-body-md" style={{ color: "rgba(255,255,255,0.72)", maxWidth: 440, lineHeight: 1.7 }}>
@@ -263,15 +263,15 @@ function PagePresentation() {
 
           <div className="reveal reveal-d1 presentation-stats" style={{ marginTop: 64, borderTop: "1px solid var(--hairline)" }}>
             <div style={{ padding: "40px 40px 40px 0", borderRight: "1px solid var(--hairline)" }}>
-              <div className="tnum" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", letterSpacing: "-2px", lineHeight: 1 }}>2004</div>
+              <div className="tnum" style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", letterSpacing: "-2px", lineHeight: 1 }}>2004</div>
               <div className="t-caption" style={{ marginTop: 10 }}>Année de prestation de serment</div>
             </div>
             <div style={{ padding: "40px 40px", borderRight: "1px solid var(--hairline)" }}>
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", lineHeight: 1 }}>3</div>
+              <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", lineHeight: 1 }}>3</div>
               <div className="t-caption" style={{ marginTop: 10 }}>Diplômes en droit privé et contentieux</div>
             </div>
             <div style={{ padding: "40px 40px" }}>
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", lineHeight: 1 }}>5</div>
+              <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: "clamp(48px, 4.5vw, 72px)", fontWeight: 300, color: "var(--ink)", lineHeight: 1 }}>5</div>
               <div className="t-caption" style={{ marginTop: 10 }}>Domaines d'intervention principaux</div>
             </div>
           </div>
@@ -290,7 +290,7 @@ function PagePresentation() {
             <div className="grid grid-3">
               <div className="card-cream reveal">
                 <div className="stack stack-md">
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>01</div>
+                  <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>01</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Information & Conseil</div>
                   <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Analyse de votre situation, exposé du droit applicable, identification des options
@@ -300,7 +300,7 @@ function PagePresentation() {
               </div>
               <div className="card-cream reveal reveal-d1">
                 <div className="stack stack-md">
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>02</div>
+                  <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>02</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Rédaction & Transaction</div>
                   <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Rédaction d'actes, de conventions et de contrats. Négociation et formalisation
@@ -310,7 +310,7 @@ function PagePresentation() {
               </div>
               <div className="card-cream reveal reveal-d2">
                 <div className="stack stack-md">
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>03</div>
+                  <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: 48, fontWeight: 300, color: "var(--canvas-cream)", lineHeight: 1, letterSpacing: "-1px" }}>03</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--cream-text-dark)" }}>Représentation</div>
                   <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
                     Représentation et plaidoirie devant l'ensemble des juridictions civiles, pénales et
@@ -374,7 +374,7 @@ function PageHonoraires() {
               {/* Au temps passé */}
               <div className="reveal formula-row" style={{ background: "white" }}>
                 <div style={{ padding: "40px 40px", borderRight: "1px solid var(--hairline)", display: "flex", flexDirection: "column", gap: 12 }}>
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>01</div>
+                  <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: 56, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>01</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--ink)" }}>Au temps<br />passé</div>
                   <div className="t-caption tnum" style={{ color: "var(--ink-mute)", marginTop: "auto" }}>Tarif horaire</div>
                 </div>
@@ -392,7 +392,7 @@ function PageHonoraires() {
               {/* Au forfait — featured */}
               <div className="reveal formula-row formula-row--dark" style={{ background: "var(--primary)", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
                 <div style={{ padding: "40px 40px", borderRight: "1px solid rgba(255,255,255,0.1)", display: "flex", flexDirection: "column", gap: 12 }}>
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "rgba(255,255,255,0.15)", lineHeight: 1, letterSpacing: "-2px" }}>02</div>
+                  <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: 56, fontWeight: 300, color: "rgba(255,255,255,0.15)", lineHeight: 1, letterSpacing: "-2px" }}>02</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "white" }}>Au forfait</div>
                   <div className="pill pill-dark" style={{ alignSelf: "flex-start", marginTop: "auto" }}>Le plus demandé</div>
                 </div>
@@ -410,7 +410,7 @@ function PageHonoraires() {
               {/* Au résultat */}
               <div className="reveal formula-row" style={{ background: "white" }}>
                 <div style={{ padding: "40px 40px", borderRight: "1px solid var(--hairline)", display: "flex", flexDirection: "column", gap: 12 }}>
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 56, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>03</div>
+                  <div style={{ fontFamily: "'Spectral', Georgia, serif", fontSize: 56, fontWeight: 300, color: "var(--hairline)", lineHeight: 1, letterSpacing: "-2px" }}>03</div>
                   <div className="t-heading-lg" style={{ fontWeight: 400, color: "var(--ink)" }}>Au résultat</div>
                   <div className="t-caption tnum" style={{ color: "var(--ink-mute)", marginTop: "auto" }}>Complément</div>
                 </div>

@@ -153,7 +153,7 @@ function ArticleShell({ slug, eyebrow, children }) {
 
       <style>{`
         .article-content p { margin: 0; font-size: 17px; line-height: 1.75; color: var(--ink-secondary); font-weight: 400; max-width: 68ch; }
-        .article-content h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(24px, 2.8vw, 32px); font-weight: 300; letter-spacing: -0.5px; line-height: 1.2; color: var(--ink); margin: 0; }
+        .article-content h2 { font-family: 'Spectral', Georgia, serif; font-size: clamp(24px, 2.8vw, 32px); font-weight: 300; letter-spacing: -0.5px; line-height: 1.2; color: var(--ink); margin: 0; }
         .article-content h3 { font-size: 19px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
         .article-content strong { font-weight: 500; color: var(--ink); }
         .article-content ul { margin: 0; padding-left: 0; list-style: none; }
