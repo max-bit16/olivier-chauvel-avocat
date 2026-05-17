@@ -129,7 +129,7 @@ h1, h2 {
 .t-body-lg { font-size: 16px; font-weight: 400; line-height: 1.65; }
 .t-body-md { font-size: 15px; font-weight: 400; line-height: 1.65; }
 .t-body-tabular {
-  font-size: 14px; font-weight: 300; line-height: 1.4;
+  font-size: 14px; font-weight: 400; line-height: 1.4;
   letter-spacing: -0.42px; font-feature-settings: "ss01", "tnum";
   font-variant-numeric: tabular-nums;
 }
@@ -454,7 +454,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   border-radius: var(--r-sm);
   font-family: inherit;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--ink);
   transition: border-color 0.15s, box-shadow 0.15s;
 }
@@ -536,7 +536,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
   user-select: none;
 }
 .nav-link:hover { color: var(--primary); background: rgba(27,45,71,0.05); }
-.nav-link.active { color: var(--primary); }
+.nav-link.active { color: var(--primary); background: rgba(27,45,71,0.07); font-weight: 500; }
 .nav-chevron { display: inline-block; vertical-align: middle; margin-left: 3px; margin-bottom: 1px; transition: transform 0.22s var(--ease); }
 .nav-chevron.open { transform: rotate(180deg); }
 
@@ -845,7 +845,7 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 
 /* Editorial portrait */
 .editorial-photo {
-  border-radius: var(--r-xl);
+  border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: var(--shadow-2);
   aspect-ratio: 4/5;

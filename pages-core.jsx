@@ -567,7 +567,7 @@ function PageContact() {
                     Nous vous répondons sous 24h ouvrées.
                   </div>
                   <div>
-                    <button className="btn btn-secondary" onClick={() => { setFormState({}); setErrors({}); setTouched({}); setValues({ nom: "", prenom: "", telephone: "", email: "", domaine: "", message: "" }); }}>
+                    <button type="button" className="btn btn-secondary" onClick={() => { setFormState({}); setErrors({}); setTouched({}); setValues({ nom: "", prenom: "", telephone: "", email: "", domaine: "", message: "" }); }}>
                       Envoyer une autre demande
                     </button>
                   </div>

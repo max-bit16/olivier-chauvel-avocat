@@ -20,11 +20,8 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
           <div className="split" style={{ marginTop: 32, gap: 64 }}>
             <div className="stack stack-lg">
               <div className="stack stack-md">
-                <div className={"icon-tile " + (iconVariant ? "icon-tile-" + iconVariant : "")} style={{ width: 56, height: 56 }}>
-                  <Icon name={icon} size={26} />
-                </div>
                 <div className="t-display-lg">{intro.title}</div>
-                <div className="t-body-lg" style={{ color: "var(--ink-secondary)" }}>{intro.body}</div>
+                <div className="t-body-lg" style={{ color: "var(--ink-secondary)", maxWidth: "56ch" }}>{intro.body}</div>
               </div>
             </div>
             <div>
@@ -82,11 +79,8 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
             <div className="grid grid-4">
               {related.map((r) => (
                 <Link key={r.to} to={r.to} className="card-flat" style={{ padding: 24, textDecoration: "none", display: "block" }}>
-                  <div className="stack stack-md">
-                    <div className={"icon-tile " + (r.variant ? "icon-tile-" + r.variant : "")}>
-                      <Icon name={r.icon} />
-                    </div>
-                    <div className="t-heading-md" style={{ fontWeight: 400 }}>{r.label}</div>
+                  <div className="stack stack-sm">
+                    <div className="t-heading-sm" style={{ fontWeight: 400 }}>{r.label}</div>
                     <div className="t-caption">{r.desc}</div>
                   </div>
                 </Link>

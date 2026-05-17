@@ -41,13 +41,9 @@ function PagePublications() {
           <div className="grid grid-3">
             {ARTICLE_ORDER.map((slug, i) => {
               const meta = ARTICLE_META[slug];
-              const variants = ["", "cream", "", "stone", "", "cream"];
               return (
                 <Link key={slug} to={"/publications/" + slug} className="card" style={{ textDecoration: "none", display: "block", padding: 32 }}>
                   <div className="stack stack-md" style={{ height: "100%" }}>
-                    <div className={"icon-tile" + (variants[i] ? " icon-tile-" + variants[i] : "")}>
-                      <Icon name={meta.icon} />
-                    </div>
                     <div className="t-micro-cap eyebrow-mute">Article {String(i + 1).padStart(2, "0")} · {meta.reading}</div>
                     <div className="t-heading-md" style={{ fontWeight: 400 }}>{meta.title}</div>
                     <div className="t-body-md muted">{meta.excerpt}</div>
@@ -145,7 +141,6 @@ function ArticleShell({ slug, eyebrow, children }) {
               return (
                 <Link key={s} to={"/publications/" + s} className="card-flat" style={{ padding: 24, textDecoration: "none", display: "block" }}>
                   <div className="stack stack-sm">
-                    <div className="icon-tile" style={{ width: 36, height: 36 }}><Icon name={m.icon} size={18} /></div>
                     <div className="t-heading-md" style={{ fontWeight: 400 }}>{m.title}</div>
                     <div className="t-caption">{m.excerpt}</div>
                   </div>
@@ -157,13 +152,13 @@ function ArticleShell({ slug, eyebrow, children }) {
       </section>
 
       <style>{`
-        .article-content p { margin: 0; font-size: 17px; line-height: 1.7; color: var(--ink-secondary); font-weight: 300; }
-        .article-content h2 { font-size: 28px; font-weight: 300; letter-spacing: -0.5px; line-height: 1.2; color: var(--ink); margin: 0; }
-        .article-content h3 { font-size: 20px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
-        .article-content strong { font-weight: 400; color: var(--ink); }
+        .article-content p { margin: 0; font-size: 17px; line-height: 1.75; color: var(--ink-secondary); font-weight: 400; max-width: 68ch; }
+        .article-content h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(24px, 2.8vw, 32px); font-weight: 300; letter-spacing: -0.5px; line-height: 1.2; color: var(--ink); margin: 0; }
+        .article-content h3 { font-size: 19px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
+        .article-content strong { font-weight: 500; color: var(--ink); }
         .article-content ul { margin: 0; padding-left: 0; list-style: none; }
-        .article-content ul li { padding: 8px 0 8px 24px; position: relative; color: var(--ink-secondary); font-size: 16px; line-height: 1.6; }
-        .article-content ul li::before { content: ""; position: absolute; left: 0; top: 16px; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+        .article-content ul li { padding: 8px 0 8px 24px; position: relative; color: var(--ink-secondary); font-size: 16px; line-height: 1.65; }
+        .article-content ul li::before { content: ""; position: absolute; left: 0; top: 16px; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
       `}</style>
     </PageShell>
   );
@@ -527,7 +522,7 @@ function PrincipleCard({ num, title, body }) {
   return (
     <div className="card" style={{ padding: 32 }}>
       <div className="stack stack-md">
-        <div className="t-display-md tnum" style={{ color: "var(--primary-subdued)", fontWeight: 300 }}>{num}</div>
+        <div className="t-display-md tnum" style={{ color: "var(--canvas-cream)", fontWeight: 300 }}>{num}</div>
         <div className="t-heading-lg" style={{ fontWeight: 400 }}>{title}</div>
         <div className="t-body-md muted">{body}</div>
       </div>
