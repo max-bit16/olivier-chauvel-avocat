@@ -19,7 +19,7 @@ Primary emotional goal: **"I'm in good hands."**
 
 - Palette: deep navy `#1B2D47`, gold `#9A7332` (≤10% visual weight), cream `#F9F7F2` canvas, ink `#0F1E32`
 - Theme: light mode, warm cream surfaces — never cold white, never dark mode
-- Fonts: serif display + clean warm sans body. Both current fonts (Cormorant Garamond, DM Sans) are on the impeccable banned list — replace next time fonts are touched with non-reflex alternatives
+- Fonts: Spectral (serif display) + Figtree (warm sans body)
 - Feel: quality paper, Breton notary office, regional newspaper's legal section
 
 ### Anti-references

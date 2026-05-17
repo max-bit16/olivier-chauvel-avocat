@@ -56,9 +56,8 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: clip;
-  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family: "Figtree", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   font-weight: 400;
-  font-feature-settings: "ss01";
   color: var(--ink);
   background: var(--canvas);
   -webkit-font-smoothing: antialiased;
@@ -95,13 +94,13 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* Typography roles */
 
-/* Serif display — Cormorant Garamond for editorial authority */
+/* Serif display — Spectral for editorial authority */
 .t-display-xxl,
 .t-display-xl,
 .t-display-lg,
 .t-display-md,
 h1, h2 {
-  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-family: "Spectral", Georgia, "Times New Roman", serif;
   font-feature-settings: normal;
 }
 
