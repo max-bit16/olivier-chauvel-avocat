@@ -50,8 +50,8 @@ function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, section
                       {sec.bullets && (
                         <ul className="stack stack-sm" style={{ listStyle: "none", padding: 0, margin: 0 }}>
                           {sec.bullets.map((b, j) => (
-                            <li key={j} className="row row-sm" style={{ alignItems: "flex-start", gap: 12, fontSize: 15, color: "var(--ink-secondary)" }}>
-                              <span style={{ color: "var(--primary)", marginTop: 5 }}>
+                            <li key={j} className="row row-sm" style={{ alignItems: "center", gap: 12, fontSize: 15, color: "var(--ink-secondary)" }}>
+                              <span style={{ color: "var(--primary)", flexShrink: 0 }}>
                                 <svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg>
                               </span>
                               <span>{b}</span>
