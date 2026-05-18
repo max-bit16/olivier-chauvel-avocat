@@ -360,7 +360,7 @@ function PageDroitEtrangers() {
       icon="passport"
       iconVariant="stone"
       heroVariant="cool"
-      heroBgImage="images/competences/bg-etrangers.webp"
+      heroBgImage="linear-gradient(135deg, #1B2D47 0%, #2C3E55 100%)"
       intro={{
         title: "Des délais courts, une réactivité immédiate.",
         body: "Les procédures d'éloignement et de rétention sont soumises à des délais de recours très courts (parfois 48 heures). Le cabinet intervient en urgence pour préserver vos droits et engager les recours nécessaires devant le juge administratif et le juge des libertés et de la détention."
@@ -404,7 +404,7 @@ function PageDroitPenal() {
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit pénal" }]}
       icon="gavel"
       iconVariant=""
-      heroBgImage="images/competences/bg-penal.webp"
+      heroBgImage="linear-gradient(135deg, #1B2D47 0%, #263040 100%)"
       intro={{
         title: "Une défense présente à chaque étape de la procédure.",
         body: "De la garde à vue au prononcé de la peine, en passant par l'instruction et l'audience, le cabinet assure une défense exigeante des personnes mises en cause comme des parties civiles. La maîtrise du temps procédural et la connaissance des juridictions de Rennes sont essentielles à la qualité de la défense."
@@ -454,6 +454,77 @@ function PageDroitPenal() {
   );
 }
 
+// ============================================================
+// PAGE INDEX — Toutes les compétences
+// ============================================================
+function PageCompetences() {
+  return (
+    <PageShell>
+      <Hero
+        eyebrow="Compétences"
+        title="Nos domaines d'intervention."
+        subtitle="Cinq domaines de droit dans lesquels le cabinet intervient en conseil et en représentation."
+        variant="default"
+        compact
+      />
+
+      <section className="section">
+        <div className="container">
+          <Breadcrumb items={[{ label: "Accueil", to: "/" }, { label: "Compétences" }]} />
+          <div className="grid grid-3 reveal" style={{ marginTop: 40 }}>
+            {[
+              { to: "/competences/droit-de-la-famille", title: "Droit de la famille", bullets: ["Divorce (consentement mutuel, faute)", "Pension alimentaire et prestation compensatoire", "Autorité parentale, garde des enfants"] },
+              { to: "/competences/droit-du-dommage-corporel", title: "Dommage corporel", bullets: ["Indemnisation du préjudice corporel", "Assistance lors de l'expertise médicale", "Saisine CIVI et SARVI"] },
+              { to: "/competences/droit-penal", title: "Droit pénal", bullets: ["Garde à vue et instruction", "Tribunal correctionnel et cour d'assises", "Défense des victimes (partie civile)"] },
+              { to: "/competences/droit-des-etrangers", title: "Droit des étrangers", bullets: ["Recours contre OQTF et IRTF", "Rétention administrative — saisine JLD", "Procédures d'urgence"] },
+              { to: "/competences/droit-de-la-chasse", title: "Droit de la chasse", bullets: ["Litiges administratifs (permis, sanctions)", "Juridictions répressives", "Responsabilité civile et accidents"] },
+            ].map((c, i) => (
+              <div key={c.to} className={"reveal" + (i > 0 ? " reveal-d" + Math.min(i, 5) : "")} style={{ display: "flex" }}>
+                <Link to={c.to} className="card" style={{ textDecoration: "none", display: "flex", flexDirection: "column", flex: 1 }}>
+                  <div className="stack stack-md" style={{ height: "100%" }}>
+                    <div style={{ width: 28, height: 1, background: "var(--gold)" }} />
+                    <div className="t-heading-md" style={{ fontWeight: 400 }}>{c.title}</div>
+                    <ul className="stack stack-sm muted" style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 14 }}>
+                      {c.bullets.map((b, j) => (
+                        <li key={j} className="row row-sm" style={{ alignItems: "center", gap: 12, fontSize: 15, color: "var(--ink-secondary)" }}>
+                          <span style={{ color: "var(--primary)", flexShrink: 0 }}>
+                            <svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg>
+                          </span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div style={{ marginTop: "auto", paddingTop: 16 }}>
+                      <span className="comp-teaser-arrow row row-sm" style={{ color: "var(--primary)", fontSize: 14, gap: 8, fontWeight: 400 }}>
+                        En savoir plus <Icon name="arrow" size={14} />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="card-cream reveal" style={{ padding: 40, marginTop: 48 }}>
+            <div className="grid grid-2" style={{ gap: 48, alignItems: "center" }}>
+              <div className="stack stack-md">
+                <div className="eyebrow" style={{ color: "var(--cream-accent)" }}>Première consultation</div>
+                <div className="t-display-md" style={{ color: "var(--cream-text-dark)" }}>Un premier rendez-vous pour faire le point.</div>
+                <div className="t-body-md" style={{ color: "var(--cream-text-mid)" }}>
+                  Le cabinet analyse votre situation dès la première séance et vous présente clairement vos options, les délais, et les honoraires prévisionnels.
+                </div>
+              </div>
+              <div>
+                <Link to="/contact" className="btn btn-primary btn-lg">Prendre rendez-vous</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+}
+
 Object.assign(window, {
-  PageDroitFamille, PageDommageCorporel, PageChasse, PageDroitEtrangers, PageDroitPenal
+  PageDroitFamille, PageDommageCorporel, PageChasse, PageDroitEtrangers, PageDroitPenal, PageCompetences
 });

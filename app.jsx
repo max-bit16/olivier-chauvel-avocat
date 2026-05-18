@@ -6,6 +6,7 @@ const ROUTES = {
   "/": () => <PageHome />,
   "/cabinet/presentation": () => <PagePresentation />,
   "/cabinet/honoraires": () => <PageHonoraires />,
+  "/competences": () => <PageCompetences />,
   "/competences/droit-de-la-famille": () => <PageDroitFamille />,
   "/competences/droit-du-dommage-corporel": () => <PageDommageCorporel />,
   "/competences/droit-de-la-chasse": () => <PageChasse />,
@@ -42,6 +43,7 @@ const PAGE_TITLES = {
   "/": "Maître Olivier Chauvel · Avocat à Rennes",
   "/cabinet/presentation": "Présentation · Cabinet Chauvel",
   "/cabinet/honoraires": "Honoraires · Cabinet Chauvel",
+  "/competences": "Compétences · Cabinet Chauvel",
   "/competences/droit-de-la-famille": "Droit de la famille · Cabinet Chauvel",
   "/competences/droit-du-dommage-corporel": "Dommage corporel · Cabinet Chauvel",
   "/competences/droit-de-la-chasse": "Droit de la chasse · Cabinet Chauvel",
@@ -60,12 +62,30 @@ const PAGE_TITLES = {
   "/rgpd": "RGPD · Cabinet Chauvel",
 };
 
+const PAGE_DESCRIPTIONS = {
+  "/": "Cabinet d'avocat à Rennes. Droit de la famille, dommage corporel, droit pénal, droit des étrangers, droit de la chasse. Disponibilité, rigueur, clarté.",
+  "/cabinet/presentation": "Maître Olivier Chauvel, avocat au Barreau de Rennes depuis 2004. Présentation du cabinet, du parcours et des missions du conseil à la représentation.",
+  "/cabinet/honoraires": "Honoraires au temps passé, au forfait ou au résultat. Convention écrite préalable systématique. Aide juridictionnelle acceptée. Cabinet Chauvel, Rennes.",
+  "/competences": "Cinq domaines d'intervention : famille, dommage corporel, pénal, étrangers, chasse. Conseil, rédaction et représentation devant toutes les juridictions.",
+  "/competences/droit-de-la-famille": "Divorce, séparation, garde d'enfants, pension alimentaire. Maître Chauvel vous représente devant le Tribunal judiciaire de Rennes.",
+  "/competences/droit-du-dommage-corporel": "Indemnisation du préjudice corporel, assistance expertise médicale, CIVI et SARVI. Cabinet Chauvel, avocat en dommage corporel à Rennes.",
+  "/competences/droit-de-la-chasse": "Litiges administratifs (permis, fédérations), juridictions répressives, responsabilité civile. Maître Chauvel, avocat spécialisé en droit de la chasse.",
+  "/competences/droit-des-etrangers": "Recours contre OQTF et IRTF, rétention administrative, défense en procédure d'urgence. Cabinet Chauvel, Rennes.",
+  "/competences/droit-penal": "Défense en garde à vue, tribunal correctionnel et cour d'assises. Cabinet Chauvel, avocat pénaliste à Rennes depuis 2004.",
+  "/publications": "Six articles pour comprendre le droit sans jargon : juridictions, honoraires, aide juridictionnelle, obligations de l'avocat.",
+  "/contact": "Prendre rendez-vous avec Maître Olivier Chauvel, avocat à Rennes. Cabinet au 6 rue Édith Cavell, accessible métro station République.",
+};
+
 function App() {
   const path = useHashRoute();
   const { useEffect } = React;
 
   useEffect(() => {
     document.title = PAGE_TITLES[path] || "Maître Olivier Chauvel · Avocat à Rennes";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', PAGE_DESCRIPTIONS[path] || PAGE_DESCRIPTIONS["/"]);
+    }
   }, [path]);
 
   const Render = ROUTES[path] || NotFound;

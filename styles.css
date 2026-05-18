@@ -362,6 +362,9 @@ a.card-dark:hover {
   z-index: 0;
   pointer-events: none;
 }
+.comp-hero-bg.comp-hero-solid::before {
+  opacity: 1;
+}
 .comp-hero-bg::after {
   content: '';
   position: absolute;

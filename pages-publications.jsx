@@ -185,18 +185,16 @@ function ArticleJuridictions() {
 
       <section className="stack stack-md">
         <h2>L'ordre judiciaire civil</h2>
-        <p>La compétence des juridictions civiles est déterminée principalement par le montant en jeu et la nature du litige.</p>
+        <p>La compétence des juridictions civiles est déterminée principalement par la nature du litige. Depuis la loi de programmation 2018-2022 de la justice (décret du 11 décembre 2019), le Tribunal d'instance et le Tribunal de grande instance ont fusionné en un <strong>Tribunal judiciaire</strong> unique, effectif au 1er janvier 2020.</p>
         <div className="mockup" style={{ padding: 0, overflow: "hidden", borderRadius: 12 }}>
           <table className="data">
             <thead>
               <tr><th>Juridiction</th><th>Compétence</th><th>Montant / Domaine</th></tr>
             </thead>
             <tbody>
-              <tr><td style={{ color: "var(--ink)" }}>Juge de proximité</td><td>Petits litiges civils</td><td className="tnum">&lt; 4 000 €</td></tr>
-              <tr><td style={{ color: "var(--ink)" }}>Tribunal d'Instance</td><td>Litiges civils courants</td><td className="tnum">4 000 € – 10 000 €</td></tr>
-              <tr><td style={{ color: "var(--ink)" }}>Tribunal de Grande Instance</td><td>Affaires civiles importantes, état des personnes, immobilier</td><td className="tnum">&gt; 10 000 €</td></tr>
-              <tr><td style={{ color: "var(--ink)" }}>Conseil de Prud'hommes</td><td>Litiges entre employeurs et salariés</td><td>Tous montants</td></tr>
-              <tr><td style={{ color: "var(--ink)" }}>Tribunal de Commerce</td><td>Litiges entre commerçants, sociétés</td><td>Tous montants</td></tr>
+              <tr><td style={{ color: "var(--ink)" }}>Tribunal judiciaire</td><td>Affaires civiles (toutes) — remplace le TI et TGI depuis le 01/01/2020</td><td>Tous montants</td></tr>
+              <tr><td style={{ color: "var(--ink)" }}>Conseil de prud'hommes</td><td>Litiges employeur–salarié</td><td>Tous montants</td></tr>
+              <tr><td style={{ color: "var(--ink)" }}>Tribunal de commerce</td><td>Litiges commerciaux</td><td>Tous montants</td></tr>
             </tbody>
           </table>
         </div>

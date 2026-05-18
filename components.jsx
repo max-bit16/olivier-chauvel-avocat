@@ -338,8 +338,8 @@ function Footer() {
 function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "default", photo, photoAlt, sidePhoto, sidePhotoAlt, compact = false, heroBgImage, children }) {
   return (
     <section
-      className={"hero-mesh" + (photo ? " has-photo" : "") + (heroBgImage ? " comp-hero-bg" : "")}
-      style={heroBgImage ? { '--hero-bg-image': 'url(' + heroBgImage + ')' } : undefined}
+      className={"hero-mesh" + (photo ? " has-photo" : "") + (heroBgImage ? " comp-hero-bg" : "") + (heroBgImage && heroBgImage.startsWith('linear-gradient') ? " comp-hero-solid" : "")}
+      style={heroBgImage ? { '--hero-bg-image': heroBgImage.startsWith('linear-gradient') ? heroBgImage : 'url(' + heroBgImage + ')' } : undefined}
     >
       {photo && (
         <div className="photo-hero">

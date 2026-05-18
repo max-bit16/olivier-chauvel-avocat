@@ -88,10 +88,10 @@ function PageHome() {
             <div className="row" style={{ justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24 }}>
               <SectionTitle
                 eyebrow="Domaines d'intervention"
-                title="Trois compétences principales."
-                subtitle="Le cabinet intervient en conseil, rédaction et représentation devant l'ensemble des juridictions civiles, pénales et administratives."
+                title="Cinq domaines d'intervention."
+                subtitle="Famille, dommage corporel, pénal, étrangers, chasse — conseil, rédaction et représentation."
               />
-              <Link to="/competences/droit-de-la-famille" className="btn btn-secondary">Voir toutes les compétences</Link>
+              <Link to="/competences" className="btn btn-secondary">Voir toutes les compétences</Link>
             </div>
 
             <div className="grid grid-3">
@@ -116,6 +116,20 @@ function PageHome() {
                   to="/competences/droit-penal"
                 />
               </div>
+              <div className="reveal reveal-d3" style={{ display: "flex" }}>
+                <CompTeaser
+                  title="Droit des étrangers"
+                  bullets={["Recours OQTF et IRTF", "Rétention administrative, JLD", "Procédures d'urgence"]}
+                  to="/competences/droit-des-etrangers"
+                />
+              </div>
+              <div className="reveal reveal-d4" style={{ display: "flex" }}>
+                <CompTeaser
+                  title="Droit de la chasse"
+                  bullets={["Litiges administratifs et disciplinaires", "Juridictions répressives", "Responsabilité civile"]}
+                  to="/competences/droit-de-la-chasse"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -124,7 +138,7 @@ function PageHome() {
       {/* CTA strip — premier rendez-vous */}
       <div className="reveal section-xs">
         <div className="container">
-          <Link to="/contact" className="card-dark" style={{ textDecoration: "none", display: "block", padding: "48px 56px" }}>
+          <a href="tel:0299660819" className="card-dark" style={{ textDecoration: "none", display: "block", padding: "48px 56px" }}>
             <div className="grid grid-2" style={{ gap: 64, alignItems: "center" }}>
               <div className="stack stack-md">
                 <div className="t-micro-cap" style={{ color: "rgba(255,255,255,0.45)", letterSpacing: "0.18em" }}>Premier rendez-vous</div>
@@ -148,7 +162,7 @@ function PageHome() {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -521,7 +535,7 @@ function PageContact() {
     setErrors((err) => ({ ...err, [k]: validate(k, values[k]) }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const required = ["nom", "prenom", "telephone", "email", "message"];
     const newErrors = {};
@@ -531,7 +545,25 @@ function PageContact() {
     setErrors(newErrors);
     if (Object.values(newErrors).some(Boolean)) return;
     setFormState({ loading: true });
-    setTimeout(() => setFormState({ submitted: true }), 1400);
+    try {
+      const cfg = (window.EMAILJS_CONFIG) || {};
+      await window.emailjs.send(
+        cfg.serviceId  || 'YOUR_SERVICE_ID',
+        cfg.templateId || 'YOUR_TEMPLATE_ID',
+        {
+          from_name: values.nom + ' ' + values.prenom,
+          reply_to:  values.email,
+          telephone: values.telephone,
+          domaine:   values.domaine || 'Non précisé',
+          message:   values.message,
+        },
+        { publicKey: cfg.publicKey || 'YOUR_PUBLIC_KEY' }
+      );
+      setFormState({ submitted: true });
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setFormState({ error: true });
+    }
   };
 
   return (
@@ -561,14 +593,26 @@ function PageContact() {
                   </div>
                   <div className="t-display-md">Demande envoyée</div>
                   <div className="t-body-md muted">
-                    Le cabinet vous recontactera dans les meilleurs délais à l'adresse <strong style={{ color: "var(--ink)" }}>{values.email}</strong>.
-                  </div>
-                  <div className="t-body-md" style={{ color: "var(--ink-secondary)", fontSize: 14 }}>
-                    Nous vous répondons sous 24h ouvrées.
+                    Votre message a bien été envoyé. Le cabinet vous contactera sous 48h.
                   </div>
                   <div>
                     <button type="button" className="btn btn-secondary" onClick={() => { setFormState({}); setErrors({}); setTouched({}); setValues({ nom: "", prenom: "", telephone: "", email: "", domaine: "", message: "" }); }}>
                       Envoyer une autre demande
+                    </button>
+                  </div>
+                </div>
+              ) : formState.error ? (
+                <div className="stack stack-md" style={{ padding: 32, textAlign: "center" }}>
+                  <div className="icon-tile" style={{ width: 56, height: 56, margin: "0 auto", background: "rgba(185,28,28,0.08)", color: "#b91c1c", border: "1px solid rgba(185,28,28,0.12)" }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+                  </div>
+                  <div className="t-heading-lg" style={{ fontWeight: 400 }}>Envoi échoué</div>
+                  <div className="t-body-md muted">
+                    Une erreur est survenue. Veuillez réessayer ou nous appeler au <a href="tel:0299660819" className="link tnum">02.99.66.08.19</a>.
+                  </div>
+                  <div>
+                    <button type="button" className="btn btn-secondary" onClick={() => setFormState({})}>
+                      Réessayer
                     </button>
                   </div>
                 </div>
