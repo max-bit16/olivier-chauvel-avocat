@@ -24,7 +24,7 @@ function PagePublications() {
         title="Comprendre le droit, sans jargon."
         subtitle="Six articles pour éclairer le fonctionnement de la justice et la relation avec votre avocat."
         variant="default"
-        sidePhoto="petal-elegance.png"
+        compact
       />
 
       <section className="section">

@@ -540,7 +540,7 @@ function PageContact() {
         eyebrow="Contact"
         title="Prenez rendez-vous avec le cabinet."
         subtitle="Sur rendez-vous, du lundi au vendredi. Le cabinet est accessible en métro (station République) et par les parkings Kleber, Hoche et Vilaine."
-        variant="cool"
+        variant="default"
         compact
       />
 
