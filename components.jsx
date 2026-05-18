@@ -346,7 +346,7 @@ function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "d
           <img src={photo} alt={photoAlt || ""} loading="eager" fetchPriority="high" decoding="async" />
         </div>
       )}
-      <GradientMesh variant={variant} />
+      {!compact && <GradientMesh variant={variant} />}
       {sidePhoto && (
         <div className="hero-photo-side">
           <img src={sidePhoto} alt={sidePhotoAlt || ""} aria-hidden="true" loading="lazy" decoding="async" />
