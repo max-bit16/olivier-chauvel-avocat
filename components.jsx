@@ -336,10 +336,11 @@ function Footer() {
 
 // ----- Hero -----
 function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "default", photo, photoAlt, sidePhoto, sidePhotoAlt, compact = false, heroBgImage, children }) {
+  const darkGradient = !!(heroBgImage && heroBgImage.startsWith('linear-gradient'));
   return (
     <section
-      className={"hero-mesh" + (photo ? " has-photo" : "") + (heroBgImage ? " comp-hero-bg" : "") + (heroBgImage && heroBgImage.startsWith('linear-gradient') ? " comp-hero-solid" : "")}
-      style={heroBgImage ? { '--hero-bg-image': heroBgImage.startsWith('linear-gradient') ? heroBgImage : 'url(' + heroBgImage + ')' } : undefined}
+      className={"hero-mesh" + (photo ? " has-photo" : "") + (heroBgImage ? " comp-hero-bg" : "") + (darkGradient ? " comp-hero-solid" : "")}
+      style={heroBgImage ? { '--hero-bg-image': darkGradient ? heroBgImage : 'url(' + heroBgImage + ')' } : undefined}
     >
       {photo && (
         <div className="photo-hero">
@@ -358,14 +359,14 @@ function Hero({ eyebrow, title, subtitle, primaryCta, secondaryCta, variant = "d
             {eyebrow && <div className="eyebrow fade-up">{eyebrow}</div>}
             <h1 className="t-display-xxl fade-up fade-up-1">{title}</h1>
             {subtitle && (
-              <p className="t-body-lg fade-up fade-up-2" style={{ maxWidth: 640, color: "var(--ink-secondary)", margin: 0 }}>
+              <p className="t-body-lg fade-up fade-up-2" style={{ maxWidth: 640, color: darkGradient ? undefined : "var(--ink-secondary)", margin: 0 }}>
                 {subtitle}
               </p>
             )}
             {(primaryCta || secondaryCta) && (
               <div className="row row-md fade-up fade-up-3" style={{ gap: 12, flexWrap: "wrap" }}>
                 {primaryCta && (
-                  <Link to={primaryCta.to} className="btn btn-primary btn-lg">{primaryCta.label}</Link>
+                  <Link to={primaryCta.to} className={"btn btn-lg " + (darkGradient ? "btn-ghost-on-dark" : "btn-primary")}>{primaryCta.label}</Link>
                 )}
                 {secondaryCta && (
                   <Link to={secondaryCta.to} className="btn btn-secondary btn-lg">{secondaryCta.label}</Link>
