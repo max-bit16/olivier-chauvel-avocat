@@ -2,7 +2,66 @@
 // Pages: 5 compétences
 // ============================================================
 
-function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, sections, related, icon, iconVariant, sideImage, heroVariant = "default", heroBgImage }) {
+const FAQ_FAMILLE = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Le divorce par consentement mutuel nécessite-t-il un juge ?", "acceptedAnswer": { "@type": "Answer", "text": "Depuis 2017, le divorce par consentement mutuel est déjudiciarisé : il est formalisé par acte d'avocat déposé chez notaire, sans passage devant le juge. Chaque époux doit être assisté de son propre avocat." } },
+    { "@type": "Question", "name": "Comment est fixée la pension alimentaire pour les enfants ?", "acceptedAnswer": { "@type": "Answer", "text": "La pension alimentaire est calculée selon les ressources des deux parents, le temps de résidence de l'enfant et ses besoins. Le juge aux affaires familiales peut se référer à la table de référence publiée par le ministère de la Justice." } },
+    { "@type": "Question", "name": "Peut-on modifier une décision de garde après le jugement ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Toute modification des circonstances (déménagement, changement de situation professionnelle, évolution des besoins de l'enfant) peut justifier une révision des mesures de garde ou de pension devant le juge aux affaires familiales." } }
+  ]
+};
+
+const FAQ_CORPOREL = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Quel est le délai pour demander une indemnisation après un accident ?", "acceptedAnswer": { "@type": "Answer", "text": "Le délai de prescription est de 10 ans à compter de la consolidation du dommage corporel (stabilisation des séquelles). Il est essentiel de ne pas attendre pour constituer le dossier médical et saisir l'assureur." } },
+    { "@type": "Question", "name": "Qu'est-ce que la CIVI et le SARVI ?", "acceptedAnswer": { "@type": "Answer", "text": "La CIVI (Commission d'indemnisation des victimes d'infractions) permet aux victimes d'infractions pénales d'être indemnisées par l'État. Le SARVI (Service d'aide au recouvrement des victimes d'infractions) intervient quand le condamné ne paie pas. Le cabinet vous assiste pour saisir ces dispositifs." } },
+    { "@type": "Question", "name": "À quoi sert un avocat lors d'une expertise médicale ?", "acceptedAnswer": { "@type": "Answer", "text": "L'expertise médicale amiable ou judiciaire est le moment clé de l'évaluation du préjudice. Un avocat vous assiste pour vérifier que tous les postes de préjudice sont examinés (pretium doloris, perte de gains, préjudice esthétique, etc.) et pour contester les conclusions défavorables." } }
+  ]
+};
+
+const FAQ_CHASSE = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Quelles sont les infractions de chasse les plus fréquentes ?", "acceptedAnswer": { "@type": "Answer", "text": "Les infractions les plus courantes sont : chasse sans permis valable, chasse sur terrain d'autrui sans autorisation, chasse en dehors des périodes autorisées, utilisation de modes et procédés prohibés (collets, filets), et non-respect du plan de chasse." } },
+    { "@type": "Question", "name": "Comment obtenir une indemnisation pour les dégâts de gibier ?", "acceptedAnswer": { "@type": "Answer", "text": "Les dégâts causés par le grand gibier (sangliers, cervidés) aux cultures agricoles sont indemnisés par la Fédération Départementale des Chasseurs. En cas de refus ou d'insuffisance de l'indemnisation proposée, un recours devant le tribunal judiciaire est possible." } },
+    { "@type": "Question", "name": "Qu'est-ce que le FNIDAR et comment est-il saisi ?", "acceptedAnswer": { "@type": "Answer", "text": "Le FNIDAR (Fichier National d'Interdiction d'Accéder aux Armes) recense les personnes interdites de détention d'armes, notamment après une condamnation pénale. Le retrait du permis de chasse et l'inscription au FNIDAR peuvent être contestés devant le tribunal administratif." } }
+  ]
+};
+
+const FAQ_ETRANGERS = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Comment contester une OQTF (obligation de quitter le territoire français) ?", "acceptedAnswer": { "@type": "Answer", "text": "Une OQTF peut être contestée devant le tribunal administratif dans un délai de 30 jours (ou 15 jours si le délai de départ volontaire est de 30 jours, ou 48h en rétention). Un recours en référé-suspension peut être déposé en urgence pour suspendre l'exécution le temps de l'instruction." } },
+    { "@type": "Question", "name": "Qu'est-ce que la rétention administrative ?", "acceptedAnswer": { "@type": "Answer", "text": "La rétention administrative est le placement d'un étranger dans un Centre de Rétention Administrative (CRA) pour permettre l'organisation de son éloignement. Elle est décidée par le préfet et contrôlée par le juge des libertés. La durée maximale est de 90 jours. Un avocat peut intervenir à tout moment pour demander la remise en liberté." } },
+    { "@type": "Question", "name": "Peut-on obtenir l'aide juridictionnelle pour un dossier droit des étrangers ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'aide juridictionnelle est accessible pour les procédures contentieuses liées au droit des étrangers (recours OQTF, demande d'asile, contentieux préfectoral) sous conditions de ressources. Le cabinet Chauvel accepte l'aide juridictionnelle." } }
+  ]
+};
+
+const FAQ_PENAL = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Ai-je le droit à un avocat dès le début de la garde à vue ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Depuis 2011, toute personne placée en garde à vue a le droit d'être assistée par un avocat dès la première heure. L'avocat peut s'entretenir confidentiellement avec vous avant chaque audition et assister aux interrogatoires." } },
+    { "@type": "Question", "name": "Quelle est la différence entre un délit et un crime ?", "acceptedAnswer": { "@type": "Answer", "text": "Les délits sont jugés par le tribunal correctionnel (peines jusqu'à 10 ans d'emprisonnement). Les crimes, plus graves, sont jugés par la cour d'assises avec jury populaire (peines à partir de 10 ans de réclusion). La qualification de l'infraction détermine la juridiction compétente." } },
+    { "@type": "Question", "name": "Peut-on être jugé même sans casier judiciaire ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'absence de casier judiciaire est une circonstance atténuante, pas une immunité. Elle sera prise en compte dans la personnalisation de la peine, mais ne fait pas obstacle aux poursuites ni au jugement." } }
+  ]
+};
+
+function CompetenceLayout({ title, eyebrow, subtitle, breadcrumb, intro, sections, related, icon, iconVariant, sideImage, heroVariant = "default", heroBgImage, faqSchema }) {
+  useEffect(() => {
+    if (!faqSchema) return;
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "competence-faq-json-ld";
+    el.text = JSON.stringify(faqSchema);
+    document.head.appendChild(el);
+    return () => { const s = document.getElementById("competence-faq-json-ld"); if (s) s.remove(); };
+  }, [faqSchema]);
   return (
     <PageShell>
       <Hero
@@ -190,6 +249,7 @@ function PageDroitFamille() {
       title="Droit de la famille."
       subtitle="Divorces, autorité parentale, filiation, pensions et indemnisations. Le cabinet vous accompagne dans toutes les étapes du contentieux familial."
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit de la famille" }]}
+      faqSchema={FAQ_FAMILLE}
       icon="family"
       iconVariant=""
       heroBgImage="images/competences/bg-famille.webp"
@@ -264,6 +324,7 @@ function PageDommageCorporel() {
       title="Dommage corporel."
       subtitle="Conseil, accompagnement à l'expertise médicale et procédure d'indemnisation devant les juridictions et organismes compétents (CIVI, SARVI)."
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Dommage corporel" }]}
+      faqSchema={FAQ_CORPOREL}
       icon="medical"
       iconVariant=""
       heroVariant="warm"
@@ -313,6 +374,7 @@ function PageChasse() {
       title="Droit de la chasse."
       subtitle="Assistance dans tous les litiges relatifs à la chasse et défense devant les juridictions répressives (tribunal de police, correctionnel)."
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit de la chasse" }]}
+      faqSchema={FAQ_CHASSE}
       icon="tree"
       iconVariant="cream"
       heroBgImage="images/competences/bg-chasse.webp"
@@ -357,6 +419,7 @@ function PageDroitEtrangers() {
       title="Droit des étrangers."
       subtitle="Recours contre les mesures d'éloignement, contestation des décisions administratives, défense en rétention et en garde à vue."
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit des étrangers" }]}
+      faqSchema={FAQ_ETRANGERS}
       icon="passport"
       iconVariant="stone"
       heroVariant="cool"
@@ -402,6 +465,7 @@ function PageDroitPenal() {
       title="Droit pénal."
       subtitle="Représentation devant l'ensemble des juridictions répressives, défense des personnes mises en cause et indemnisation des victimes."
       breadcrumb={[{ label: "Accueil", to: "/" }, { label: "Compétences" }, { label: "Droit pénal" }]}
+      faqSchema={FAQ_PENAL}
       icon="gavel"
       iconVariant=""
       heroBgImage="linear-gradient(135deg, #1B2D47 0%, #263040 100%)"

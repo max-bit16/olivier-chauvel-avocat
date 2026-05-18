@@ -234,6 +234,54 @@ function BareStat({ value, label, tnum }) {
 // PRÉSENTATION
 // ============================================================
 function PagePresentation() {
+  useEffect(() => {
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Maître Olivier Chauvel",
+      "givenName": "Olivier",
+      "familyName": "Chauvel",
+      "honorificPrefix": "Maître",
+      "jobTitle": "Avocat au Barreau de Rennes",
+      "worksFor": {
+        "@type": "LegalService",
+        "name": "Cabinet Olivier Chauvel",
+        "url": "https://olivierchauvel-avocat.fr/"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Serment d'avocat",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Barreau de Rennes"
+        },
+        "dateCreated": "2004-01-08"
+      },
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Barreau de Rennes",
+        "url": "https://www.ordre-avocats-rennes.fr/"
+      },
+      "knowsAbout": [
+        "Droit de la famille",
+        "Dommage corporel",
+        "Droit pénal",
+        "Droit des étrangers",
+        "Droit de la chasse"
+      ],
+      "url": "https://olivierchauvel-avocat.fr/cabinet/presentation",
+      "sameAs": [
+        "https://www.ordre-avocats-rennes.fr/avocat-olivier-chauvel",
+        "https://www.doctrine.fr/p/avocat/L6986E3FFEFE2BEB78D96"
+      ]
+    };
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "person-json-ld";
+    el.text = JSON.stringify(data);
+    document.head.appendChild(el);
+    return () => { const s = document.getElementById("person-json-ld"); if (s) s.remove(); };
+  }, []);
   return (
     <PageShell>
       <Hero

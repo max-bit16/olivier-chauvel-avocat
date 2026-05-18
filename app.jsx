@@ -2,6 +2,30 @@
 // App — hash-based router
 // ============================================================
 
+const BASE_URL = "https://olivierchauvel-avocat.fr";
+const SEG_LABELS = {
+  "cabinet": "Cabinet",
+  "presentation": "Présentation",
+  "honoraires": "Honoraires",
+  "competences": "Compétences",
+  "droit-de-la-famille": "Droit de la famille",
+  "droit-du-dommage-corporel": "Droit du dommage corporel",
+  "droit-de-la-chasse": "Droit de la chasse",
+  "droit-des-etrangers": "Droit des étrangers",
+  "droit-penal": "Droit pénal",
+  "publications": "Publications",
+  "contact": "Contact",
+  "mentions-legales": "Mentions légales",
+  "cgv": "CGV",
+  "rgpd": "RGPD",
+  "les-juridictions": "Les juridictions compétentes",
+  "le-cout-de-lavocat": "Le coût de l'avocat",
+  "la-relation-client-avocat": "La relation client–avocat",
+  "laide-juridictionnelle": "L'aide juridictionnelle",
+  "le-role-de-lavocat": "Le rôle de l'avocat",
+  "les-obligations-de-lavocat": "Les obligations de l'avocat",
+};
+
 const ROUTES = {
   "/": () => <PageHome />,
   "/cabinet/presentation": () => <PagePresentation />,
@@ -85,6 +109,27 @@ function App() {
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute('content', PAGE_DESCRIPTIONS[path] || PAGE_DESCRIPTIONS["/"]);
+    }
+
+    const old = document.getElementById("breadcrumb-json-ld");
+    if (old) old.remove();
+
+    if (path !== "/") {
+      const segs = path.split("/").filter(Boolean);
+      const items = [{ "@type": "ListItem", "position": 1, "name": "Accueil", "item": BASE_URL + "/" }];
+      segs.forEach((seg, i) => {
+        items.push({
+          "@type": "ListItem",
+          "position": i + 2,
+          "name": SEG_LABELS[seg] || seg,
+          "item": BASE_URL + "/" + segs.slice(0, i + 1).join("/")
+        });
+      });
+      const el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.id = "breadcrumb-json-ld";
+      el.text = JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items });
+      document.head.appendChild(el);
     }
   }, [path]);
 
