@@ -77,11 +77,18 @@ function ArticleShell({ slug, eyebrow, children }) {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": meta.title,
-      "author": { "@type": "Person", "name": "Maître Olivier Chauvel" },
-      "publisher": { "@type": "LegalService", "name": "Cabinet Maître Olivier Chauvel" },
-      "datePublished": "2018-09-04",
-      "dateModified": "2022-03-18",
-      "url": "https://olivierchauvel-avocat.fr/publications/" + slug
+      "description": meta.excerpt,
+      "author": {
+        "@type": "Person",
+        "name": "Maître Olivier Chauvel",
+        "jobTitle": "Avocat",
+        "worksFor": { "@type": "LegalService", "name": "Cabinet Maître Olivier Chauvel" }
+      },
+      "publisher": { "@type": "LegalService", "name": "Cabinet Maître Olivier Chauvel", "url": "https://olivierchauvel-avocat.fr/" },
+      "datePublished": "2022-03-18",
+      "dateModified": "2026-05-18",
+      "inLanguage": "fr-FR",
+      "url": "https://olivierchauvel-avocat.fr/#/publications/" + slug
     };
     const el = document.createElement("script");
     el.type = "application/ld+json";

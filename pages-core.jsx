@@ -362,6 +362,61 @@ function PagePresentation() {
 // HONORAIRES
 // ============================================================
 function PageHonoraires() {
+  useEffect(() => {
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment sont calculés les honoraires d'un avocat ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les honoraires d'un avocat peuvent être calculés de trois façons : au temps passé (tarif horaire), au forfait (montant fixe pour l'ensemble du dossier) ou au résultat (complément calculé sur le gain obtenu, qui ne peut être le seul mode de rémunération). Le mode retenu est fixé par convention écrite avant toute intervention."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une convention d'honoraires ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La convention d'honoraires est un document écrit signé entre le client et l'avocat avant le début de la mission. Elle précise le mode de calcul des honoraires (temps passé, forfait ou résultat), le tarif applicable, les modalités de paiement et les frais à prévoir. Elle est obligatoire pour toute mission d'un montant prévisionnel supérieur à 1 500 €."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'aide juridictionnelle ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'aide juridictionnelle est un dispositif par lequel l'État prend en charge tout ou partie des honoraires d'avocat et des frais de procédure, sous conditions de ressources. Il existe une aide totale (prise en charge intégrale) et une aide partielle. Le Cabinet Maître Olivier Chauvel accepte les dossiers bénéficiant de l'aide juridictionnelle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mon assurance peut-elle prendre en charge les honoraires d'avocat ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, si vous bénéficiez d'une assurance protection juridique (souvent incluse dans un contrat habitation ou automobile), elle peut prendre en charge tout ou partie des honoraires d'avocat. Le cabinet vérifie l'étendue de la garantie dès le premier rendez-vous."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La partie adverse peut-elle être condamnée à payer mes frais d'avocat ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, en cas de succès, le juge peut condamner la partie adverse à vous rembourser tout ou partie de vos frais d'avocat sur le fondement des articles 700 du Code de procédure civile, 475-1 du Code de procédure pénale ou 375 du Code de procédure pénale. Le cabinet sollicite systématiquement ce remboursement."
+          }
+        }
+      ]
+    };
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "honoraires-faq-json-ld";
+    el.text = JSON.stringify(data);
+    document.head.appendChild(el);
+    return () => { const s = document.getElementById("honoraires-faq-json-ld"); if (s) s.remove(); };
+  }, []);
+
   return (
     <PageShell>
       <Hero
